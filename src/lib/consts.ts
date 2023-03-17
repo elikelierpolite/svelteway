@@ -1,0 +1,9 @@
+export const cmdImport = 'gjs-open-import-webpage';
+export const cmdDeviceDesktop = 'set-device-desktop';
+export const cmdDeviceTablet = 'set-device-tablet';
+export const cmdDeviceMobile = 'set-device-mobile';
+export const cmdSvelteWayCodeEditor = 'open-svelteway-code-editor';
+export const cmdSvelteWayPageManager = 'open-svelteway-page-manager';
+export const cmdSvelteWayStore = 'open-svelteway-store';
+export const cmdSvelteWayMethods = 'open-svelteway-methods';
+export const cmdClear = 'canvas-clear';

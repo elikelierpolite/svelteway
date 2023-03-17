@@ -1,3 +1,16 @@
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+    import "grapesjs/dist/css/grapes.min.css";
+    import grapesjs from "grapesjs";
+    import plugin from "$lib/index";;
+    import { onMount } from "svelte";
+  
+    onMount(() => {
+      const editor = grapesjs.init({
+        container: "#gjs",
+        plugins: [plugin],
+      });
+    });
+  </script>
+  
+  <div id="gjs" />
+  
