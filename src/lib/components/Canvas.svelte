@@ -1,11 +1,9 @@
 <script>
 	import { swCode } from './CodeStore';
 	import Code from './Code.svelte';
-	import swCodeState from './State';
-	import axios from 'axios';
-	import { assets, base } from '$app/paths';
-	import approach2 from './State';
 	import { produce } from 'immer';
+	import { onMount } from 'svelte';
+	import axios from 'axios';
 	export let data;
 	$: initClientX = 0;
 	$: initClientY = 0;
@@ -16,6 +14,25 @@
 	$: disableEvents = false;
 
 	export let undoRedoStore;
+	let history = undoRedoStore.history;
+
+	onMount(() => {
+		const rawElements = document.getElementsByClassName('rce');
+		const elements = [...rawElements];
+		if (elements.length > 0) {
+			elements.forEach((element) => {
+				element.addEventListener('mouseenter', function () {
+					disableEvents = true;
+				});
+				element.addEventListener('mouseleave', function () {
+					disableEvents = false;
+				});
+				element.addEventListener('click', function () {
+					alert('Hello World');
+				});
+			});
+		}
+	});
 </script>
 
 <div class="h-full w-[100vw]">
@@ -24,7 +41,7 @@
 	{:else}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div
-			class="h-full hover:cursor-crosshair w-[100%]"
+			class="h-full w-[100%] overflow-y-auto"
 			id="cv"
 			on:mousedown={(e) => {
 				if (!disableEvents) {
@@ -64,32 +81,36 @@
 			}}
 			on:mouseup={(e) => {
 				if (!disableEvents) {
+					window.localStorage.setItem(`history-${data.data.file}`, JSON.stringify($history));
 					const element = document.getElementById('nce');
 					element.setAttribute('id', 'rce');
 					element.style.backgroundColor = `#E6E6E6`;
 					element.classList.add('flex');
 					element.classList.add('justify-center');
 					element.classList.add('content-center');
-					const elementChild = document.createElement('img');
-					elementChild.setAttribute('src', '/svelte-logo.svg');
+					const elementChild = document.createElement('div');
+					elementChild.setAttribute('id', 'frcec');
+					elementChild.style.backgroundImage = `url("/svelte-logo.svg")`;
+					elementChild.style.backgroundRepeat = `no-repeat`;
 					elementChild.classList.add('w-10');
 					elementChild.classList.add('h-10');
 					elementChild.classList.add('self-center');
 					element.classList.add('hover:cursor-pointer');
-                    element.addEventListener('mouseenter', function(){
-                        disableEvents = true
-                    })
-                    element.addEventListener('mouseleave', function(){
-                        disableEvents = false
-                    })
-                    element.addEventListener('click', function(){
-                        alert("Hello World")
-                    })
+					element.classList.add('rce');
+					element.addEventListener('mouseenter', function () {
+						disableEvents = true;
+					});
+					element.addEventListener('mouseleave', function () {
+						disableEvents = false;
+					});
+					element.addEventListener('click', function () {
+						alert('Hello World');
+					});
 					element.appendChild(elementChild);
 					swCode.update((v) => {
 						const newSwCode = [
 							`${v.source}`,
-							`<div class='absolute left-[${elLeft}] top-[${elTop}] hover:cursor-pointer w-[${elWidth}px] h-[${elHeight}px] flex justify-center content-center bg-[#E6E6E6]'><img class='w-10 h-10 self-center' src="/svelte-logo.svg" /></div>`
+							`<div class='rce absolute left-[${elLeft}] top-[${elTop}] hover:cursor-pointer w-[${elWidth}px] h-[${elHeight}px] flex justify-center content-center bg-[#E6E6E6]'><div class='w-10 h-10 self-center bg-[url("/svelte-logo.svg")] bg-no-repeat bg-auto' /></div>`
 						];
 						$undoRedoStore =
 							(produce($undoRedoStore, (draft) => {
@@ -116,16 +137,10 @@
 								}
 							}
 						)
-						.then(function (response) {
-							console.log(response);
-						})
-						.catch(function (error) {
-							console.log(error);
-						});
 				}
 			}}
 		>
-			<slot />
+				<slot />
 		</div>
 	{/if}
 </div>

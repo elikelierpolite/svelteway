@@ -1,4 +1,5 @@
 <script>
+	import { undoRedoDispatched } from './UndoRedo';
 	import { fade } from 'svelte/transition'
 	export let undoRedoStore 
 	export let data 
@@ -10,6 +11,7 @@
 			class="btn btn-circle btn-outline btn-sm"
 			on:click={() => {
 				undoRedoStore.undo(data.data.file);
+				undoRedoDispatched.update((v) => ({value: !v.value}))
 			}}
 		>
 			<svg
@@ -31,6 +33,7 @@
 			class="btn btn-circle btn-outline btn-sm"
 			on:click={() => {
 				undoRedoStore.redo(data.data.file);
+				undoRedoDispatched.update((v) => ({value: !v.value}))
 			}}
 		>
 			<svg

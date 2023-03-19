@@ -1,5 +1,6 @@
 import { get, writable } from 'svelte/store';
 import axios from 'axios';
+import { browser } from '$app/environment';
 // store a history of store value snapshots
 
 export default function approach2(store) {
@@ -8,17 +9,20 @@ export default function approach2(store) {
 	let historyIndex = 0;
 
 	const updateStore = (file) => {
+		const localHistory = JSON.parse(localStorage.getItem(`history-${file}`))
+			? JSON.parse(localStorage.getItem(`history-${file}`))
+			: [{ source: '', swediting: false }];
 		axios
 			.post(
 				`/api/svelteway`,
 				{
 					path: file,
-					swc: history[historyIndex].source
+					swc: history[historyIndex].source ? history[historyIndex].source : ''
 				},
 				{
 					params: {
 						path: file,
-						swc: history[historyIndex].source
+						swc: history[historyIndex].source ? history[historyIndex].source : ''
 					}
 				}
 			)
@@ -28,7 +32,7 @@ export default function approach2(store) {
 			.catch(function (error) {
 				console.log(error);
 			});
-		store.set(history[historyIndex])
+		store.set(history[historyIndex]);
 	};
 
 	return {

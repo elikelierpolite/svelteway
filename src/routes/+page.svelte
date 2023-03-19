@@ -1,2 +1,0 @@
-
-<div class='absolute left-[103px] top-[14px] hover:cursor-pointer w-[1126px] h-[163px] flex justify-center content-center bg-[#E6E6E6]'><img class='w-10 h-10 self-center' src="/svelte-logo.svg" /></div>
