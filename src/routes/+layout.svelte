@@ -1,11 +1,10 @@
-<script lang="ts">
+<script>
 	import '../app.css';
   import Layout from '$lib/components/Layout.svelte';
-  import type { LayoutData } from './$types';
 	import { onMount } from 'svelte';
-  export let data: LayoutData;
+  export let data
 </script>
 
-<Layout data>
+<Layout data={data}>
   <slot />
 </Layout>

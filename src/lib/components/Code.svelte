@@ -3,39 +3,32 @@
 	import { javascript } from '@codemirror/lang-javascript';
 	import { html } from '@codemirror/lang-html';
 	import { css } from '@codemirror/lang-css';
+    import { svelte as svelteLang } from "@replit/codemirror-lang-svelte";
 	import { oneDark } from '@codemirror/theme-one-dark';
+	import { fade } from 'svelte/transition';
+    import { swCode } from './CodeStore';
+	import { onMount } from 'svelte';
 
-	let contentJs = `function helloSvelteWay(){\n\tconsole.log('Hello World!')\n}`;
+    $:svelteWayCode = $swCode
+
+	let content = $swCode.source
 	let contentHtml = `<h1>Welcome to SvelteKit on SvelteWay!</h1>`;
 	let contentCss = 'h1\t{\n\tfont-size: 32px\n}';
+
+    onMount(() => {
+        console.log("svelteWayCode", $swCode.source)
+    })
 </script>
 
-<div class="grid grid-cols-3 gap-4">
+<div class="grid grid-cols-3 gap-4" in:fade>
 	<div class="code-house1">
-		<CodeMirror bind:value={contentJs} lang={javascript()} theme={oneDark} />
-	</div>
-	<div class="code-house2">
-		<CodeMirror bind:value={contentHtml} lang={html()} theme={oneDark} />
-	</div>
-	<div class="code-house3">
-		<CodeMirror bind:value={contentCss} lang={css()} theme={oneDark} />
+		<CodeMirror bind:value={content} lang={svelteLang()} theme={oneDark} />
 	</div>
 </div>
 
 <style>
     .code-house1 {
-      resize: horizontal;
       overflow: auto;
-      z-index: 30;
-    }
-    .code-house2 {
-      resize: horizontal;
-      overflow: auto;
-      z-index: 20;
-    }
-    .code-house3 {
-      resize: horizontal;
-      overflow: auto;
-      z-index: 15;
+      width: 90vw;
     }
   </style>
