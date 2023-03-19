@@ -5,6 +5,7 @@ import { cwd } from 'process';
 export const GET = (({ url }) => {
   const min = Number(url.searchParams.get('min') ?? '0');
   const max = Number(url.searchParams.get('max') ?? '1');
+  console.log(url)
  
   const d = max - min;
  
