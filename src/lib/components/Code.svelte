@@ -22,7 +22,7 @@
 
 <div class="grid grid-cols-3 gap-4" in:fade>
 	<div class="code-house1">
-		<CodeMirror bind:value={content} lang={svelteLang()} theme={oneDark} />
+		<CodeMirror bind:value={content} lang={svelteLang()}  />
 	</div>
 </div>
 

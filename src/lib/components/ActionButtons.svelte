@@ -15,7 +15,7 @@
 	}
 </script>
 
-<div class="mx-2 flex items-center self-start text-white h-full w-[40px]">
+<div class="mx-2 flex items-center self-start text-white h-full w-[30px]">
 	<div class="flex flex-col gap-1">
 		<div class="tooltip tooltip-right" data-tip="Code">
 			<button class="btn btn-circle btn-outline btn-sm" on:click={toggleCode}>

@@ -1,6 +1,7 @@
 <script>
 	import { swCode } from './CodeStore';
 	import Code from './Code.svelte';
+	import SelectComponent from './SelectComponent.svelte';
 	import { produce } from 'immer';
 	import { onMount } from 'svelte';
 	import axios from 'axios';
@@ -28,20 +29,22 @@
 					disableEvents = false;
 				});
 				element.addEventListener('click', function () {
-					alert('Hello World');
+					let csc = document.getElementById('open-component-select');
+					csc.click();
 				});
 			});
 		}
 	});
 </script>
 
+<SelectComponent />
 <div class="h-full w-[100vw]">
 	{#if $swCode.swediting}
 		<Code />
 	{:else}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div
-			class="h-full w-[100%] overflow-y-auto"
+			class="h-full w-[100%] overflow-y-auto border-x-[1px] border-[#E6E6E6]"
 			id="cv"
 			on:mousedown={(e) => {
 				if (!disableEvents) {
@@ -58,7 +61,6 @@
 					element.style.left = `${e.clientX}px`;
 					elLeft = `${e.clientX}px`;
 					element.style.backgroundColor = `#E6E6E6`;
-
 					element.style.overflow = 'auto';
 					element.style.maxWidth = '100%';
 					pEm?.appendChild(element);
@@ -104,7 +106,8 @@
 						disableEvents = false;
 					});
 					element.addEventListener('click', function () {
-						alert('Hello World');
+						let csc = document.getElementById('open-component-select');
+						csc.click();
 					});
 					element.appendChild(elementChild);
 					swCode.update((v) => {
@@ -123,24 +126,23 @@
 							ssource: v.ssource
 						};
 					});
-					axios
-						.post(
-							`/api/svelteway`,
-							{
+					axios.post(
+						`/api/svelteway`,
+						{
+							path: data.data.file,
+							swc: $swCode.source
+						},
+						{
+							params: {
 								path: data.data.file,
 								swc: $swCode.source
-							},
-							{
-								params: {
-									path: data.data.file,
-									swc: $swCode.source
-								}
 							}
-						)
+						}
+					);
 				}
 			}}
 		>
-				<slot />
+			<slot />
 		</div>
 	{/if}
 </div>

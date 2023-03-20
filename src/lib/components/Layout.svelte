@@ -7,8 +7,9 @@
 	import { swCode } from './CodeStore';
 	import { onMount } from 'svelte';
 	import approach2 from './State';
-	import { produce } from 'immer';
 	import { undoRedoDispatched } from './UndoRedo';
+	import { produce } from 'immer';
+	import { browser } from '$app/environment';
 	// @ts-ignore
 	let store = swCode;
 	let undoRedoStore = approach2(store);
@@ -17,6 +18,15 @@
 	// @ts-ignore
 	export let data;
 	onMount(() => {
+		if (browser) {
+			document.addEventListener('keydown', (e) => {
+				e.preventDefault();
+				if (e.key.toLowerCase() === 'z' && e.ctrlKey) {
+					undoRedoStore.undo(data.data.file);
+					undoRedoDispatched.update((v) => ({ value: !v.value }))
+				}
+			});
+		}
 		// @ts-ignore
 		const localHistory = JSON.parse(window.localStorage.getItem(`history-${data.data.file}`));
 		if (localHistory && localHistory.length > 0) {
@@ -40,6 +50,5 @@
 				<slot />
 			</Canvas>
 		{/key}
-		<StateButtons {data} {undoRedoStore} />
 	</div>
 </div>
