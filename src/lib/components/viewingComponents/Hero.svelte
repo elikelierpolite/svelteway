@@ -1,0 +1,131 @@
+<div class="w-full flex flex-col gap-7 justify-center mb-10">
+	<div
+		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
+		id="ch"
+		style="background-size: 5px 5px"
+	>
+		<div class="hero min-h-screen bg-base-200">
+			<div class="hero-content text-center">
+				<div class="max-w-md">
+					<h1 class="text-5xl font-bold">Hello there</h1>
+					<p class="py-6">
+						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+					</p>
+					<button class="btn btn-primary">Get Started</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div
+		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
+		id="ch"
+		style="background-size: 5px 5px"
+	>
+		<div class="hero min-h-screen bg-base-200">
+			<div class="hero-content flex-col lg:flex-row">
+				<img
+					src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+					class="max-w-sm rounded-lg shadow-2xl"
+				/>
+				<div>
+					<h1 class="text-5xl font-bold">Box Office News!</h1>
+					<p class="py-6">
+						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+					</p>
+					<button class="btn btn-primary">Get Started</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div
+		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
+		id="ch"
+		style="background-size: 5px 5px"
+	>
+		<div class="hero min-h-screen bg-base-200">
+			<div class="hero-content flex-col lg:flex-row-reverse">
+				<img
+					src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+					class="max-w-sm rounded-lg shadow-2xl"
+				/>
+				<div>
+					<h1 class="text-5xl font-bold">Box Office News!</h1>
+					<p class="py-6">
+						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+					</p>
+					<button class="btn btn-primary">Get Started</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div
+		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
+		id="ch"
+		style="background-size: 5px 5px"
+	>
+		<div class="hero min-h-screen bg-base-200">
+			<div class="hero-content flex-col lg:flex-row-reverse">
+				<div class="text-center lg:text-left">
+					<h1 class="text-5xl font-bold">Login now!</h1>
+					<p class="py-6">
+						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+					</p>
+				</div>
+				<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+					<div class="card-body">
+						<div class="form-control">
+							<label class="label">
+								<span class="label-text">Email</span>
+							</label>
+							<input type="text" placeholder="email" class="input input-bordered" />
+						</div>
+						<div class="form-control">
+							<label class="label">
+								<span class="label-text">Password</span>
+							</label>
+							<input type="text" placeholder="password" class="input input-bordered" />
+							<label class="label">
+								<a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+							</label>
+						</div>
+						<div class="form-control mt-6">
+							<button class="btn btn-primary">Login</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div
+		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
+		id="ch"
+		style="background-size: 5px 5px"
+	>
+		<div
+			class="hero min-h-screen"
+			style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);"
+		>
+			<div class="hero-overlay bg-opacity-60" />
+			<div class="hero-content text-center text-neutral-content">
+				<div class="max-w-md">
+					<h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+					<p class="mb-5">
+						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+					</p>
+					<button class="btn btn-primary">Get Started</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	#ch {
+		background-image: radial-gradient(hsla(var(--bc) / 0.2) 0.5px, hsla(var(--b2) / 1) 0.5px);
+	}
+</style>

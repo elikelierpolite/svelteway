@@ -9,15 +9,7 @@
     import { swCode } from './CodeStore';
 	import { onMount } from 'svelte';
 
-    $:svelteWayCode = $swCode
-
 	let content = $swCode.source
-	let contentHtml = `<h1>Welcome to SvelteKit on SvelteWay!</h1>`;
-	let contentCss = 'h1\t{\n\tfont-size: 32px\n}';
-
-    onMount(() => {
-        console.log("svelteWayCode", $swCode.source)
-    })
 </script>
 
 <div class="grid grid-cols-3 gap-4" in:fade>
@@ -29,6 +21,6 @@
 <style>
     .code-house1 {
       overflow: auto;
-      width: 90vw;
+      width: 100vw;
     }
   </style>

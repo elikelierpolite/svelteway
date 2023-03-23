@@ -2,7 +2,6 @@
 	import '../app.css';
 	import './patch';
 	import ActionButtons from './ActionButtons.svelte';
-	import StateButtons from './StateButtons.svelte';
 	import Canvas from './Canvas.svelte';
 	import { swCode } from './CodeStore';
 	import { onMount } from 'svelte';

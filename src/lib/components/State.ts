@@ -12,6 +12,7 @@ export default function approach2(store) {
 		const localHistory = JSON.parse(localStorage.getItem(`history-${file}`))
 			? JSON.parse(localStorage.getItem(`history-${file}`))
 			: [{ source: '', swediting: false }];
+			
 		axios
 			.post(
 				`/api/svelteway`,

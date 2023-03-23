@@ -83,7 +83,6 @@
 			}}
 			on:mouseup={(e) => {
 				if (!disableEvents) {
-					window.localStorage.setItem(`history-${data.data.file}`, JSON.stringify($history));
 					const element = document.getElementById('nce');
 					element.setAttribute('id', 'rce');
 					element.style.backgroundColor = `#E6E6E6`;
@@ -138,7 +137,13 @@
 								swc: $swCode.source
 							}
 						}
-					);
+					).then(() => {
+						if(data.data.file){
+							console.log(data.data.file)
+							console.log(JSON.stringify($history))
+							localStorage.setItem(`history-${data.data.file}`, JSON.stringify($history));
+						}
+					})
 				}
 			}}
 		>

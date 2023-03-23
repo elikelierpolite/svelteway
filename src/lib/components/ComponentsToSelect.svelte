@@ -1,4 +1,7 @@
 <script>
+	import { viewComponent } from './viewComponentsStore';
+	import Component from './viewingComponents/Component.svelte';
+
 	const componentsToSelect = [
 		{
 			title: 'Alert',
@@ -257,18 +260,34 @@
 			image: 'https://daisyui.com/images/components/tooltip.jpg'
 		}
 	];
+
+	$: vc = $viewComponent
 </script>
 
-<div class="grid mx-auto content-center w-full h-full grid-cols-3 mt-10">
-	{#each componentsToSelect as component}
-		<div class="mt-5 card w-[300px] bg-base-100 shadow-xl hover:cursor-pointer hover:bg-[#E6E6E6]">
-			<figure class="px-10 pt-5">
-				<img src={component.image} alt="Component" class="rounded-xl" />
-			</figure>
-			<div class="card-body items-start text-center">
-				<h2 class="card-title">{component.title}</h2>
-				<p class="text-left text-xs">{component.description}</p>
-			</div>
+<div class="w-full">
+	{#if vc.viewing}
+		<Component />
+	{:else}
+		<div class="grid mx-auto content-center w-full h-full grid-cols-3 mt-10">
+			{#each componentsToSelect as component}
+				<button
+					class="mt-5 card w-[300px] bg-base-100 shadow-xl hover:cursor-pointer hover:bg-[#E6E6E6]"
+					on:click={() => {
+						viewComponent.update(() => ({
+							viewing: true,
+							component: component.title
+						}));
+					}}
+				>
+					<figure class="px-10 pt-5">
+						<img src={component.image} alt="Component" class="rounded-xl" />
+					</figure>
+					<div class="card-body items-start text-center">
+						<h2 class="card-title">{component.title}</h2>
+						<p class="text-left text-xs">{component.description}</p>
+					</div>
+				</button>
+			{/each}
 		</div>
-	{/each}
+	{/if}
 </div>

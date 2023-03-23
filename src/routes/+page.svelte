@@ -1,2 +1,2 @@
-
-<div class='rce absolute left-[103px] top-[117px] hover:cursor-pointer w-[465px] h-[200px] flex justify-center content-center bg-[#E6E6E6]'><div class='w-10 h-10 self-center bg-[url("/svelte-logo.svg")] bg-no-repeat bg-auto' /></div>
+<script>
+</script>
