@@ -4,10 +4,9 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
-		<div class="drawer">
+		<div class="drawer h-56 rounded">
 			<input id="my-drawer" type="checkbox" class="drawer-toggle" />
-			<div class="drawer-content">
-				<!-- Page content here -->
+			<div class="flex flex-col items-center justify-center drawer-content">
 				<label for="my-drawer" class="btn btn-primary drawer-button">Open drawer</label>
 			</div>
 			<div class="drawer-side">
@@ -25,7 +24,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
-		<div class="drawer drawer-mobile">
+		<div class="drawer h-56 rounded drawer-mobile">
 			<input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
 			<div class="drawer-content flex flex-col items-center justify-center">
 				<!-- Page content here -->
@@ -46,7 +45,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
-		<div class="drawer">
+		<div class="drawer h-56 rounded">
 			<input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
 			<div class="drawer-content flex flex-col">
 				<!-- Navbar -->
@@ -76,8 +75,10 @@
 						</ul>
 					</div>
 				</div>
-				<!-- Page content here -->
-				Content
+				<div class="flex justify-center items-center flex-grow">
+					<!-- Page content here -->
+					Content
+				</div>
 			</div>
 			<div class="drawer-side">
 				<label for="my-drawer-3" class="drawer-overlay" />
@@ -94,11 +95,10 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
-		<div class="drawer drawer-end">
+		<div class="drawer h-56 rounded drawer-end">
 			<input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
-			<div class="drawer-content">
-				<!-- Page content here -->
-				<label for="my-drawer-4" class="drawer-button btn btn-primary">Open drawer</label>
+			<div class="flex flex-col items-center justify-center drawer-content">
+					<label for="my-drawer-4" class="drawer-button btn btn-primary">Open drawer</label>
 			</div>
 			<div class="drawer-side">
 				<label for="my-drawer-4" class="drawer-overlay" />
