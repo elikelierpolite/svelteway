@@ -1,4 +1,4 @@
-import { error } from '@sveltejs/kit';
+import { error, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { cwd } from 'process';
 import { Buffer } from 'node:buffer';
@@ -18,4 +18,13 @@ export const POST = (({ url }) => {
     console.error(err);
   }
   return new Response(String("Updated Successfully!"));
+}) satisfies RequestHandler;
+
+
+export const GET = (({ url }) => {
+  const path = url.searchParams.get('path')
+  console.log("path", path)
+  const data = fs.readFileSync(path);
+console.log("Synchronous read: " + data.toString());
+  return new Response(String(data));
 }) satisfies RequestHandler;

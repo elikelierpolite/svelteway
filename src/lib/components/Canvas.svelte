@@ -6,6 +6,7 @@
 	import { onMount } from 'svelte';
 	import axios from 'axios';
 	import { v4 as uuidv4 } from 'uuid';
+	import { createStack } from 'svelte-undo';
 	export let data;
 	$: initClientX = 0;
 	$: initClientY = 0;
@@ -15,10 +16,17 @@
 	$: elLeft = '';
 	$: disableEvents = false;
 
-	export let undoRedoStore;
-	let history = undoRedoStore.history;
+	const stack = createStack(data.data.source);
 
 	onMount(() => {
+		document.addEventListener('keydown', (e) => {
+			if (e.key.toLowerCase() === 'z' && e.ctrlKey) {
+				stack.undo();
+			}
+			if (e.key.toLowerCase() === 'z' && e.ctrlKey && e.shiftKey) {
+				stack.redo();
+			}
+		});
 		const rawElements = document.getElementsByClassName('rce');
 		const elements = [...rawElements];
 		if (elements.length > 0) {
@@ -87,7 +95,7 @@
 					}
 				}
 			}}
-			on:mouseup={(e) => {
+			on:mouseup={async (e) => {
 				if (!disableEvents) {
 					const element = document.getElementById('nce');
 					const dataCvElement = uuidv4();
@@ -130,40 +138,32 @@
 						csc.click();
 					});
 					element.appendChild(elementChild);
-					swCode.update((v) => {
-						const newSwCode = [
-							`${v.source}`,
-							`<div data-cvelement='${dataCvElement}' class='rce absolute left-[${elLeft}] top-[${elTop}] hover:cursor-pointer w-[${elWidth}px] h-[${elHeight}px] flex justify-center content-center bg-[#E6E6E6]' style="border: 1px solid hsl(15, 100%, 55%)"><div class='w-10 h-10 self-center bg-[url("/svelte-logo.svg")] bg-no-repeat bg-auto'></div></div>`
-						];
-						$undoRedoStore =
-							(produce($undoRedoStore, (draft) => {
-								draft.source = newSwCode.join('\n');
-							}),
-							data.data.file);
-						return {
-							swediting: false,
-							source: newSwCode.join('\n'),
-							ssource: v.ssource
-						};
-					});
-					axios
-						.post(
-							`/api/svelteway`,
-							{
-								path: data.data.file,
-								swc: $swCode.source
-							},
-							{
-								params: {
-									path: data.data.file,
-									swc: $swCode.source
-								}
-							}
-						)
-						.then(() => {
-							if (data.data.file) {
-								localStorage.setItem(`history-${data.data.file}`, JSON.stringify($history));
-							}
+					swCode.update((v) => ({
+						swediting: false,
+						source: `<div data-cvelement='${dataCvElement}' class='rce absolute left-[${elLeft}] top-[${elTop}] hover:cursor-pointer w-[${elWidth}px] h-[${elHeight}px] flex justify-center content-center bg-[#E6E6E6]' style="border: 1px solid hsl(15, 100%, 55%)"><div class='w-10 h-10 self-center bg-[url("/svelte-logo.svg")] bg-no-repeat bg-auto'></div></div>`
+					}));
+					const res = await axios
+						.get('/api/svelteway', { params: { path: data.data.file } })
+						.then((r) => {
+							const postData = [`${r.data}`, `${$swCode.source}`];
+							axios
+								.post(
+									`/api/svelteway`,
+									{
+										path: data.data.file,
+										swc: postData.join('')
+									},
+									{
+										params: {
+											path: data.data.file,
+											swc: postData.join('')
+										}
+									}
+								)
+								.then(() => {
+									stack.push($swCode);
+									return;
+								});
 						});
 				}
 			}}

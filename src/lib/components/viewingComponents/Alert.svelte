@@ -1,13 +1,13 @@
 <script>
 	import { swCodeElement } from '../CodeStore';
 	import axios from 'axios';
+	import { produce } from 'immer';
 
 	$: swElementDataAttrId = $swCodeElement.id;
 	function addComponent2() {
-		let swcb = $swCodeElement.swc.find(swcb => swcb.swcb[0] == swElementDataAttrId)
+		let swcb = $swCodeElement.swc.find((swcb) => swcb.swcb[0] == swElementDataAttrId);
 		const element = document.querySelector(`[data-cvelement='${swElementDataAttrId}']`);
 		element.setAttribute('id', 'rtse');
-		console.log("element.outerHTML", element.outerHTML)
 		const elements = document.querySelectorAll(`[data-cvelement='${swElementDataAttrId}']`);
 		elements[1].remove();
 		const style = getComputedStyle(element);
@@ -15,7 +15,7 @@
 		element.classList.remove(`h-[${style.height}]`);
 		element.style.border = null;
 		let csc = document.getElementById('open-component-select');
-		element.innerHTML = `<div class="absolute w-[${style.width}] top-[${style.top}] left-[${style.left}] alert alert-info shadow-lg">
+		const newInnerHtml = `<div data-cvelement='${swElementDataAttrId}' class="absolute w-[${style.width}] top-[${style.top}] left-[${style.left}] alert alert-info shadow-lg">
 			<div>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -32,56 +32,28 @@
 				<span>New software update available.</span>
 			</div>
 		</div>`;
+		const newSwcElement = produce(swcb, draftState => {
+			draftState.swcb = [swElementDataAttrId, newInnerHtml]
+		})
+		element.innerHTML = newInnerHtml;
 		axios
 			.post(
 				`/api/svelteway/code`,
 				{
 					path: $swCodeElement.file,
 					swc: swcb.swcb[1],
-					swcto: `<div class="absolute w-[${style.width}] top-[${style.top}] left-[${style.left}] alert alert-info shadow-lg">
-			<div>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					class="stroke-current flex-shrink-0 w-6 h-6"
-					><path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-					/></svg
-				>
-				<span>New software update available.</span>
-			</div>
-		</div>`
+					swcto: newInnerHtml
 				},
 				{
 					params: {
 						path: $swCodeElement.file,
 						swc: swcb.swcb[1],
-						swcto: `<div class="absolute w-[${style.width}] top-[${style.top}] left-[${style.left}] alert alert-info shadow-lg">
-			<div>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					class="stroke-current flex-shrink-0 w-6 h-6"
-					><path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-					/></svg
-				>
-				<span>New software update available.</span>
-			</div>
-		</div>`
+						swcto: newInnerHtml
 					}
 				}
 			)
-			.then((r) => {
-				console.log(r);
+			.then(async(r) => {
+				return
 			});
 		csc.click();
 	}

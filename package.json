@@ -71,6 +71,7 @@
 		"replace": "^1.2.2",
 		"replace-in-file": "^6.3.5",
 		"svelte-codemirror-editor": "^1.1.0",
+		"svelte-undo": "^1.0.2",
 		"uuid": "^9.0.0"
 	}
 }
