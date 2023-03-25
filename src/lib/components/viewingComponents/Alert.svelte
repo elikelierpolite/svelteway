@@ -1,33 +1,21 @@
-<div class="w-full flex flex-col gap-7 justify-center mb-10">
-	<div
-		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
-		id="ch"
-		style="background-size: 5px 5px"
-	>
-		<div class="alert shadow-lg">
-			<div>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					class="stroke-info flex-shrink-0 w-6 h-6"
-					><path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-					/></svg
-				>
-				<span>12 unread messages. Tap to see.</span>
-			</div>
-		</div>
-	</div>
-	<div
-		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
-		id="ch"
-		style="background-size: 5px 5px"
-	>
-		<div class="alert alert-info shadow-lg">
+<script>
+	import { swCodeElement } from '../CodeStore';
+	import axios from 'axios';
+
+	$: swElementDataAttrId = $swCodeElement.id;
+	function addComponent2() {
+		let swcb = $swCodeElement.swc.find(swcb => swcb.swcb[0] == swElementDataAttrId)
+		const element = document.querySelector(`[data-cvelement='${swElementDataAttrId}']`);
+		element.setAttribute('id', 'rtse');
+		console.log("element.outerHTML", element.outerHTML)
+		const elements = document.querySelectorAll(`[data-cvelement='${swElementDataAttrId}']`);
+		elements[1].remove();
+		const style = getComputedStyle(element);
+		element.classList.remove('bg-[#E6E6E6]');
+		element.classList.remove(`h-[${style.height}]`);
+		element.style.border = null;
+		let csc = document.getElementById('open-component-select');
+		element.innerHTML = `<div class="absolute w-[${style.width}] top-[${style.top}] left-[${style.left}] alert alert-info shadow-lg">
 			<div>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +31,108 @@
 				>
 				<span>New software update available.</span>
 			</div>
-		</div>
+		</div>`;
+		axios
+			.post(
+				`/api/svelteway/code`,
+				{
+					path: $swCodeElement.file,
+					swc: swcb.swcb[1],
+					swcto: `<div class="absolute w-[${style.width}] top-[${style.top}] left-[${style.left}] alert alert-info shadow-lg">
+			<div>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					class="stroke-current flex-shrink-0 w-6 h-6"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					/></svg
+				>
+				<span>New software update available.</span>
+			</div>
+		</div>`
+				},
+				{
+					params: {
+						path: $swCodeElement.file,
+						swc: swcb.swcb[1],
+						swcto: `<div class="absolute w-[${style.width}] top-[${style.top}] left-[${style.left}] alert alert-info shadow-lg">
+			<div>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					class="stroke-current flex-shrink-0 w-6 h-6"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					/></svg
+				>
+				<span>New software update available.</span>
+			</div>
+		</div>`
+					}
+				}
+			)
+			.then((r) => {
+				console.log(r);
+			});
+		csc.click();
+	}
+</script>
+
+<div class="w-full flex flex-col gap-7 justify-center mb-10">
+	<div
+		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
+		id="ch"
+		style="background-size: 5px 5px"
+	>
+		<button class="alert shadow-lg">
+			<div>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					class="stroke-info flex-shrink-0 w-6 h-6"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					/></svg
+				>
+				<span>12 unread messages. Tap to see.</span>
+			</div>
+		</button>
+	</div>
+	<div
+		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
+		id="ch"
+		style="background-size: 5px 5px"
+	>
+		<button class="alert alert-info shadow-lg" on:click={addComponent2}>
+			<div>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					class="stroke-current flex-shrink-0 w-6 h-6"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					/></svg
+				>
+				<span>New software update available.</span>
+			</div>
+		</button>
 	</div>
 	<div
 		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"

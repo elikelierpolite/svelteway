@@ -68,6 +68,8 @@
 		"codemirror": "^6.0.1",
 		"dexie": "^3.2.3",
 		"immer": "^9.0.19",
+		"replace": "^1.2.2",
+		"replace-in-file": "^6.3.5",
 		"svelte-codemirror-editor": "^1.1.0",
 		"uuid": "^9.0.0"
 	}

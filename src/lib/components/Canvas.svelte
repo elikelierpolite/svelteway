@@ -1,10 +1,11 @@
 <script>
-	import { swCode } from './CodeStore';
+	import { swCode, swCodeElement } from './CodeStore';
 	import Code from './Code.svelte';
 	import SelectComponent from './SelectComponent.svelte';
 	import { produce } from 'immer';
 	import { onMount } from 'svelte';
 	import axios from 'axios';
+	import { v4 as uuidv4 } from 'uuid';
 	export let data;
 	$: initClientX = 0;
 	$: initClientY = 0;
@@ -30,6 +31,10 @@
 				});
 				element.addEventListener('click', function () {
 					let csc = document.getElementById('open-component-select');
+					swCodeElement.update(() => ({
+						id: element.getAttribute('data-cvelement'),
+						file: data.data.file
+					}));
 					csc.click();
 				});
 			});
@@ -61,6 +66,7 @@
 					element.style.left = `${e.clientX}px`;
 					elLeft = `${e.clientX}px`;
 					element.style.backgroundColor = `#E6E6E6`;
+					element.style.border = `1px solid hsl(15, 100%, 55%)`;
 					element.style.overflow = 'auto';
 					element.style.maxWidth = '100%';
 					pEm?.appendChild(element);
@@ -84,6 +90,7 @@
 			on:mouseup={(e) => {
 				if (!disableEvents) {
 					const element = document.getElementById('nce');
+					const dataCvElement = uuidv4();
 					element.setAttribute('id', 'rce');
 					element.style.backgroundColor = `#E6E6E6`;
 					element.classList.add('flex');
@@ -91,6 +98,7 @@
 					element.classList.add('content-center');
 					const elementChild = document.createElement('div');
 					elementChild.setAttribute('id', 'frcec');
+					element.setAttribute('data-cvelement', dataCvElement);
 					elementChild.style.backgroundImage = `url("/svelte-logo.svg")`;
 					elementChild.style.backgroundRepeat = `no-repeat`;
 					elementChild.classList.add('w-10');
@@ -106,13 +114,26 @@
 					});
 					element.addEventListener('click', function () {
 						let csc = document.getElementById('open-component-select');
+						swCodeElement.update((v) => ({
+							id: dataCvElement,
+							file: data.data.file,
+							swc: [
+								...v.swc,
+								{
+									swcb: [
+										dataCvElement,
+										`<div data-cvelement='${dataCvElement}' class='rce absolute left-[${elLeft}] top-[${elTop}] hover:cursor-pointer w-[${elWidth}px] h-[${elHeight}px] flex justify-center content-center bg-[#E6E6E6]' style="border: 1px solid hsl(15, 100%, 55%)"><div class='w-10 h-10 self-center bg-[url("/svelte-logo.svg")] bg-no-repeat bg-auto'></div></div>`
+									]
+								}
+							]
+						}));
 						csc.click();
 					});
 					element.appendChild(elementChild);
 					swCode.update((v) => {
 						const newSwCode = [
 							`${v.source}`,
-							`<div class='rce absolute left-[${elLeft}] top-[${elTop}] hover:cursor-pointer w-[${elWidth}px] h-[${elHeight}px] flex justify-center content-center bg-[#E6E6E6]'><div class='w-10 h-10 self-center bg-[url("/svelte-logo.svg")] bg-no-repeat bg-auto' /></div>`
+							`<div data-cvelement='${dataCvElement}' class='rce absolute left-[${elLeft}] top-[${elTop}] hover:cursor-pointer w-[${elWidth}px] h-[${elHeight}px] flex justify-center content-center bg-[#E6E6E6]' style="border: 1px solid hsl(15, 100%, 55%)"><div class='w-10 h-10 self-center bg-[url("/svelte-logo.svg")] bg-no-repeat bg-auto'></div></div>`
 						];
 						$undoRedoStore =
 							(produce($undoRedoStore, (draft) => {
@@ -125,25 +146,25 @@
 							ssource: v.ssource
 						};
 					});
-					axios.post(
-						`/api/svelteway`,
-						{
-							path: data.data.file,
-							swc: $swCode.source
-						},
-						{
-							params: {
+					axios
+						.post(
+							`/api/svelteway`,
+							{
 								path: data.data.file,
 								swc: $swCode.source
+							},
+							{
+								params: {
+									path: data.data.file,
+									swc: $swCode.source
+								}
 							}
-						}
-					).then(() => {
-						if(data.data.file){
-							console.log(data.data.file)
-							console.log(JSON.stringify($history))
-							localStorage.setItem(`history-${data.data.file}`, JSON.stringify($history));
-						}
-					})
+						)
+						.then(() => {
+							if (data.data.file) {
+								localStorage.setItem(`history-${data.data.file}`, JSON.stringify($history));
+							}
+						});
 				}
 			}}
 		>

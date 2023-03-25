@@ -36,7 +36,7 @@
 			</button>
 		</div>
 		<div class="tooltip tooltip-right" data-tip="Components">
-			<button class="btn btn-circle btn-outline btn-sm">
+			<label class="btn btn-circle btn-outline btn-sm" for="selct-component-modal">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					class="w-6 h-6"
@@ -53,7 +53,7 @@
 					<path d="M10 13l-1 2l1 2" />
 					<path d="M14 13l1 2l-1 2" />
 				</svg>
-			</button>
+			</label>
 		</div>
 		<div class="tooltip tooltip-right" data-tip="Pages">
 			<button class="btn btn-circle btn-outline btn-sm">
