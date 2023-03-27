@@ -7,21 +7,27 @@
 	// @ts-ignore
 	// @ts-ignore
 	export let data;
-	onMount(() => {
-		// @ts-ignore
-		swCode.update((v) => ({
-			// @ts-ignore
-			source: data.data.source,
-			swediting: v.swediting
-		}));
-	});
+	let undoRedoDispatched = false;
+	// useEffect(() => {
+	// 	undoRedoDispatched = !undoRedoDispatched
+	// },() => [undoRedoDispatched])
+	// onMount(() => {
+	// 	// @ts-ignore
+	// 	swCode.update((v) => ({
+	// 		// @ts-ignore
+	// 		source: data.data.source,
+	// 		swediting: v.swediting
+	// 	}));
+	// });
 </script>
 
 <div data-theme="corporate" class="h-[100vh] w-[100vw]">
 	<div class="flex h-full w-full">
 		<ActionButtons />
-			<Canvas {data}>
+		{#key undoRedoDispatched}
+			<Canvas on:undo-redo={(e) => (undoRedoDispatched = e.detail)} {data}>
 				<slot />
 			</Canvas>
+		{/key}
 	</div>
 </div>

@@ -12,7 +12,9 @@ export const POST = (({ url }) => {
   console.log("swc", swc)
   console.log("buf", buf)
   try {
-    fs.writeFileSync(path, buf);
+    if(swc){
+      fs.writeFileSync(path, buf);
+    }
     console.error("Updated Successfully!");
   } catch (err) {
     console.error(err);
