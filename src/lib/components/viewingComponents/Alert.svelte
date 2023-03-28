@@ -1,10 +1,20 @@
 <script>
-	import { swCode, swCodeElement, cvElement } from '../CodeStore';
+	import { swCode, cvElement } from '../CodeStore';
 	import { v4 as uuidv4 } from 'uuid';
-	import { element } from 'svelte/internal';
 	function addComponent2() {
 		const sweid = uuidv4();
-		let newCvElement = new cvElement('alert1', { swElementDataAttrId: sweid }, [], {});
+		let newCvElement = new cvElement('alert1', { swElementDataAttrId: sweid, svg: `<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					class="stroke-current flex-shrink-0 w-6 h-6"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					/></svg
+				>`, title: 'New software update available' }, [], {});
 		newCvElement.create();
 		newCvElement.mc.$on('selected', function () {
 			swCode.update((v) => ({ ...v, selectedElement: newCvElement }));

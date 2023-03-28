@@ -7,10 +7,8 @@ export const swCode = writable({
 	selectedElement: {}
 });
 
-export const swCodeElement = writable({
-	id: '',
-	file: '',
-	swc: []
+export const swToolbar = writable({
+	id: 'toolbar'
 });
 
 export const cvElement = class cvElement {
@@ -20,12 +18,21 @@ export const cvElement = class cvElement {
 		this.props = props;
 		this.classes = classes;
 		this.styles = styles;
+		this.code = this.element == 'alert1' ? {eswc: `<div
+			style="${this.styles}"
+			class="${this.classes.join("  ")}"
+		>
+			<div>
+				${this.props.svg}
+				<span>${this.props.title}</span>
+			</div>
+		</div>`} : {};
 	}
 	create() {
 		if (this.element == 'alert1') {
-			this.mainComponent = new Alert1({ target: document.querySelector('#cv'), props: this.props });
+			this.mainComponent = new Alert1({ target: document.querySelector('#cvh'), props: this.props });
 			this.toolbar = new Toolbar({
-				target: document.querySelector('#cv'),
+				target: document.querySelector('#cvh'),
 				props: { visible: false, sweid: this.id }
 			});
 		}
@@ -46,11 +53,5 @@ export const cvElement = class cvElement {
 	}
 	get sweid() {
 		return this.id;
-	}
-	checkSelected() {
-		const { selectedElement } = get(swCode)
-		if(selectedElement.id !== this.id){
-			this.disableToolBar()
-		}
 	}
 };
