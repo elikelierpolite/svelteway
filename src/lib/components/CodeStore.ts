@@ -23,6 +23,7 @@ export const cvElement = class cvElement {
 						eswc: `<div
 			style="${this.styles}"
 			class="${this.props.classes.join('  ')}"
+			transition:animate
 		>
 			<div>
 			<svg
@@ -58,27 +59,29 @@ export const cvElement = class cvElement {
 	}
 	showToolBar() {
 		const { cvElements } = get(swCode);
-		swCode.set({cvElements, selectedElement: this})
+		swCode.set({ cvElements, selectedElement: this });
 		cvElements.forEach((element) => element.disableToolBar());
 		this.toolbar.$set({ visible: true });
 	}
 	toggleToolBar() {
-		const toggleToolbar = document.querySelector('#toggle-toolbar')
-						toggleToolbar.click();
+		const toggleToolbar = document.querySelector('#toggle-toolbar');
+		toggleToolbar.click();
 	}
 	disableToolBar() {
 		this.toolbar.$set({ visible: false });
 	}
 	setProps(props) {
 		if (this.element == 'alert1') {
-			this.mainComponent.$set({ svg: props.svg, title: props.title });
+			this.mainComponent.$set({ svg: props.svg, title: props.title, svgStroke: props.svgStroke, svgh: props.svgh, svgw: props.svgw });
 		}
 	}
 	setTransition(transition) {
-		this.mainComponent.$set({ missing:true, swTransition: transition });
-		setTimeout(() => {
-			this.mainComponent.$set({ missing: false });
-		}, 200);
+		if (transition !== 'none') {
+			this.mainComponent.$set({ missing: true, swTransition: transition });
+			setTimeout(() => {
+				this.mainComponent.$set({ missing: false });
+			}, 200);
+		}
 	}
 	setClassModifier(cls) {
 		if (this.element == 'alert1') {
