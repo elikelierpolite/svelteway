@@ -4,6 +4,8 @@
 	import ColorPicker, { ChromeVariant } from 'svelte-awesome-color-picker';
 	$: swCodeH = $swCode;
 	let svgPicker = false;
+	let useFilteredList = false;
+	let svgFilteredList = [];
 	let hex = '#181A2A';
 </script>
 
@@ -117,34 +119,79 @@
 				</button>
 			</div>
 			{#if svgPicker}
+				<input
+					type="text"
+					placeholder="Search all icons"
+					on:change={(e) => {
+						if (e.target.value.length > 0) {
+							useFilteredList = true;
+							svgFilteredList = svgOutlineList.filter((svg) =>
+								svg.name.includes(e.target.value)
+							);
+						} else {
+							useFilteredList = false;
+						}
+					}}
+					class="input w-full max-w-xs mt-2 mb-2"
+				/>
 				<div class="grid grid-cols-2 gap-4">
-					{#each svgOutlineList as svgIcon}
-						<button
-							on:click={() => {
-								svgPicker = false;
-								swCodeH.selectedElement.setProps({
-									title: swCodeH.selectedElement.mc.title,
-									svg: svgIcon.content,
-									svgStroke: swCodeH.selectedElement.mc.svgStroke,
-									svgw: swCodeH.selectedElement.mc.svgw,
-									svgh: swCodeH.selectedElement.mc.svgh
-								});
-							}}
-							class="w-full border-[1px] border-[#E6E6E6] card grid content-center justify-center hover:cursor-pointer"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="mx-auto w-6 h-6 self-end justify-center"
+					{#if useFilteredList}
+						{#each svgFilteredList as svgIcon}
+							<button
+								on:click={() => {
+									svgPicker = false;
+									swCodeH.selectedElement.setProps({
+										title: swCodeH.selectedElement.mc.title,
+										svg: svgIcon.content,
+										svgStroke: swCodeH.selectedElement.mc.svgStroke,
+										svgw: swCodeH.selectedElement.mc.svgw,
+										svgh: swCodeH.selectedElement.mc.svgh
+									});
+								}}
+								class="w-full border-[1px] border-[#E6E6E6] card grid content-center justify-center hover:cursor-pointer"
 							>
-								{@html svgIcon.content}
-							</svg>
-							<h1 class="font-semibold self-center">{svgIcon.name}</h1>
-						</button>
-					{/each}
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									class="mx-auto w-6 h-6 self-end justify-center"
+								>
+									{@html svgIcon.content}
+								</svg>
+								<h1 class="font-semibold self-center">{svgIcon.name}</h1>
+							</button>
+						{/each}
+					{:else}
+						{#each svgOutlineList as svgIcon}
+							<button
+								on:click={() => {
+									svgPicker = false;
+									swCodeH.selectedElement.setProps({
+										title: swCodeH.selectedElement.mc.title,
+										svg: svgIcon.content,
+										svgStroke: swCodeH.selectedElement.mc.svgStroke,
+										svgw: swCodeH.selectedElement.mc.svgw,
+										svgh: swCodeH.selectedElement.mc.svgh
+									});
+								}}
+								class="w-full border-[1px] border-[#E6E6E6] card grid content-center justify-center hover:cursor-pointer"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									class="mx-auto w-6 h-6 self-end justify-center"
+								>
+									{@html svgIcon.content}
+								</svg>
+								<h1 class="font-semibold self-center">{svgIcon.name}</h1>
+							</button>
+						{/each}
+					{/if}
 				</div>
 			{:else}
 				<input
