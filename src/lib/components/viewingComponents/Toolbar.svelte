@@ -64,11 +64,12 @@
 			</button>
 			<button
 				on:click={() => {
+					const nsweid = uuidv4()
 					const { selectedElement } = $swCode;
 					const newComponent = new cvElement(
 			'alert1',
 			{
-				swElementDataAttrId: uuidv4(),
+				swElementDataAttrId: nsweid,
 				svgw: selectedElement.mc.svgw,
 				svgh: selectedElement.mc.svgh,
 				svgStroke: selectedElement.mc.svgStroke,
@@ -80,13 +81,9 @@
 		);
 					newComponent.create();
 					newComponent.mc.$on('selected', function () {
-						swCode.update((v) => ({ ...v, selectedElement: newComponent }));
+						swCode.update((v) => ({ cvElements: [...v.cvElements, newComponent], selectedElement: newComponent }));
 						newComponent.showToolBar();
 					});
-					swCode.update((v) => ({
-						...v,
-						cvElements: [...v.cvElements, newComponent]
-					}));
 				}}
 				class="btn btn-xs hover:btn-active"
 			>

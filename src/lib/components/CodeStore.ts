@@ -58,6 +58,7 @@ export const cvElement = class cvElement {
 	}
 	showToolBar() {
 		const { cvElements } = get(swCode);
+		swCode.set({cvElements, selectedElement: this})
 		cvElements.forEach((element) => element.disableToolBar());
 		this.toolbar.$set({ visible: true });
 	}

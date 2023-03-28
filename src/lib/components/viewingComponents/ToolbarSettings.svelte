@@ -1,12 +1,13 @@
 <script>
 	import { swCode } from '../CodeStore';
 	import ColorPicker, { ChromeVariant } from 'svelte-awesome-color-picker';
-	const { selectedElement } = $swCode;
+	$: swCodeH = $swCode;
 	let hex = '#181A2A';
 </script>
 
 <div>
-	{#if selectedElement.element == 'alert1'}
+	{#key swCodeH.selectedElement}
+	{#if swCodeH.selectedElement.element == 'alert1'}
 		<div class="flex gap-1 justify-center">
 			<ColorPicker label="SVG Color" bind:hex components={ChromeVariant} />
 			<button class="btn btn-square">
@@ -34,7 +35,7 @@
 					stroke="currentColor"
 					class="w-6 h-6"
 				>
-					{@html selectedElement.mc.svg}
+					{@html swCodeH.selectedElement.mc.svg}
 				</svg>
 			</button>
 			<button class="btn btn-square">
@@ -65,21 +66,21 @@
 		<select
 			on:change={(e) => {
 				if (e.target.value == 'Default alert') {
-					selectedElement.setClassModifier({ from: selectedElement.mc.classes[0], to: 'alert-default' });
+					swCodeH.selectedElement.setClassModifier({ from: swCodeH.selectedElement.mc.classes[0], to: 'alert-default' });
 				} else if (e.target.value == 'Alert info') {
-					selectedElement.setClassModifier({ from: selectedElement.mc.classes[0], to: 'alert-info' });
+					swCodeH.selectedElement.setClassModifier({ from: swCodeH.selectedElement.mc.classes[0], to: 'alert-info' });
 				} else if (e.target.value == 'Alert success') {
-					selectedElement.setClassModifier({
-						from: selectedElement.mc.classes[0],
+					swCodeH.selectedElement.setClassModifier({
+						from: swCodeH.selectedElement.mc.classes[0],
 						to: 'alert-success'
 					});
 				} else if (e.target.value == 'Alert warning') {
-					selectedElement.setClassModifier({
-						from: selectedElement.mc.classes[0],
+					swCodeH.selectedElement.setClassModifier({
+						from: swCodeH.selectedElement.mc.classes[0],
 						to: 'alert-warning'
 					});
 				} else if (e.target.value == 'Alert error') {
-					selectedElement.setClassModifier({ from: selectedElement.mc.classes[0], to: 'alert-error' });
+					swCodeH.selectedElement.setClassModifier({ from: swCodeH.selectedElement.mc.classes[0], to: 'alert-error' });
 				}
 			}}
 			class="select w-full max-w-xs mt-2"
@@ -92,6 +93,7 @@
 			<option>Alert error</option>
 		</select>
 	{/if}
+	{/key}
 </div>
 
 <style></style>
