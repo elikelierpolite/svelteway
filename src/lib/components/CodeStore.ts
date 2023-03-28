@@ -74,6 +74,12 @@ export const cvElement = class cvElement {
 			this.mainComponent.$set({ svg: props.svg, title: props.title });
 		}
 	}
+	setTransition(transition) {
+		this.mainComponent.$set({ missing:true, swTransition: transition });
+		setTimeout(() => {
+			this.mainComponent.$set({ missing: false });
+		}, 200);
+	}
 	setClassModifier(cls) {
 		if (this.element == 'alert1') {
 			const arr = [...this.mc.classes];

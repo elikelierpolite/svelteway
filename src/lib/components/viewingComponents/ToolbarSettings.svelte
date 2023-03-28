@@ -83,7 +83,7 @@
 					swCodeH.selectedElement.setClassModifier({ from: swCodeH.selectedElement.mc.classes[0], to: 'alert-error' });
 				}
 			}}
-			class="select w-full max-w-xs mt-2"
+			class="select w-full max-w-xs mt-2" mb-2
 		>
 			<option disabled selected>Modifier</option>
 			<option>Default alert</option>
@@ -91,6 +91,32 @@
 			<option>Alert success</option>
 			<option>Alert warning</option>
 			<option>Alert error</option>
+		</select>
+		<select
+			on:change={(e) => {
+				if (e.target.value == 'Fade') {
+					swCodeH.selectedElement.setTransition("fade");
+				} else if (e.target.value == 'Blur') {
+					swCodeH.selectedElement.setTransition("blur");
+				} else if (e.target.value == 'Fly') {
+					swCodeH.selectedElement.setTransition("fly");
+				} else if (e.target.value == 'Slide') {
+					swCodeH.selectedElement.setTransition("slide");
+				} else if (e.target.value == 'Scale') {
+					swCodeH.selectedElement.setTransition("scale");
+				} else if (e.target.value == 'None') {
+					swCodeH.selectedElement.setTransition("none");
+				}
+			}}
+			class="select w-full max-w-xs mt-2"
+		>
+			<option disabled selected>Transition</option>
+			<option>Fade</option>
+			<option>Blur</option>
+			<option>Fly</option>
+			<option>Slide</option>
+			<option>Scale</option>
+			<option>None</option>
 		</select>
 	{/if}
 	{/key}
