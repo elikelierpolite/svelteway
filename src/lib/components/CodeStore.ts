@@ -8,42 +8,81 @@ export const swCode = writable({
 });
 
 export const swToolbar = writable({
-	id: 'toolbar'
+	id: ''
 });
 
 export const cvElement = class cvElement {
-	constructor(element, props, classes, styles) {
+	constructor(element, props, styles) {
 		this.id = props.swElementDataAttrId;
 		this.element = element;
 		this.props = props;
-		this.classes = classes;
 		this.styles = styles;
-		this.code = this.element == 'alert1' ? {eswc: `<div
+		this.code =
+			this.element == 'alert1'
+				? {
+						eswc: `<div
 			style="${this.styles}"
-			class="${this.classes.join("  ")}"
+			class="${this.props.classes.join('  ')}"
 		>
 			<div>
+			<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="${this.props.svgStroke}"
+			class="w-${this.props.vgw} h-${this.props.svgh}"
+		>
 				${this.props.svg}
+				</svg>
 				<span>${this.props.title}</span>
 			</div>
-		</div>`} : {};
+		</div>`
+				  }
+				: {};
 	}
 	create() {
 		if (this.element == 'alert1') {
-			this.mainComponent = new Alert1({ target: document.querySelector('#cvh'), props: this.props });
+			this.mainComponent = new Alert1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
 			this.toolbar = new Toolbar({
 				target: document.querySelector('#cvh'),
-				props: { visible: false, sweid: this.id }
+				props: {
+					visible: false,
+					sweid: this.id
+				}
 			});
 		}
 	}
 	showToolBar() {
-		const { cvElements } = get(swCode)
-		cvElements.forEach(element => element.disableToolBar())
+		const { cvElements } = get(swCode);
+		cvElements.forEach((element) => element.disableToolBar());
 		this.toolbar.$set({ visible: true });
+	}
+	toggleToolBar() {
+		const toggleToolbar = document.querySelector('#toggle-toolbar')
+						toggleToolbar.click();
 	}
 	disableToolBar() {
 		this.toolbar.$set({ visible: false });
+	}
+	setProps(props) {
+		if (this.element == 'alert1') {
+			this.mainComponent.$set({ svg: props.svg, title: props.title });
+		}
+	}
+	setClassModifier(cls) {
+		if (this.element == 'alert1') {
+			const arr = [...this.mc.classes];
+			for (let index = 0; index < arr.length; index++) {
+				if (arr[index] === cls.from) {
+					arr[index] = cls.to;
+				}
+			}
+			this.mainComponent.$set({ classes: arr });
+		}
 	}
 	get mc() {
 		return this.mainComponent;
@@ -53,5 +92,8 @@ export const cvElement = class cvElement {
 	}
 	get sweid() {
 		return this.id;
+	}
+	get clss() {
+		return this.classes.join('  ');
 	}
 };

@@ -3,25 +3,26 @@
 	import { v4 as uuidv4 } from 'uuid';
 	function addComponent2() {
 		const sweid = uuidv4();
-		let newCvElement = new cvElement('alert1', { swElementDataAttrId: sweid, svg: `<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					class="stroke-current flex-shrink-0 w-6 h-6"
-					><path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-					/></svg
-				>`, title: 'New software update available' }, [], {});
+
+		let newCvElement = new cvElement(
+			'alert1',
+			{
+				swElementDataAttrId: sweid,
+				svgw: 6,
+				svgh: 6,
+				svgStroke: 'currentColor',
+				classes: ['alert-info', 'alert', 'shadow-lg', 'hover:border-[1px]', 'hover:border-[#FF531A]'],
+				svg: `<path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />`,
+				title: 'New software update available'
+			},
+			{ border: `${$swCode.selectedElement.id == sweid && '1px solid #FF531A'}` }
+		);
 		newCvElement.create();
 		newCvElement.mc.$on('selected', function () {
-			swCode.update((v) => ({ ...v, selectedElement: newCvElement }));
-			newCvElement.showToolBar()
+			newCvElement.showToolBar();
 		});
 		swCode.update((v) => ({
-			...v,
+			selectedElement: newCvElement,
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');

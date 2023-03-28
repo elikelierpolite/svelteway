@@ -12,8 +12,11 @@
 		<div class="btn-group">
 			<button
 				on:click={() => {
+					swToolbar.update(() => ({ id: 'settings' }));
 					swToolbar.update(() => ({ id: 'toolbar' }));
-					document.querySelector('#toggle-toolbar').click();
+					if($swCode.selectedElement){
+						$swCode.selectedElement.toggleToolBar()
+					}
 				}}
 				class="btn btn-xs hover:btn-active"
 				><svg
@@ -39,7 +42,9 @@
 			<button
 				on:click={() => {
 					swToolbar.update(() => ({ id: 'styles' }));
-					document.querySelector('#toggle-toolbar').click();
+					if($swCode.selectedElement){
+						$swCode.selectedElement.toggleToolBar()
+					}
 				}}
 				class="btn btn-xs hover:btn-active"
 				><svg
@@ -60,18 +65,19 @@
 			<button
 				on:click={() => {
 					const { selectedElement } = $swCode;
-					const newComponent = new cvElement(selectedElement.element, { swElementDataAttrId: uuidv4(), svg: `<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					class="stroke-current flex-shrink-0 w-6 h-6"
-					><path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-					/></svg
-				>`, title: 'New software update available' }, [], {});
+					const newComponent = new cvElement(
+			'alert1',
+			{
+				swElementDataAttrId: uuidv4(),
+				svgw: selectedElement.mc.svgw,
+				svgh: selectedElement.mc.svgh,
+				svgStroke: selectedElement.mc.svgStroke,
+				classes: [...selectedElement.mc.classes],
+				svg: selectedElement.mc.svg,
+				title: selectedElement.mc.title
+			},
+			{ border: `${$swCode.selectedElement.id == sweid && '1px solid #FF531A'}` }
+		);
 					newComponent.create();
 					newComponent.mc.$on('selected', function () {
 						swCode.update((v) => ({ ...v, selectedElement: newComponent }));
@@ -99,11 +105,13 @@
 					/>
 				</svg>
 			</button>
-			<button on:click={() => {
-				const element = document.getElementById(`${sweid}`)
-				element.remove()
-				$swCode.cvElements.forEach(element => element.disableToolBar())
-			}} class="btn btn-xs hover:btn-active"
+			<button
+				on:click={() => {
+					const element = document.getElementById(`${sweid}`);
+					element.remove();
+					$swCode.cvElements.forEach((element) => element.disableToolBar());
+				}}
+				class="btn btn-xs hover:btn-active"
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"

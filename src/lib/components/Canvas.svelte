@@ -27,7 +27,7 @@
 			</div> 
 			<div class="drawer-side">
 				<label for="toolbar-drawer" class="drawer-overlay"></label>
-				<ul class="menu p-4 w-80 bg-base-100 text-base-content">
+				<ul class="p-4 w-80 bg-base-100 text-base-content">
 					<ToolbarContent />
 				</ul>
 			</div>
