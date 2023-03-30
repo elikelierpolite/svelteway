@@ -20,7 +20,9 @@
 							svg: swCodeH.selectedElement.mc.svg,
 							svgStroke: e.detail.hex,
 							svgw: swCodeH.selectedElement.mc.svgw,
-							svgh: swCodeH.selectedElement.mc.svgh
+							svgh: swCodeH.selectedElement.mc.svgh,
+							swTransition: swCodeH.selectedElement.mc.swTransition,
+							missing: swCodeH.selectedElement.mc.missing
 						})}
 					label="SVG Color"
 					bind:hex
@@ -35,7 +37,9 @@
 								svg: swCodeH.selectedElement.mc.svg,
 								svgStroke: 'currentColor',
 								svgw: swCodeH.selectedElement.mc.svgw,
-								svgh: swCodeH.selectedElement.mc.svgh
+								svgh: swCodeH.selectedElement.mc.svgh,
+								swTransition: swCodeH.selectedElement.mc.swTransition,
+								missing: swCodeH.selectedElement.mc.missing
 							});
 							hex = '#181A2A';
 						}}
@@ -88,7 +92,9 @@
 								svg: swCodeH.selectedElement.mc.svg,
 								svgStroke: swCodeH.selectedElement.mc.svgStroke,
 								svgw: swCodeH.selectedElement.mc.svgw - 1,
-								svgh: swCodeH.selectedElement.mc.svgh - 1
+								svgh: swCodeH.selectedElement.mc.svgh - 1,
+								swTransition: swCodeH.selectedElement.mc.swTransition,
+								missing: swCodeH.selectedElement.mc.missing
 							});
 						}}
 					>
@@ -113,7 +119,9 @@
 								svg: swCodeH.selectedElement.mc.svg,
 								svgStroke: swCodeH.selectedElement.mc.svgStroke,
 								svgw: (swCodeH.selectedElement.mc.svgw += 1),
-								svgh: (swCodeH.selectedElement.mc.svgh += 1)
+								svgh: (swCodeH.selectedElement.mc.svgh += 1),
+								swTransition: swCodeH.selectedElement.mc.swTransition,
+								missing: swCodeH.selectedElement.mc.missing
 							});
 						}}
 					>
@@ -155,7 +163,9 @@
 										svg: svgIcon.content,
 										svgStroke: swCodeH.selectedElement.mc.svgStroke,
 										svgw: swCodeH.selectedElement.mc.svgw,
-										svgh: swCodeH.selectedElement.mc.svgh
+										svgh: swCodeH.selectedElement.mc.svgh,
+										swTransition: swCodeH.selectedElement.mc.swTransition,
+										missing: swCodeH.selectedElement.mc.missing
 									});
 								}}
 								class="w-full border-[1px] border-[#E6E6E6] card grid content-center justify-center hover:cursor-pointer"
@@ -183,7 +193,9 @@
 										svg: svgIcon.content,
 										svgStroke: swCodeH.selectedElement.mc.svgStroke,
 										svgw: swCodeH.selectedElement.mc.svgw,
-										svgh: swCodeH.selectedElement.mc.svgh
+										svgh: swCodeH.selectedElement.mc.svgh,
+										swTransition: swCodeH.selectedElement.mc.swTransition,
+										missing: swCodeH.selectedElement.mc.missing
 									});
 								}}
 								class="w-full border-[1px] border-[#E6E6E6] card grid content-center justify-center hover:cursor-pointer"
@@ -214,7 +226,9 @@
 							svg: swCodeH.selectedElement.mc.svg,
 							svgStroke: swCodeH.selectedElement.mc.svgStroke,
 							svgw: swCodeH.selectedElement.mc.svgw,
-							svgh: swCodeH.selectedElement.mc.svgh
+							svgh: swCodeH.selectedElement.mc.svgh,
+							swTransition: swCodeH.selectedElement.mc.swTransition,
+							missing: swCodeH.selectedElement.mc.missing
 						});
 					}}
 					class="input w-full max-w-xs mt-2"

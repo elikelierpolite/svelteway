@@ -22,7 +22,7 @@ export const cvElement = class cvElement {
 				? {
 						eswc: `<div
 			style="${this.styles}"
-			class="${this.props.classes.join('  ')}"
+			class="${this.props.classes.join('')}"
 			transition:animate
 		>
 			<div>
@@ -72,7 +72,13 @@ export const cvElement = class cvElement {
 	}
 	setProps(props) {
 		if (this.element == 'alert1') {
-			this.mainComponent.$set({ svg: props.svg, title: props.title, svgStroke: props.svgStroke, svgh: props.svgh, svgw: props.svgw });
+			this.mainComponent.$set({
+				svg: props.svg,
+				title: props.title,
+				svgStroke: props.svgStroke,
+				svgh: props.svgh,
+				svgw: props.svgw
+			});
 		}
 	}
 	setTransition(transition) {
@@ -93,6 +99,21 @@ export const cvElement = class cvElement {
 			}
 			this.mainComponent.$set({ classes: arr });
 		}
+	}
+	setStylesClass(cls) {
+		const arr = [...this.mc.classes];
+		let far = false
+		cls.from.forEach((clss) => {
+			if (arr.includes(clss)) {
+				const index = arr.indexOf(clss)
+				arr[index] = cls.to;
+				far = true
+			}
+		});
+		if(!far){
+			arr.push(cls.to)
+		}
+		this.mainComponent.$set({ classes: arr });
 	}
 	get mc() {
 		return this.mainComponent;

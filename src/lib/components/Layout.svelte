@@ -21,7 +21,7 @@
 	// });
 </script>
 
-<div data-theme="corporate" class="h-[100vh] w-[100vw]">
+<div data-theme="corporate" class="h-[100vh] w-[100vw] font-sans">
 	<div class="flex h-full w-full">
 		<ActionButtons />
 		{#key undoRedoDispatched}
