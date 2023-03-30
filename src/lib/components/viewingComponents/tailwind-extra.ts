@@ -2338,7 +2338,7 @@ export const whiteSpace = [
 export const wordBreak = ['break-normal', 'break-words', 'break-all', 'break-keep'];
 export const hyphens = ['hyphens-none', 'hyphens-manual', 'hyphens-auto'];
 export const content = ['content-none'];
-export const backgroundAttchment = ['bg-fixed', 'bg-local', 'bg-scroll'];
+export const backgroundAttachment = ['bg-fixed', 'bg-local', 'bg-scroll'];
 export const backgroundClip = [
 	'bg-clip-border',
 	'bg-clip-padding',

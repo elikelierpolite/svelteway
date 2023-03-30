@@ -1,6 +1,6 @@
 <script>
 	import { swCode } from '../CodeStore';
-	import { tailwindPositions, flexBasis, flexDirection, flexWrap, rFlex, flexGrow, flexShrink, order, gridTemplateColumns, gridColumnsStartEnd, gridTemplateRows, gridRowStartEnd, gridAutoFlow, gridAutoColumns, gridAutoRows, gap, justifyContent, justifyItems, alignContent, alignItems, alignSelf, placeContent, placeItems, placeSelf, padding, margin, spaceBetween, width, minWidth, maxWidth, height, minHeight, maxHeight, fontFamily, fontSize, fontSmoothing, fontStyle, fontWeight, fontVariantNumeric, letterSpacing, lineClamp, lineHeight, listStyleImage, listStylePosition, listStyleType, textAlign, textColor, textDecoration, textDecorationColor, textDecorationStyle, textDecorationThickness, textUnderlineOffset, textTransform, textOverflow, textIndent, verticalAlign, whiteSpace, wordBreak, hyphens, content, backgroundAttchment, backgroundClip, backgroundColor, backgroundOrigin, backgroundPosition, backgroundRepeat, backgroundSize, backgroundImage, gradientColorStops, borderRadius, borderWidth, borderColor, borderStyle, divideWidth, divideColor, divideStyle, outlineWidth, outlineColor, outlineStyle, outlineOffset, ringWidth, ringColor, ringOffsetWidth, ringOffsetColor, boxShadow, boxShadowColor, opacity, mixBlendMode, backgroundBlendMode, blur, brightness, contrast, dropShadow, grayscale, hueRotate, invert, saturate, sepia, backdropBlur, backdropBrightness, backdropContrast, backdropGrayscale, backdropHueRotate, backdropInvert, backdropOpacity, backdropSaturate, backdropSepia, borderCollapse, borderSpacing, tableLayout, captionSide, transitionProperty, transitionDuration, transitionTimingFunction, transitionDelay, animation, scale, rotate , translate, skew, transformOrigin, accentColor, appearance, cursor, caretColor, pointerEvents, resize, scrollBehavior, scrollMargin, scrollPadding, scrollSnapAlign, scrollSnapStop, scrollSnapType, touchAction, justifySelf, userSelect, willChange, fill, stroke, strokeWidth, screenReaders } from './tailwind-extra'
+	import { tailwindPositions, flexBasis, flexDirection, flexWrap, rFlex, flexGrow, flexShrink, order, gridTemplateColumns, gridColumnsStartEnd, gridTemplateRows, gridRowStartEnd, gridAutoFlow, gridAutoColumns, gridAutoRows, gap, justifyContent, justifyItems, alignContent, alignItems, alignSelf, placeContent, placeItems, placeSelf, padding, margin, spaceBetween, width, minWidth, maxWidth, height, minHeight, maxHeight, fontFamily, fontSize, fontSmoothing, fontStyle, fontWeight, fontVariantNumeric, letterSpacing, lineClamp, lineHeight, listStyleImage, listStylePosition, listStyleType, textAlign, textColor, textDecoration, textDecorationColor, textDecorationStyle, textDecorationThickness, textUnderlineOffset, textTransform, textOverflow, textIndent, verticalAlign, whiteSpace, wordBreak, hyphens, content, backgroundAttachment, backgroundClip, backgroundColor, backgroundOrigin, backgroundPosition, backgroundRepeat, backgroundSize, backgroundImage, gradientColorStops, borderRadius, borderWidth, borderColor, borderStyle, divideWidth, divideColor, divideStyle, outlineWidth, outlineColor, outlineStyle, outlineOffset, ringWidth, ringColor, ringOffsetWidth, ringOffsetColor, boxShadow, boxShadowColor, opacity, mixBlendMode, backgroundBlendMode, blur, brightness, contrast, dropShadow, grayscale, hueRotate, invert, saturate, sepia, backdropBlur, backdropBrightness, backdropContrast, backdropGrayscale, backdropHueRotate, backdropInvert, backdropOpacity, backdropSaturate, backdropSepia, borderCollapse, borderSpacing, tableLayout, captionSide, transitionProperty, transitionDuration, transitionTimingFunction, transitionDelay, animation, scale, rotate , translate, skew, transformOrigin, accentColor, appearance, cursor, caretColor, pointerEvents, resize, scrollBehavior, scrollMargin, scrollPadding, scrollSnapAlign, scrollSnapStop, scrollSnapType, touchAction, justifySelf, userSelect, willChange, fill, stroke, strokeWidth, screenReaders } from './tailwind-extra'
 
 	$: swCodeH = $swCode;
 </script>
@@ -7462,6 +7462,330 @@
 											swCodeH.selectedElement.setStylesClass({
 												from: content,
 												to: cntnt
+											});
+										}
+									}}
+									class="checkbox checkbox-xs checkbox-primary"
+								/>
+							</label>
+						</div>
+						{/each}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div
+			tabindex="0"
+			class="w-full mt-1 collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"
+		>
+			<input type="checkbox" class="peer" />
+			<div class="collapse-title text-base font-medium">Backgrounds</div>
+			<div class="collapse-content">
+				<div tabindex="0" class="w-full collapse collapse-arrow bg-base-100 rounded-box">
+					<input type="checkbox" class="peer" />
+					<div class="collapse-title text-base font-medium">Background Attachment</div>
+					<div class="collapse-content">
+						{#each backgroundAttachment as cls}
+						<div class="form-control">
+							<label class="label cursor-pointer">
+								<span class="label-text">{cls}</span>
+								<input
+									type="checkbox"
+									checked={swCodeH.selectedElement.mc
+										? swCodeH.selectedElement.mc.classes.includes(cls)
+											? true
+											: false
+										: false}
+									on:change={(e) => {
+										if (!e.target.checked) {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundAttachment,
+												to: ''
+											});
+										} else {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundAttachment,
+												to: cls
+											});
+										}
+									}}
+									class="checkbox checkbox-xs checkbox-primary"
+								/>
+							</label>
+						</div>
+						{/each}
+					</div>
+				</div>
+				<div tabindex="0" class="w-full collapse collapse-arrow bg-base-100 rounded-box">
+					<input type="checkbox" class="peer" />
+					<div class="collapse-title text-base font-medium">Background Clip</div>
+					<div class="collapse-content">
+						{#each backgroundClip as cls}
+						<div class="form-control">
+							<label class="label cursor-pointer">
+								<span class="label-text">{cls}</span>
+								<input
+									type="checkbox"
+									checked={swCodeH.selectedElement.mc
+										? swCodeH.selectedElement.mc.classes.includes(cls)
+											? true
+											: false
+										: false}
+									on:change={(e) => {
+										if (!e.target.checked) {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundClip,
+												to: ''
+											});
+										} else {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundClip,
+												to: cls
+											});
+										}
+									}}
+									class="checkbox checkbox-xs checkbox-primary"
+								/>
+							</label>
+						</div>
+						{/each}
+					</div>
+				</div>
+				<div tabindex="0" class="w-full collapse collapse-arrow bg-base-100 rounded-box">
+					<input type="checkbox" class="peer" />
+					<div class="collapse-title text-base font-medium">Background Color</div>
+					<div class="collapse-content">
+						{#each backgroundColor as cls}
+						<div class="form-control">
+							<label class="label cursor-pointer">
+								<span class="label-text">{cls}</span>
+								<input
+									type="checkbox"
+									checked={swCodeH.selectedElement.mc
+										? swCodeH.selectedElement.mc.classes.includes(cls)
+											? true
+											: false
+										: false}
+									on:change={(e) => {
+										if (!e.target.checked) {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundColor,
+												to: ''
+											});
+										} else {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundColor,
+												to: cls
+											});
+										}
+									}}
+									class="checkbox checkbox-xs checkbox-primary"
+								/>
+							</label>
+						</div>
+						{/each}
+					</div>
+				</div>
+				<div tabindex="0" class="w-full collapse collapse-arrow bg-base-100 rounded-box">
+					<input type="checkbox" class="peer" />
+					<div class="collapse-title text-base font-medium">Background Origin</div>
+					<div class="collapse-content">
+						{#each backgroundOrigin as cls}
+						<div class="form-control">
+							<label class="label cursor-pointer">
+								<span class="label-text">{cls}</span>
+								<input
+									type="checkbox"
+									checked={swCodeH.selectedElement.mc
+										? swCodeH.selectedElement.mc.classes.includes(cls)
+											? true
+											: false
+										: false}
+									on:change={(e) => {
+										if (!e.target.checked) {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundOrigin,
+												to: ''
+											});
+										} else {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundOrigin,
+												to: cls
+											});
+										}
+									}}
+									class="checkbox checkbox-xs checkbox-primary"
+								/>
+							</label>
+						</div>
+						{/each}
+					</div>
+				</div>
+				<div tabindex="0" class="w-full collapse collapse-arrow bg-base-100 rounded-box">
+					<input type="checkbox" class="peer" />
+					<div class="collapse-title text-base font-medium">Background Position</div>
+					<div class="collapse-content">
+						{#each backgroundPosition as cls}
+						<div class="form-control">
+							<label class="label cursor-pointer">
+								<span class="label-text">{cls}</span>
+								<input
+									type="checkbox"
+									checked={swCodeH.selectedElement.mc
+										? swCodeH.selectedElement.mc.classes.includes(cls)
+											? true
+											: false
+										: false}
+									on:change={(e) => {
+										if (!e.target.checked) {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundPosition,
+												to: ''
+											});
+										} else {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundPosition,
+												to: cls
+											});
+										}
+									}}
+									class="checkbox checkbox-xs checkbox-primary"
+								/>
+							</label>
+						</div>
+						{/each}
+					</div>
+				</div>
+				<div tabindex="0" class="w-full collapse collapse-arrow bg-base-100 rounded-box">
+					<input type="checkbox" class="peer" />
+					<div class="collapse-title text-base font-medium">Background Repeat</div>
+					<div class="collapse-content">
+						{#each backgroundRepeat as cls}
+						<div class="form-control">
+							<label class="label cursor-pointer">
+								<span class="label-text">{cls}</span>
+								<input
+									type="checkbox"
+									checked={swCodeH.selectedElement.mc
+										? swCodeH.selectedElement.mc.classes.includes(cls)
+											? true
+											: false
+										: false}
+									on:change={(e) => {
+										if (!e.target.checked) {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundRepeat,
+												to: ''
+											});
+										} else {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundRepeat,
+												to: cls
+											});
+										}
+									}}
+									class="checkbox checkbox-xs checkbox-primary"
+								/>
+							</label>
+						</div>
+						{/each}
+					</div>
+				</div>
+				<div tabindex="0" class="w-full collapse collapse-arrow bg-base-100 rounded-box">
+					<input type="checkbox" class="peer" />
+					<div class="collapse-title text-base font-medium">Background Size</div>
+					<div class="collapse-content">
+						{#each backgroundSize as cls}
+						<div class="form-control">
+							<label class="label cursor-pointer">
+								<span class="label-text">{cls}</span>
+								<input
+									type="checkbox"
+									checked={swCodeH.selectedElement.mc
+										? swCodeH.selectedElement.mc.classes.includes(cls)
+											? true
+											: false
+										: false}
+									on:change={(e) => {
+										if (!e.target.checked) {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundSize,
+												to: ''
+											});
+										} else {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundSize,
+												to: cls
+											});
+										}
+									}}
+									class="checkbox checkbox-xs checkbox-primary"
+								/>
+							</label>
+						</div>
+						{/each}
+					</div>
+				</div>
+				<div tabindex="0" class="w-full collapse collapse-arrow bg-base-100 rounded-box">
+					<input type="checkbox" class="peer" />
+					<div class="collapse-title text-base font-medium">Background Image</div>
+					<div class="collapse-content">
+						{#each backgroundImage as cls}
+						<div class="form-control">
+							<label class="label cursor-pointer">
+								<span class="label-text">{cls}</span>
+								<input
+									type="checkbox"
+									checked={swCodeH.selectedElement.mc
+										? swCodeH.selectedElement.mc.classes.includes(cls)
+											? true
+											: false
+										: false}
+									on:change={(e) => {
+										if (!e.target.checked) {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundImage,
+												to: ''
+											});
+										} else {
+											swCodeH.selectedElement.setStylesClass({
+												from: backgroundImage,
+												to: cls
+											});
+										}
+									}}
+									class="checkbox checkbox-xs checkbox-primary"
+								/>
+							</label>
+						</div>
+						{/each}
+					</div>
+				</div>
+				<div tabindex="0" class="w-full collapse collapse-arrow bg-base-100 rounded-box">
+					<input type="checkbox" class="peer" />
+					<div class="collapse-title text-base font-medium">Gradient Color Stops</div>
+					<div class="collapse-content">
+						{#each gradientColorStops as cls}
+						<div class="form-control">
+							<label class="label cursor-pointer">
+								<span class="label-text">{cls}</span>
+								<input
+									type="checkbox"
+									checked={swCodeH.selectedElement.mc
+										? swCodeH.selectedElement.mc.classes.includes(cls)
+											? true
+											: false
+										: false}
+									on:change={(e) => {
+										if (!e.target.checked) {
+											swCodeH.selectedElement.setStylesClass({
+												from: gradientColorStops,
+												to: ''
+											});
+										} else {
+											swCodeH.selectedElement.setStylesClass({
+												from: gradientColorStops,
+												to: cls
 											});
 										}
 									}}
