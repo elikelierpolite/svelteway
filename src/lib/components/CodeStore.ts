@@ -17,30 +17,23 @@ export const cvElement = class cvElement {
 		this.element = element;
 		this.props = props;
 		this.styles = styles;
-		this.code =
-			this.element == 'alert1'
-				? {
-						eswc: `<div
-			style="${this.styles}"
-			class="${this.props.classes.join('')}"
-			transition:animate
-		>
-			<div>
-			<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke-width="1.5"
-			stroke="${this.props.svgStroke}"
-			class="w-${this.props.vgw} h-${this.props.svgh}"
-		>
-				${this.props.svg}
-				</svg>
-				<span>${this.props.title}</span>
-			</div>
-		</div>`
-				  }
-				: {};
+		this.code = `<div
+		class="${this.props.classes.join(' ')}"
+	>
+		<div>
+		<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		stroke-width="1.5"
+		stroke="${this.props.svgStroke}"
+		class="w-${this.props.vgw} h-${this.props.svgh}"
+	>
+			${this.props.svg}
+			</svg>
+			<span>${this.props.title}</span>
+		</div>
+	</div>`;
 	}
 	create() {
 		if (this.element == 'alert1') {
@@ -77,7 +70,8 @@ export const cvElement = class cvElement {
 				title: props.title,
 				svgStroke: props.svgStroke,
 				svgh: props.svgh,
-				svgw: props.svgw
+				svgw: props.svgw,
+				classes: props.classes
 			});
 		}
 	}
@@ -102,16 +96,16 @@ export const cvElement = class cvElement {
 	}
 	setStylesClass(cls) {
 		const arr = [...this.mc.classes];
-		let far = false
+		let far = false;
 		cls.from.forEach((clss) => {
 			if (arr.includes(clss)) {
-				const index = arr.indexOf(clss)
+				const index = arr.indexOf(clss);
 				arr[index] = cls.to;
-				far = true
+				far = true;
 			}
 		});
-		if(!far){
-			arr.push(cls.to)
+		if (!far) {
+			arr.push(cls.to);
 		}
 		this.mainComponent.$set({ classes: arr });
 	}

@@ -1,7 +1,6 @@
 import type { LayoutServerLoad } from './$types';
 import { cwd } from 'process';
 import * as fs from 'fs';
-import { json } from '@sveltejs/kit';
 
 export const load = (async ({ route }) => {
   const currentDirectory = cwd().replace(/\\/g, '/')

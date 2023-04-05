@@ -1,6 +1,8 @@
 <script>
 	import { swCode, cvElement } from '../CodeStore';
 	import { v4 as uuidv4 } from 'uuid';
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher()
 	function addComponent2() {
 		const sweid = uuidv4();
 
@@ -11,11 +13,9 @@
 				svgw: 6,
 				svgh: 6,
 				svgStroke: 'currentColor',
-				classes: ['alert-info', 'alert', 'shadow-lg', 'hover:border-[1px]', 'hover:border-[#FF531A]'],
+				classes: ['alert-info', 'alert', 'shadow-lg'],
 				svg: `<path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />`,
 				title: 'New software update available',
-				swTransition: 'none',
-				missing: false
 			},
 			{ border: `${$swCode.selectedElement.id == sweid && '1px solid #FF531A'}` }
 		);
@@ -29,6 +29,7 @@
 		}));
 		let csc = document.getElementById('open-component-select');
 		csc && csc.click();
+		dispatch("add-to-stack")
 	}
 </script>
 

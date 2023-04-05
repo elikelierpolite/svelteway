@@ -3,31 +3,50 @@
 	import ActionButtons from './ActionButtons.svelte';
 	import Canvas from './Canvas.svelte';
 	import { swCode } from './CodeStore';
+	import toast, { Toaster } from 'svelte-french-toast';
+	import axios from 'axios';
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 	// @ts-ignore
 	// @ts-ignore
 	export let data;
-	let undoRedoDispatched = false;
-	// useEffect(() => {
-	// 	undoRedoDispatched = !undoRedoDispatched
-	// },() => [undoRedoDispatched])
-	// onMount(() => {
-	// 	// @ts-ignore
-	// 	swCode.update((v) => ({
-	// 		// @ts-ignore
-	// 		source: data.data.source,
-	// 		swediting: v.swediting
-	// 	}));
-	// });
+	// @ts-ignore
+	let swc = [];
+	function swSave() {
+		$swCode.cvElements.forEach((element) => {
+			console.log('element', element);
+			swc.push(element.code);
+			element.mc.$destroy();
+			element.tb.$destroy();
+		});
+		let bodyFormData = new FormData();
+		bodyFormData.append('path', data.data.file);
+		bodyFormData.append('swc', swc.join('\n'));
+		bodyFormData.append('redirectTo', $page.route.id);
+		axios({
+			method: 'post',
+			url: '/api/svelteway',
+			data: bodyFormData,
+			headers: { 'Content-Type': 'multipart/form-data' }
+		});
+		swCode.set({
+			cvElements: [],
+			selectedElement: {}
+		});
+		toast.success('Saved!');
+	}
+
+	onMount(() => {
+		swc.push(data.data.source);
+	});
 </script>
 
+<Toaster />
 <div data-theme="corporate" class="h-[100vh] w-[100vw] font-sans">
 	<div class="flex h-full w-full">
 		<ActionButtons />
-		{#key undoRedoDispatched}
-			<Canvas on:undo-redo={(e) => (undoRedoDispatched = e.detail)} {data}>
-				<slot />
-			</Canvas>
-		{/key}
+		<Canvas on:save={swSave} {data}>
+			<slot />
+		</Canvas>
 	</div>
 </div>

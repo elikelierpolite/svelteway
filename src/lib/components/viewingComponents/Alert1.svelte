@@ -3,7 +3,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import { swCode } from '../CodeStore';
-	import * as swTransitions from 'svelte/transition';
 
 	$: swc = $swCode;
 	/**
@@ -16,34 +15,15 @@
 	export let svgh;
 	export let svgStroke;
 	export let classes;
-	export let swTransition;
-	export let missing;
 	/**
 	 * @type {{ width: any; top: any; left: any; }}
 	 */
 
+	 classes.push('hover:border-[1px]', 'hover:border-[#FF531A]')
+
 	const dispatchSelect = createEventDispatcher();
-	const animate = (node, args) => {
-		console.log(swTransition)
-		console.log(node)
-		console.log(args)
-		swTransition == 'fade'
-			? swTransitions.fade(node, args)
-			: swTransition == 'blur'
-			? swTransitions.blur(node, args)
-			: swTransition == 'fly'
-			? swTransitions.fly(node, args)
-			: swTransition == 'slide'
-			? swTransitions.slide(node, args)
-			: swTransition == 'scale'
-			? swTransitions.scale(node, args)
-			: swTransition == 'none'
-			? 'none'
-			: 'none';
-	}
 </script>
 
-{#if !missing}
 <div
 on:keypress={(e) => e.stopPropagation()}
 on:click={(e) => {
@@ -54,7 +34,6 @@ on:click={(e) => {
 	id={`${swElementDataAttrId}`}
 	style={`border: ${swc.selectedElement.id == swElementDataAttrId && '1px solid #FF531A'}`}
 	class={classes.join('  ')}
-	transition:animate
 >
 <div>
 	<svg
@@ -70,4 +49,3 @@ on:click={(e) => {
 		<span>{title}</span>
 	</div>
 </div>
-{/if}

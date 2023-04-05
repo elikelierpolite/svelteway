@@ -1,16 +1,16 @@
 <script>
 	import SelectComponent from './SelectComponent.svelte';
 	import ToolbarContent from './viewingComponents/ToolbarContent.svelte';
+	import { createEventDispatcher } from 'svelte';
 	export let data;
+
+	const dispatch = createEventDispatcher()
 </script>
 
 <svelte:window
 	on:keydown={async (e) => {
-		if (e.key.toLowerCase() === 'z' && e.ctrlKey) {
-		}
-		if (e.key.toLowerCase() === 'z' && e.shiftKey && e.ctrlKey) {
-		}
-		if (e.key.toLowerCase() === 's' && e.ctrlKey) {
+		if (e.key.toLowerCase() === 's' && e.shiftKey && e.ctrlKey) {
+			dispatch("save")
 		}
 	}}
 />

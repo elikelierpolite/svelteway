@@ -6,10 +6,6 @@
 
 <div>
 	{#key $swToolbar.id}
-		{#if $swToolbar.id == 'toolbar'}
 			<ToolbarSettings />
-		{:else}
-			<ToolbarStyles />
-		{/if}
 	{/key}
 </div>

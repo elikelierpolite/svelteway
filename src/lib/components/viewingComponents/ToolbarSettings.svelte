@@ -21,8 +21,7 @@
 							svgStroke: e.detail.hex,
 							svgw: swCodeH.selectedElement.mc.svgw,
 							svgh: swCodeH.selectedElement.mc.svgh,
-							swTransition: swCodeH.selectedElement.mc.swTransition,
-							missing: swCodeH.selectedElement.mc.missing
+							classes: swCodeH.selectedElement.mc.classes
 						})}
 					label="SVG Color"
 					bind:hex
@@ -38,8 +37,7 @@
 								svgStroke: 'currentColor',
 								svgw: swCodeH.selectedElement.mc.svgw,
 								svgh: swCodeH.selectedElement.mc.svgh,
-								swTransition: swCodeH.selectedElement.mc.swTransition,
-								missing: swCodeH.selectedElement.mc.missing
+								classes: swCodeH.selectedElement.mc.classes
 							});
 							hex = '#181A2A';
 						}}
@@ -93,8 +91,7 @@
 								svgStroke: swCodeH.selectedElement.mc.svgStroke,
 								svgw: swCodeH.selectedElement.mc.svgw - 1,
 								svgh: swCodeH.selectedElement.mc.svgh - 1,
-								swTransition: swCodeH.selectedElement.mc.swTransition,
-								missing: swCodeH.selectedElement.mc.missing
+								classes: swCodeH.selectedElement.mc.classes
 							});
 						}}
 					>
@@ -120,8 +117,7 @@
 								svgStroke: swCodeH.selectedElement.mc.svgStroke,
 								svgw: (swCodeH.selectedElement.mc.svgw += 1),
 								svgh: (swCodeH.selectedElement.mc.svgh += 1),
-								swTransition: swCodeH.selectedElement.mc.swTransition,
-								missing: swCodeH.selectedElement.mc.missing
+								classes: swCodeH.selectedElement.mc.classes
 							});
 						}}
 					>
@@ -164,8 +160,7 @@
 										svgStroke: swCodeH.selectedElement.mc.svgStroke,
 										svgw: swCodeH.selectedElement.mc.svgw,
 										svgh: swCodeH.selectedElement.mc.svgh,
-										swTransition: swCodeH.selectedElement.mc.swTransition,
-										missing: swCodeH.selectedElement.mc.missing
+										classes: swCodeH.selectedElement.mc.classes
 									});
 								}}
 								class="w-full border-[1px] border-[#E6E6E6] card grid content-center justify-center hover:cursor-pointer"
@@ -194,8 +189,7 @@
 										svgStroke: swCodeH.selectedElement.mc.svgStroke,
 										svgw: swCodeH.selectedElement.mc.svgw,
 										svgh: swCodeH.selectedElement.mc.svgh,
-										swTransition: swCodeH.selectedElement.mc.swTransition,
-										missing: swCodeH.selectedElement.mc.missing
+										classes: swCodeH.selectedElement.mc.classes
 									});
 								}}
 								class="w-full border-[1px] border-[#E6E6E6] card grid content-center justify-center hover:cursor-pointer"
@@ -227,8 +221,7 @@
 							svgStroke: swCodeH.selectedElement.mc.svgStroke,
 							svgw: swCodeH.selectedElement.mc.svgw,
 							svgh: swCodeH.selectedElement.mc.svgh,
-							swTransition: swCodeH.selectedElement.mc.swTransition,
-							missing: swCodeH.selectedElement.mc.missing
+							classes: swCodeH.selectedElement.mc.classes
 						});
 					}}
 					class="input w-full max-w-xs mt-2"
