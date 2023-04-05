@@ -14,6 +14,7 @@
 	let swc = [];
 	function swSave() {
 		$swCode.cvElements.forEach((element) => {
+			element.swecode()
 			console.log('element', element);
 			swc.push(element.code);
 			element.mc.$destroy();

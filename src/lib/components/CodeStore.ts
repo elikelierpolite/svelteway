@@ -12,28 +12,10 @@ export const swToolbar = writable({
 });
 
 export const cvElement = class cvElement {
-	constructor(element, props, styles) {
+	constructor(element, props) {
 		this.id = props.swElementDataAttrId;
 		this.element = element;
 		this.props = props;
-		this.styles = styles;
-		this.code = `<div
-		class="${this.props.classes.join(' ')}"
-	>
-		<div>
-		<svg
-		xmlns="http://www.w3.org/2000/svg"
-		fill="none"
-		viewBox="0 0 24 24"
-		stroke-width="1.5"
-		stroke="${this.props.svgStroke}"
-		class="w-${this.props.vgw} h-${this.props.svgh}"
-	>
-			${this.props.svg}
-			</svg>
-			<span>${this.props.title}</span>
-		</div>
-	</div>`;
 	}
 	create() {
 		if (this.element == 'alert1') {
@@ -120,5 +102,29 @@ export const cvElement = class cvElement {
 	}
 	get clss() {
 		return this.classes.join('  ');
+	}
+	swecode() {
+		if (this.element == 'alert1') {
+			const removeBorderClass = this.mainComponent.classes.filter(cls => cls !== 'hover:border-[1px]')
+			const removeBorderColorClass = removeBorderClass.filter(cls => cls !== 'hover:border-[#FF531A]')
+			console.log(removeBorderColorClass)
+			this.code = `<div
+			class="${removeBorderColorClass.join(' ')}"
+		>
+			<div>
+			<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="${this.mainComponent.svgStroke}"
+			class="w-${this.mainComponent.vgw} h-${this.mainComponent.svgh}"
+		>
+				${this.mainComponent.svg}
+				</svg>
+				<span>${this.mainComponent.title}</span>
+			</div>
+		</div>`;
+		}
 	}
 };
