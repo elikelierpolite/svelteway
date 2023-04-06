@@ -1,6 +1,8 @@
 import { get, writable } from 'svelte/store';
 import Alert1 from './viewingComponents/Alert1.svelte';
 import Toolbar from './viewingComponents/Toolbar.svelte';
+import Alert2 from './viewingComponents/mainComponents/Alert2.svelte';
+import Alert3 from './viewingComponents/mainComponents/Alert3.svelte';
 
 export const swCode = writable({
 	cvElements: [],
@@ -23,14 +25,24 @@ export const cvElement = class cvElement {
 				target: document.querySelector('#cvh'),
 				props: this.props
 			});
-			this.toolbar = new Toolbar({
+		} else if (this.element == 'alert2') {
+			this.mainComponent = new Alert2({
 				target: document.querySelector('#cvh'),
-				props: {
-					visible: false,
-					sweid: this.id
-				}
+				props: this.props
+			});
+		} else if (this.element == 'alert3') {
+			this.mainComponent = new Alert3({
+				target: document.querySelector('#cvh'),
+				props: this.props
 			});
 		}
+		this.toolbar = new Toolbar({
+			target: document.querySelector('#cvh'),
+			props: {
+				visible: false,
+				sweid: this.id
+			}
+		});
 	}
 	showToolBar() {
 		const { cvElements } = get(swCode);
@@ -45,36 +57,17 @@ export const cvElement = class cvElement {
 	disableToolBar() {
 		this.toolbar.$set({ visible: false });
 	}
-	setProps(props) {
-		if (this.element == 'alert1') {
-			this.mainComponent.$set({
-				svg: props.svg,
-				title: props.title,
-				svgStroke: props.svgStroke,
-				svgh: props.svgh,
-				svgw: props.svgw,
-				classes: props.classes
-			});
-		}
-	}
-	setTransition(transition) {
-		if (transition !== 'none') {
-			this.mainComponent.$set({ missing: true, swTransition: transition });
-			setTimeout(() => {
-				this.mainComponent.$set({ missing: false });
-			}, 200);
-		}
-	}
 	setClassModifier(cls) {
-		if (this.element == 'alert1') {
-			const arr = [...this.mc.classes];
-			for (let index = 0; index < arr.length; index++) {
-				if (arr[index] === cls.from) {
-					arr[index] = cls.to;
-				}
+		const arr = [...this.mc.classes];
+		for (let index = 0; index < arr.length; index++) {
+			if (arr[index] === cls.from) {
+				arr[index] = cls.to;
 			}
-			this.mainComponent.$set({ classes: arr });
 		}
+		this.mainComponent.$set({ classes: arr });
+	}
+	setHelper(helper) {
+		this.mainComponent.$set({ helper: helper });
 	}
 	setStylesClass(cls) {
 		const arr = [...this.mc.classes];
@@ -104,12 +97,15 @@ export const cvElement = class cvElement {
 		return this.classes.join('  ');
 	}
 	swecode() {
+		const removeBorderClass = this.mainComponent.classes.filter(
+			(cls) => cls !== 'hover:border-[1px]' && 'hover:border-[#FF531A]'
+		);
 		if (this.element == 'alert1') {
-			const removeBorderClass = this.mainComponent.classes.filter(cls => cls !== 'hover:border-[1px]')
-			const removeBorderColorClass = removeBorderClass.filter(cls => cls !== 'hover:border-[#FF531A]')
-			console.log(removeBorderColorClass)
-			this.code = `<div
-			class="${removeBorderColorClass.join(' ')}"
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
 		>
 			<div>
 			<svg
@@ -118,13 +114,122 @@ export const cvElement = class cvElement {
 			viewBox="0 0 24 24"
 			stroke-width="1.5"
 			stroke="${this.mainComponent.svgStroke}"
-			class="w-${this.mainComponent.vgw} h-${this.mainComponent.svgh}"
+			class="w-${this.mainComponent.svgw} h-${this.mainComponent.svgh}"
+		>
+				${this.mainComponent.svg}
+				</svg>
+				<span>${this.mainComponent.title}</span>
+			</div>
+		</div></div>`
+				: `<div
+			class="${removeBorderClass.join(' ')}"
+		>
+			<div>
+			<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="${this.mainComponent.svgStroke}"
+			class="w-${this.mainComponent.svgw} h-${this.mainComponent.svgh}"
 		>
 				${this.mainComponent.svg}
 				</svg>
 				<span>${this.mainComponent.title}</span>
 			</div>
 		</div>`;
+		} else if (this.element == 'alert2') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<div>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="${this.mainComponent.svgStroke}"
+			class="w-${this.mainComponent.svgw} h-${this.mainComponent.svgh}"
+		>
+		${this.mainComponent.svg}
+		</svg>
+		<span>${this.mainComponent.title}</span>
+	</div>
+	<div class="flex-none">
+		<button class="btn btn-sm btn-ghost">${this.mainComponent.cta1}</button>
+		<button class="btn btn-sm btn-primary">${this.mainComponent.cta2}</button>
+	</div></div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<div>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="${this.mainComponent.svgStroke}"
+				class="w-${this.mainComponent.svgw} h-${this.mainComponent.svgh}"
+			>
+			${this.mainComponent.svg}
+			</svg>
+			<span>${this.mainComponent.title}</span>
+		</div>
+		<div class="flex-none">
+			<button class="btn btn-sm btn-ghost">${this.mainComponent.cta1}</button>
+			<button class="btn btn-sm btn-primary">${this.mainComponent.cta2}</button>
+		</div></div>`;
+		} else if (this.element == 'alert3') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<div>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="${this.mainComponent.svgStroke}"
+					class="w-${this.mainComponent.svgw} h-${this.mainComponent.svgh}"
+				>
+				${this.mainComponent.svg}
+				</svg>
+				<div>
+				<h3 class="font-bold">${this.mainComponent.title}</h3>
+				<div class="text-xs">${this.mainComponent.description}</div>
+				</div>
+			</div>
+			<div class="flex-none">
+			<button class="btn btn-sm">${this.mainComponent.cta}</button>
+			</div></div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<div>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="${this.mainComponent.svgStroke}"
+					class="w-${this.mainComponent.svgw} h-${this.mainComponent.svgh}"
+				>
+				${this.mainComponent.svg}
+				</svg>
+				<div>
+					<h3 class="font-bold">${this.mainComponent.title}</h3>
+					<div class="text-xs">${this.mainComponent.description}</div>
+				</div>
+			</div>
+			<div class="flex-none">
+				<button class="btn btn-sm">${this.mainComponent.cta}</button>
+			</div></div>`;
 		}
 	}
 };

@@ -4,6 +4,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div tabindex="0" class="collapse"> 
         <div class="collapse-title text-xl font-medium">
           Focus me to see content
@@ -33,6 +34,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+  <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div tabindex="0" class="collapse border border-base-300 bg-base-100 rounded-box"> 
         <div class="collapse-title text-xl font-medium">
           Focus me to see content
@@ -47,6 +49,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+  <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
         <div class="collapse-title text-xl font-medium">
           Focus me to see content
@@ -61,6 +64,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+  <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
         <div class="collapse-title text-xl font-medium">
           Focus me to see content
@@ -75,6 +79,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+  <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div tabindex="0" class="collapse collapse-open border border-base-300 bg-base-100 rounded-box"> 
         <div class="collapse-title text-xl font-medium">
           I have collapse-open class
@@ -89,6 +94,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+  <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div tabindex="0" class="collapse collapse-close border border-base-300 bg-base-100 rounded-box"> 
         <div class="collapse-title text-xl font-medium">
           I have collapse-close class
@@ -103,6 +109,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+  <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
     <div tabindex="0" class="collapse group">
         <div class="collapse-title bg-primary text-primary-content group-focus:bg-secondary group-focus:text-secondary-content">
           Focus me to see content

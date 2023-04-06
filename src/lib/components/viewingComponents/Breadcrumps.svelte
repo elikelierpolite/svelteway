@@ -20,6 +20,7 @@
 		<div class="text-sm breadcrumbs">
 			<ul>
 				<li>
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -37,6 +38,7 @@
 					</a>
 				</li>
 				<li>
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

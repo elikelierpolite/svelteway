@@ -38,6 +38,7 @@
 					free!
 				</p>
 				<div class="modal-action">
+					<!-- svelte-ignore a11y-invalid-attribute -->
 					<a href="#" class="btn">Yay!</a>
 				</div>
 			</div>

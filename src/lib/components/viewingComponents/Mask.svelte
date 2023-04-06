@@ -4,6 +4,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-squircle" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -11,6 +12,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-heart" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -18,6 +20,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-hexagon" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -25,6 +28,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-hexagon-2" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -32,6 +36,8 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-decagon" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -39,6 +45,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-pentagon" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -46,6 +53,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-diamond" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -53,6 +61,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-square" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -60,6 +69,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-circle" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -67,6 +77,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-parallelogram" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -74,6 +85,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-parallelogram-2" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -81,6 +93,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-parallelogram-3" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -88,6 +101,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-parallelogram-4" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -95,6 +109,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-star" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -102,6 +117,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-star-2" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -109,6 +125,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-triangle" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -116,6 +133,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-triangle-2" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -123,6 +141,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-triangle-3" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 	<div
@@ -130,6 +149,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <img class="mask mask-triangle-4" src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg" />
 	</div>
 </div>

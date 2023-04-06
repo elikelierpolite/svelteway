@@ -6,6 +6,7 @@
 	>
 		<div class="avatar">
 			<div class="w-24 rounded">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 			</div>
 		</div>
@@ -17,6 +18,7 @@
 	>
 		<div class="avatar">
 			<div class="w-32 rounded">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 			</div>
 		</div>
@@ -52,6 +54,7 @@
 	>
 		<div class="avatar">
 			<div class="w-24 rounded-xl">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 			</div>
 		</div>
@@ -68,16 +71,19 @@
 	>
 		<div class="avatar">
 			<div class="w-24 mask mask-squircle">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 			</div>
 		</div>
 		<div class="avatar">
+			<!-- svelte-ignore a11y-missing-attribute -->
 			<div class="w-24 mask mask-hexagon">
 				<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 			</div>
 		</div>
 		<div class="avatar">
 			<div class="w-24 mask mask-triangle">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 			</div>
 		</div>
@@ -90,21 +96,25 @@
 		<div class="avatar-group -space-x-6">
 			<div class="avatar">
 				<div class="w-12">
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 				</div>
 			</div>
 			<div class="avatar">
 				<div class="w-12">
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 				</div>
 			</div>
 			<div class="avatar">
 				<div class="w-12">
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 				</div>
 			</div>
 			<div class="avatar">
 				<div class="w-12">
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 				</div>
 			</div>
@@ -118,16 +128,19 @@
 		<div class="avatar-group -space-x-6">
 			<div class="avatar">
 				<div class="w-12">
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 				</div>
 			</div>
 			<div class="avatar">
 				<div class="w-12">
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 				</div>
 			</div>
 			<div class="avatar">
 				<div class="w-12">
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 				</div>
 			</div>
@@ -145,16 +158,19 @@
 	>
 		<div class="avatar">
 			<div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 			</div>
 		</div>
 		<div class="avatar online">
 			<div class="w-24 rounded-full">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 			</div>
 		</div>
 		<div class="avatar offline">
 			<div class="w-24 rounded-full">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 			</div>
 		</div>

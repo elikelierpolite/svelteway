@@ -13,7 +13,9 @@
 				<label for="my-drawer" class="drawer-overlay" />
 				<ul class="menu p-4 w-80 bg-base-100 text-base-content">
 					<!-- Sidebar content here -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<li><a>Sidebar Item 1</a></li>
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<li><a>Sidebar Item 2</a></li>
 				</ul>
 			</div>
@@ -70,7 +72,9 @@
 					<div class="flex-none hidden lg:block">
 						<ul class="menu menu-horizontal">
 							<!-- Navbar menu content here -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 							<li><a>Navbar Item 1</a></li>
+							<!-- svelte-ignore a11y-missing-attribute -->
 							<li><a>Navbar Item 2</a></li>
 						</ul>
 					</div>
@@ -84,7 +88,9 @@
 				<label for="my-drawer-3" class="drawer-overlay" />
 				<ul class="menu p-4 w-80 bg-base-100">
 					<!-- Sidebar content here -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<li><a>Sidebar Item 1</a></li>
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<li><a>Sidebar Item 2</a></li>
 				</ul>
 			</div>
@@ -104,7 +110,9 @@
 				<label for="my-drawer-4" class="drawer-overlay" />
 				<ul class="menu p-4 w-80 bg-base-100 text-base-content">
 					<!-- Sidebar content here -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<li><a>Sidebar Item 1</a></li>
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<li><a>Sidebar Item 2</a></li>
 				</ul>
 			</div>

@@ -42,9 +42,15 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="dropdown mb-32">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Click</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -55,9 +61,15 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="dropdown mb-32 mb-32-end">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Click</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -68,9 +80,15 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="mb-32 dropdown mb-32-top">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Click</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -80,10 +98,16 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
-		<div class="mb-32 dropdown mb-32-top dropdown mb-32-end">
+		<div class="mb-32 mb-32-top dropdown mb-32-end">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Click</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -94,9 +118,15 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="mb-32 dropdown mb-32-bottom">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Click</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -106,10 +136,16 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
-		<div class="mb-32 dropdown mb-32-bottom dropdown mb-32-end">
+		<div class="mb-32 mb-32-bottom dropdown mb-32-end">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Click</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -120,9 +156,15 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="mb-32 dropdown mb-32-left">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Click</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -133,9 +175,15 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="mb-32 dropdown mb-32-left mb-32-end">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Click</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -146,9 +194,15 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="dropdown mb-32 mb-32-right">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Click</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -159,9 +213,15 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="dropdown mb-32 mb-32-right mb-32-end">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Click</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -172,9 +232,15 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="dropdown mb-32 mb-32-hover">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Hover</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -185,9 +251,15 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="dropdown mb-32 mb-32-open">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Button</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<ul tabindex="0" class="dropdown mb-32-content menu p-2 shadow bg-base-100 rounded-box w-52">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 1</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Item 2</a></li>
 			</ul>
 		</div>
@@ -198,7 +270,11 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="dropdown mb-32">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn m-1">Click</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<div
 				tabindex="0"
 				class="dropdown mb-32-content card card-compact w-64 p-2 shadow bg-primary text-primary-content"
@@ -217,18 +293,26 @@
 	>
 		<div class="navbar bg-base-300 rounded-box">
 			<div class="flex-1 px-2 lg:flex-none">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<a class="text-lg font-bold">daisyUI</a>
 			</div>
 			<div class="flex justify-end flex-1 px-2">
 				<div class="flex items-stretch">
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a class="btn btn-ghost rounded-btn">Button</a>
 					<div class="dropdown mb-32 mb-32-end">
+						<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+						<!-- svelte-ignore a11y-label-has-associated-control -->
 						<label tabindex="0" class="btn btn-ghost rounded-btn">dropdown mb-32</label>
+						<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+						<!-- svelte-ignore a11y-label-has-associated-control -->
 						<ul
 							tabindex="0"
 							class="menu dropdown mb-32-content p-2 shadow bg-base-100 rounded-box w-52 mt-4"
 						>
+							<!-- svelte-ignore a11y-missing-attribute -->
 							<li><a>Item 1</a></li>
+							<!-- svelte-ignore a11y-missing-attribute -->
 							<li><a>Item 2</a></li>
 						</ul>
 					</div>
@@ -243,6 +327,8 @@
 	>
 		A normal text and a helper dropdown mb-32
 		<div class="dropdown mb-32-end">
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label tabindex="0" class="btn btn-circle btn-ghost btn-xs text-info">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -257,6 +343,8 @@
 					/></svg
 				>
 			</label>
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<div tabindex="0" class="card compact dropdown mb-32-content shadow bg-base-100 rounded-box w-64">
 				<div class="card-body">
 					<h2 class="card-title">You needed more info?</h2>

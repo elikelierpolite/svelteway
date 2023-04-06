@@ -44,15 +44,10 @@
 					const nsweid = uuidv4();
 					const { selectedElement } = $swCode;
 					const newComponent = new cvElement(
-						'alert1',
+						selectedElement.element,
 						{
+							...selectedElement.props,
 							swElementDataAttrId: nsweid,
-							svgw: selectedElement.mc.svgw,
-							svgh: selectedElement.mc.svgh,
-							svgStroke: selectedElement.mc.svgStroke,
-							classes: [...selectedElement.mc.classes],
-							svg: selectedElement.mc.svg,
-							title: selectedElement.mc.title,
 						},
 						{ border: `${$swCode.selectedElement.id == sweid && '1px solid #FF531A'}` }
 					);

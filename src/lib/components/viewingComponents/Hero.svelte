@@ -24,6 +24,7 @@
 	>
 		<div class="hero min-h-screen bg-base-200">
 			<div class="hero-content flex-col lg:flex-row">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<img
 					src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
 					class="max-w-sm rounded-lg shadow-2xl"
@@ -46,6 +47,7 @@
 	>
 		<div class="hero min-h-screen bg-base-200">
 			<div class="hero-content flex-col lg:flex-row-reverse">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<img
 					src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
 					class="max-w-sm rounded-lg shadow-2xl"
@@ -78,16 +80,19 @@
 				<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 					<div class="card-body">
 						<div class="form-control">
+							<!-- svelte-ignore a11y-label-has-associated-control -->
 							<label class="label">
 								<span class="label-text">Email</span>
 							</label>
 							<input type="text" placeholder="email" class="input input-bordered" />
 						</div>
 						<div class="form-control">
+							<!-- svelte-ignore a11y-label-has-associated-control -->
 							<label class="label">
 								<span class="label-text">Password</span>
 							</label>
 							<input type="text" placeholder="password" class="input input-bordered" />
+							<!-- svelte-ignore a11y-label-has-associated-control -->
 							<label class="label">
 								<a href="#" class="label-text-alt link link-hover">Forgot password?</a>
 							</label>

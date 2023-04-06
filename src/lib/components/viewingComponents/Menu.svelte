@@ -1,3 +1,5 @@
+
+				<!-- svelte-ignore a11y-invalid-attribute -->
 <div class="w-full flex flex-col gap-7 justify-center mb-10">
 	<div
 		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
@@ -5,9 +7,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu bg-base-100 w-56">
-			<li><a>Item 1</a></li>
-			<li><a>Item 2</a></li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li><a href="#">Item 2</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -16,9 +18,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu bg-base-100 w-56">
-			<li><a>Item 1</a></li>
-			<li><a class="active">Item 2</a></li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li><a href="#" class="active">Item 2</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -27,9 +29,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu bg-base-100 w-56 rounded-box">
-			<li><a>Item 1</a></li>
-			<li><a>Item 2</a></li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li><a href="#">Item 2</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -38,9 +40,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu bg-base-100 w-56 p-2 rounded-box">
-			<li><a>Item 1</a></li>
-			<li><a>Item 2</a></li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li><a href="#">Item 2</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -52,13 +54,13 @@
 			<li class="menu-title">
 				<span>Category</span>
 			</li>
-			<li><a>Item 1</a></li>
-			<li><a>Item 2</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li><a href="#">Item 2</a></li>
 			<li class="menu-title">
 				<span>Category</span>
 			</li>
-			<li><a>Item 1</a></li>
-			<li><a>Item 2</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li><a href="#">Item 2</a></li>
 		</ul>
 	</div>
 	<div
@@ -67,9 +69,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu bg-base-100 w-56 rounded-box">
-			<li><a>Item 1</a></li>
-			<li class="bordered"><a>I have border</a></li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li class="bordered"><a href="#">I have border</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -78,9 +80,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu bg-base-100 w-56 rounded-box">
-			<li><a>Item 1</a></li>
-			<li class="hover-bordered"><a>Hover me</a></li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li class="hover-bordered"><a href="#">Hover me</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -89,9 +91,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu bg-base-100 w-56 rounded-box">
-			<li class="disabled"><a>Item 1</a></li>
-			<li class="disabled"><a>Item 2</a></li>
-			<li class="disabled"><a>Item 3</a></li>
+			<li class="disabled"><a href="#">Item 1</a></li>
+			<li class="disabled"><a href="#">Item 2</a></li>
+			<li class="disabled"><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -100,9 +102,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu menu-compact bg-base-100 w-56 p-2 rounded-box">
-			<li><a>Item 1</a></li>
-			<li><a>Item 2</a></li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li><a href="#">Item 2</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -111,9 +113,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu menu-compact lg:menu-normal bg-base-100 w-56 p-2 rounded-box">
-			<li><a>Item 1</a></li>
-			<li><a>Item 2</a></li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li><a href="#">Item 2</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -122,9 +124,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu menu-horizontal bg-base-100 rounded-box">
-			<li><a>Item 1</a></li>
-			<li><a>Item 2</a></li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li><a href="#">Item 2</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -133,9 +135,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu menu-vertical lg:menu-horizontal bg-base-100 rounded-box">
-			<li><a>Item 1</a></li>
-			<li><a>Item 2</a></li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 1</a></li>
+			<li><a href="#">Item 2</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -145,7 +147,7 @@
 	>
 		<ul class="menu bg-base-100 w-56 p-2 rounded-box">
 			<li>
-				<a>
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -163,7 +165,7 @@
 				</a>
 			</li>
 			<li>
-				<a>
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -181,7 +183,7 @@
 				</a>
 			</li>
 			<li>
-				<a>
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -207,7 +209,7 @@
 	>
 		<ul class="menu bg-base-100 rounded-box">
 			<li>
-				<a>
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -224,7 +226,7 @@
 				</a>
 			</li>
 			<li>
-				<a>
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -241,7 +243,7 @@
 				</a>
 			</li>
 			<li>
-				<a>
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -266,7 +268,7 @@
 	>
 		<ul class="menu menu-horizontal bg-base-100 rounded-box">
 			<li>
-				<a>
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -283,7 +285,7 @@
 				</a>
 			</li>
 			<li>
-				<a>
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -300,7 +302,7 @@
 				</a>
 			</li>
 			<li>
-				<a>
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -325,7 +327,8 @@
 	>
 		<ul class="menu bg-base-100 p-2 rounded-box">
 			<li>
-				<a>
+				<!-- svelte-ignore a11y-invalid-attribute -->
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -342,7 +345,7 @@
 				</a>
 			</li>
 			<li>
-				<a>
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -359,7 +362,7 @@
 				</a>
 			</li>
 			<li>
-				<a>
+				<a href="#">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5"
@@ -383,17 +386,22 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu menu-horizontal bg-base-100">
-			<li><a>Item 1</a></li>
+			<li><a href="#">Item 1</a></li>
 			<!-- tabindex will make the parent menu focusable to keep the submenu open if it's focused -->
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 			<li tabindex="0">
 				<span>Parent</span>
 				<ul class="bg-base-100">
-					<li><a>Submenu 1</a></li>
-					<li><a>Submenu 2</a></li>
-					<li><a>Submenu 3</a></li>
+					<!-- svelte-ignore a11y-invalid-attribute -->
+					<li><a href="#">Submenu 1</a></li>
+					<!-- svelte-ignore a11y-invalid-attribute -->
+					<li><a href="#">Submenu 2</a></li>
+					<!-- svelte-ignore a11y-invalid-attribute -->
+					<li><a href="#">Submenu 3</a></li>
 				</ul>
 			</li>
-			<li><a>Item 3</a></li>
+			<!-- svelte-ignore a11y-invalid-attribute -->
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -402,17 +410,21 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu menu-horizontal bg-base-100 rounded-box p-2">
-			<li><a>Item 1</a></li>
+			<li><a href="#">Item 1</a></li>
 			<!-- tabindex will make the parent menu focusable to keep the submenu open if it's focused -->
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 			<li tabindex="0">
 				<span>Parent</span>
 				<ul class="rounded-box bg-base-100 p-2">
-					<li><a>Submenu 1</a></li>
-					<li><a>Submenu 2</a></li>
-					<li><a>Submenu 3</a></li>
+					<!-- svelte-ignore a11y-invalid-attribute -->
+					<li><a href="#">Submenu 1</a></li>
+					<!-- svelte-ignore a11y-invalid-attribute -->
+					<li><a href="#">Submenu 2</a></li>
+					<!-- svelte-ignore a11y-invalid-attribute -->
+					<li><a href="#">Submenu 3</a></li>
 				</ul>
 			</li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -421,17 +433,24 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu bg-base-100 rounded-box p-2">
-			<li><a>Item 1</a></li>
+			<li><a href="#">Item 1</a></li>
 			<!-- tabindex will make the parent menu focusable to keep the submenu open if it's focused -->
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 			<li tabindex="0">
 				<span>Parent</span>
 				<ul class="rounded-box p-2 bg-base-100">
-					<li><a>Submenu 1</a></li>
-					<li><a>Submenu 2</a></li>
-					<li><a>Submenu 3</a></li>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-invalid-attribute -->
+					<li><a href="#">Submenu 1</a></li>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-invalid-attribute -->
+					<li><a href="#">Submenu 2</a></li>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-invalid-attribute -->
+					<li><a href="#">Submenu 3</a></li>
 				</ul>
 			</li>
-			<li><a>Item 3</a></li>
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 	<div
@@ -440,8 +459,9 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu menu-horizontal bg-base-100 rounded-box p-2">
-			<li><a>Item</a></li>
+			<li><a href="#">Item</a></li>
 			<!-- tabindex will make the parent menu focusable to keep the submenu open if it's focused -->
+			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 			<li tabindex="0">
 				<span>Level 1</span>
 				<ul class="rounded-box bg-base-100 p-2">
@@ -457,7 +477,7 @@
 											<li>
 												<span>Level 5</span>
 												<ul>
-													<li><a>Level 6</a></li>
+													<li><a href="#">Level 6</a></li>
 												</ul>
 											</li>
 										</ul>
@@ -476,9 +496,17 @@
 		style="background-size: 5px 5px"
 	>
 		<ul class="menu w-56 bg-secondary text-secondary-content p-2 rounded-box">
-			<li><a>Item 1</a></li>
-			<li><a>Item 2</a></li>
-			<li><a>Item 3</a></li>
+			<!-- svelte-ignore a11y-missing-attribute -->
+			<!-- svelte-ignore a11y-invalid-attribute -->
+			<li><a href="#">Item 1</a></li>
+			<!-- svelte-ignore a11y-missing-attribute -->
+			<!-- svelte-ignore a11y-missing-attribute -->
+			<!-- svelte-ignore a11y-invalid-attribute -->
+			<li><a href="#">Item 2</a></li>
+			<!-- svelte-ignore a11y-missing-attribute -->
+			<!-- svelte-ignore a11y-missing-attribute -->
+			<!-- svelte-ignore a11y-invalid-attribute -->
+			<li><a href="#">Item 3</a></li>
 		</ul>
 	</div>
 </div>

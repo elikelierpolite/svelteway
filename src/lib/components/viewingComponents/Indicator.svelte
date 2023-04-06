@@ -35,11 +35,14 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="tabs">
+			<!-- svelte-ignore a11y-missing-attribute -->
 			<a class="tab tab-lifted">Messages</a>
+			<!-- svelte-ignore a11y-missing-attribute -->
 			<a class="indicator tab tab-lifted tab-active">
 				Notifications
 				<span class="indicator-item badge">8</span>
 			</a>
+			<!-- svelte-ignore a11y-missing-attribute -->
 			<a class="tab tab-lifted">Requests</a>
 		</div>
 	</div>
@@ -51,6 +54,7 @@
 		<div class="avatar indicator">
 			<span class="indicator-item badge badge-secondary">typing…</span>
 			<div class="w-20 h-20 rounded-lg">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 			</div>
 		</div>
@@ -91,6 +95,7 @@
 			<span class="indicator-item indicator-center indicator-middle badge badge-secondary"
 				>Uploading Image...</span
 			>
+			<!-- svelte-ignore a11y-missing-attribute -->
 			<img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" />
 		</div>
 	</div>
@@ -103,6 +108,7 @@
 			<span class="indicator-item indicator-center indicator-middle badge badge-secondary"
 				>Uploading Image...</span
 			>
+			<!-- svelte-ignore a11y-missing-attribute -->
 			<img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" />
 		</div>
 	</div>

@@ -5,6 +5,7 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="form-control">
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label class="label">
 				<span class="label-text">Your Email</span>
 			</label>
@@ -20,6 +21,7 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="form-control">
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label class="label">
 				<span class="label-text">Enter amount</span>
 			</label>
@@ -35,6 +37,7 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="form-control">
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label class="label">
 				<span class="label-text">Enter amount</span>
 			</label>
@@ -51,6 +54,7 @@
 		style="background-size: 5px 5px"
 	>
 		<div class="form-control">
+			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label class="label">
 				<span class="label-text">Your Email</span>
 			</label>

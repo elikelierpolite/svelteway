@@ -4,6 +4,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+		<!-- svelte-ignore a11y-missing-attribute -->
 		<a class="link">I'm a simple link</a>
 	</div>
 	<div
@@ -15,6 +16,7 @@
 			Tailwind CSS resets the style of links by default.
 			<br />
 			Add "link" class to make it look like a
+			<!-- svelte-ignore a11y-missing-attribute -->
 			<a class="link">normal link</a> again.
 		</p>
 	</div>
@@ -23,6 +25,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+	<!-- svelte-ignore a11y-missing-attribute -->
 		<a class="link link-primary">I'm a simple link</a>
 	</div>
 	<div
@@ -30,6 +33,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+	<!-- svelte-ignore a11y-missing-attribute -->
 		<a class="link link-secondary">I'm a simple link</a>
 	</div>
 	<div
@@ -37,6 +41,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+	<!-- svelte-ignore a11y-missing-attribute -->
 		<a class="link link-accent">I'm a simple link</a>
 	</div>
 	<div
@@ -44,6 +49,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+	<!-- svelte-ignore a11y-missing-attribute -->
 		<a class="link link-neutral">I'm a simple link</a>
 	</div>
 	<div
@@ -51,6 +57,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+	<!-- svelte-ignore a11y-missing-attribute -->
 		<a class="link link-success">I'm a simple link</a>
 	</div>
 	<div
@@ -58,6 +65,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+	<!-- svelte-ignore a11y-missing-attribute -->
 		<a class="link link-info">I'm a simple link</a>
 	</div>
 	<div
@@ -65,6 +73,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+	<!-- svelte-ignore a11y-missing-attribute -->
 		<a class="link link-warning">I'm a simple link</a>
 	</div>
 	<div
@@ -72,6 +81,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+	<!-- svelte-ignore a11y-missing-attribute -->
 		<a class="link link-error">I'm a simple link</a>
 	</div>
 	<div
@@ -79,6 +89,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+	<!-- svelte-ignore a11y-missing-attribute -->
 		<a class="link link-hover">I'm a simple link</a>
 	</div>
 </div>
