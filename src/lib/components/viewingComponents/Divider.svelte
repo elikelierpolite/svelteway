@@ -35,7 +35,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
-		<button class="w-full grid content-center justify-center" on:click={addComponent}>
+		<button class="w-full" on:click={addComponent}>
 			<div class="flex flex-col w-full border-opacity-50">
 				<div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
 				<div class="divider">OR</div>

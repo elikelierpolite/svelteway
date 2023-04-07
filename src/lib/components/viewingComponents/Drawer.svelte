@@ -1,25 +1,60 @@
+<script>
+	import { swCode, cvElement } from '../CodeStore';
+	import { v4 as uuidv4 } from 'uuid';
+
+	function addComponent() {
+		const sweid = uuidv4();
+
+		let newCvElement = new cvElement('drawer1', {
+			swElementDataAttrId: sweid,
+			classes: ['', 'drawer', 'h-56', 'rounded'],
+			btnText: `Open drawer`,
+			item1Text: 'Sidebar Item 1',
+			item2Text: 'Sidebar Item 2',
+			helper: {
+				on: false,
+				type: 'tooltip',
+				classes: ['tooltip'],
+				title: 'Hello World!'
+			}
+		});
+		newCvElement.create();
+		newCvElement.mc.$on('selected', function () {
+			newCvElement.showToolBar();
+		});
+		swCode.update((v) => ({
+			selectedElement: newCvElement,
+			cvElements: [...v.cvElements, newCvElement]
+		}));
+		let csc = document.getElementById('open-component-select');
+		csc && csc.click();
+	}
+</script>
+
 <div class="w-full flex flex-col gap-7 justify-center mb-10">
 	<div
 		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
 		id="ch"
 		style="background-size: 5px 5px"
 	>
-		<div class="drawer h-56 rounded">
-			<input id="my-drawer" type="checkbox" class="drawer-toggle" />
-			<div class="flex flex-col items-center justify-center drawer-content">
-				<label for="my-drawer" class="btn btn-primary drawer-button">Open drawer</label>
+		<button class="w-full" on:click={addComponent}>
+			<div class="drawer h-56 rounded">
+				<input id="my-drawer" type="checkbox" class="drawer-toggle" />
+				<div class="flex flex-col items-center justify-center drawer-content">
+					<label for="my-drawer" class="btn btn-primary drawer-button">Open drawer</label>
+				</div>
+				<div class="drawer-side">
+					<label for="my-drawer" class="drawer-overlay" />
+					<ul class="menu p-4 w-80 bg-base-100 text-base-content">
+						<!-- Sidebar content here -->
+						<!-- svelte-ignore a11y-missing-attribute -->
+						<li><a>Sidebar Item 1</a></li>
+						<!-- svelte-ignore a11y-missing-attribute -->
+						<li><a>Sidebar Item 2</a></li>
+					</ul>
+				</div>
 			</div>
-			<div class="drawer-side">
-				<label for="my-drawer" class="drawer-overlay" />
-				<ul class="menu p-4 w-80 bg-base-100 text-base-content">
-					<!-- Sidebar content here -->
-					<!-- svelte-ignore a11y-missing-attribute -->
-					<li><a>Sidebar Item 1</a></li>
-					<!-- svelte-ignore a11y-missing-attribute -->
-					<li><a>Sidebar Item 2</a></li>
-				</ul>
-			</div>
-		</div>
+		</button>
 	</div>
 	<div
 		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
@@ -72,7 +107,7 @@
 					<div class="flex-none hidden lg:block">
 						<ul class="menu menu-horizontal">
 							<!-- Navbar menu content here -->
-					<!-- svelte-ignore a11y-missing-attribute -->
+							<!-- svelte-ignore a11y-missing-attribute -->
 							<li><a>Navbar Item 1</a></li>
 							<!-- svelte-ignore a11y-missing-attribute -->
 							<li><a>Navbar Item 2</a></li>
@@ -104,7 +139,7 @@
 		<div class="drawer h-56 rounded drawer-end">
 			<input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
 			<div class="flex flex-col items-center justify-center drawer-content">
-					<label for="my-drawer-4" class="drawer-button btn btn-primary">Open drawer</label>
+				<label for="my-drawer-4" class="drawer-button btn btn-primary">Open drawer</label>
 			</div>
 			<div class="drawer-side">
 				<label for="my-drawer-4" class="drawer-overlay" />

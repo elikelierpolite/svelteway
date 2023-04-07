@@ -35,6 +35,8 @@ import Checkbox1 from './viewingComponents/mainComponents/Checkbox1.svelte';
 import Collapse1 from './viewingComponents/mainComponents/Collapse1.svelte';
 import Countdown1 from './viewingComponents/mainComponents/Countdown1.svelte';
 import Divider1 from './viewingComponents/mainComponents/Divider1.svelte';
+import Drawer1 from './viewingComponents/mainComponents/Drawer1.svelte';
+import Dropdown1 from './viewingComponents/mainComponents/Dropdown1.svelte';
 
 export const swCode = writable({
 	cvElements: [],
@@ -224,6 +226,16 @@ export const cvElement = class cvElement {
 			});
 		} else if (this.element == 'divider1') {
 			this.mainComponent = new Divider1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'drawer1') {
+			this.mainComponent = new Drawer1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'dropdown1') {
+			this.mainComponent = new Dropdown1({
 				target: document.querySelector('#cvh'),
 				props: this.props
 			});
@@ -2004,7 +2016,7 @@ ${this.mainComponent.svg3}
 			>
 			<span class="cd" style="--value:${this.mainComponent.seconds}" />
 			</div>`;
-		}  else if (this.element == 'divider1') {
+		} else if (this.element == 'divider1') {
 			this.code = this.mainComponent.helper.on
 				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
 						this.mainComponent.helper.title
@@ -2016,6 +2028,61 @@ ${this.mainComponent.svg3}
 				class="${removeBorderClass.join(' ')}"
 			>
 			${this.mainComponent.text}
+			</div>`;
+		} else if (this.element == 'drawer1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		><input id="my-drawer" type="checkbox" class="drawer-toggle" />
+		<div class="flex flex-col items-center justify-center drawer-content">
+			<label for="my-drawer" class="btn btn-primary drawer-button">${this.mainComponent.btnText}</label>
+		</div>
+		<div class="drawer-side">
+			<label for="my-drawer" class="drawer-overlay" />
+			<ul class="menu p-4 w-80 bg-base-100 text-base-content">
+				<li><a>${this.mainComponent.item1Text}</a></li>
+				<li><a>${this.mainComponent.item2Text}</a></li>
+			</ul>
+		</div>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<input id="my-drawer" type="checkbox" class="drawer-toggle" />
+		<div class="flex flex-col items-center justify-center drawer-content">
+			<label for="my-drawer" class="btn btn-primary drawer-button">${this.mainComponent.btnText}</label>
+		</div>
+		<div class="drawer-side">
+			<label for="my-drawer" class="drawer-overlay" />
+			<ul class="menu p-4 w-80 bg-base-100 text-base-content">
+				<li><a>${this.mainComponent.item1Text}</a></li>
+				<li><a>${this.mainComponent.item2Text}</a></li>
+			</ul>
+		</div>
+			</div>`;
+		} else if (this.element == 'dropdown1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<label tabindex="0" class="m-1 btn">${this.mainComponent.btnText}</label>
+		<ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+			<li><a>${this.mainComponent.item1Text}</a></li>
+			<li><a>${this.mainComponent.item2Text}</a></li>
+		</ul>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<label tabindex="0" class="m-1 btn">${this.mainComponent.btnText}</label>
+		<ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+			<li><a>${this.mainComponent.item1Text}</a></li>
+			<li><a>${this.mainComponent.item2Text}</a></li>
+		</ul>
 			</div>`;
 		}
 	}

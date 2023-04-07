@@ -18,9 +18,10 @@
 	import Chat1Modifier from './modifierComponents/Chat1Modifier.svelte';
 	import Checkbox1Modifier from './modifierComponents/Checkbox1Modifier.svelte';
 	import Collapse1Modifier from './modifierComponents/Collapse1Modifier.svelte';
-	import Countdown1 from './mainComponents/Countdown1.svelte';
 	import Countdown1Modifier from './modifierComponents/Countdown1Modifier.svelte';
 	import Divider1Modifier from './modifierComponents/Divider1Modifier.svelte';
+	import Drawer1Modifier from './modifierComponents/Drawer1Modifier.svelte';
+	import Dropdown1Modifier from './modifierComponents/Dropdown1Modifier.svelte';
 	$: swCodeH = $swCode;
 </script>
 
@@ -96,6 +97,10 @@
 			<Countdown1Modifier {swCodeH} />
 			{:else if swCodeH.selectedElement.element == 'divider1'}
 			<Divider1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'drawer1'}
+			<Drawer1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'dropdown1'}
+			<Dropdown1Modifier {swCodeH} />
 		{/if}
 		{#if swCodeH.selectedElement.element}
 			<ToolTipModifier {swCodeH} />
