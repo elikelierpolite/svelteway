@@ -23,6 +23,11 @@ import BottomNavigation8 from './viewingComponents/mainComponents/BottomNavigati
 import BottomNavigation9 from './viewingComponents/mainComponents/BottomNavigation9.svelte';
 import BottomNavigation10 from './viewingComponents/mainComponents/BottomNavigation10.svelte';
 import BottomNavigation11 from './viewingComponents/mainComponents/BottomNavigation11.svelte';
+import Breadcrumbs1 from './viewingComponents/mainComponents/Breadcrumbs1.svelte';
+import Breadcrumbs2 from './viewingComponents/mainComponents/Breadcrumbs2.svelte';
+import Breadcrumbs3 from './viewingComponents/mainComponents/Breadcrumbs3.svelte';
+import ButtonGroup1 from './viewingComponents/mainComponents/ButtonGroup1.svelte';
+import Button1 from './viewingComponents/mainComponents/Button1.svelte';
 
 export const swCode = writable({
 	cvElements: [],
@@ -152,6 +157,31 @@ export const cvElement = class cvElement {
 			});
 		} else if (this.element == 'btmnav11') {
 			this.mainComponent = new BottomNavigation11({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'breadcrumbs1') {
+			this.mainComponent = new Breadcrumbs1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'breadcrumbs2') {
+			this.mainComponent = new Breadcrumbs2({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'breadcrumbs3') {
+			this.mainComponent = new Breadcrumbs3({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'btngroup1') {
+			this.mainComponent = new ButtonGroup1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'btn1') {
+			this.mainComponent = new Button1({
 				target: document.querySelector('#cvh'),
 				props: this.props
 			});
@@ -1594,6 +1624,185 @@ ${this.mainComponent.svg3}
 </svg>
     </button>
 			</div>`;
+		} else if (this.element == 'breadcrumbs1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<ul>
+			<li><a>${this.mainComponent.content1}</a></li>
+			<li><a>${this.mainComponent.content2}</a></li>
+			<li>${this.mainComponent.content3}</li>
+		</ul>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<ul>
+			<li><a>${this.mainComponent.content1}</a></li>
+			<li><a>${this.mainComponent.content2}</a></li>
+			<li>${this.mainComponent.content3}</li>
+		</ul>
+			</div>`;
+		} else if (this.element == 'breadcrumbs2') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<ul>
+				<li>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="${this.mainComponent.svgStroke1}"
+							class="w-${this.mainComponent.svgw1} h-${this.mainComponent.svgh1} mr-2"
+						>
+						${this.mainComponent.svg1}</svg
+						>
+						${this.mainComponent.content1}
+					</a>
+				</li>
+				<li>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="${this.mainComponent.svgStroke2}"
+							class="w-${this.mainComponent.svgw2} h-${this.mainComponent.svgh2} mr-2"
+						>
+						${this.mainComponent.svg2}</svg
+						>
+						${this.mainComponent.content2}
+				</li>
+				<li>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="${this.mainComponent.svgStroke3}"
+							class="w-${this.mainComponent.svgw3} h-${this.mainComponent.svgh3} mr-2"
+						>
+						${this.mainComponent.svg3}</svg
+						>
+						${this.mainComponent.content3}
+					</a>
+				</li>
+			</ul>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<ul>
+				<li>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="${this.mainComponent.svgStroke1}"
+							class="w-${this.mainComponent.svgw1} h-${this.mainComponent.svgh1} mr-2"
+						>
+						${this.mainComponent.svg1}</svg
+						>
+						${this.mainComponent.content1}
+					</a>
+				</li>
+				<li>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="${this.mainComponent.svgStroke2}"
+							class="w-${this.mainComponent.svgw2} h-${this.mainComponent.svgh2} mr-2"
+						>
+						${this.mainComponent.svg2}</svg
+						>
+						${this.mainComponent.content2}
+				</li>
+				<li>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="${this.mainComponent.svgStroke3}"
+							class="w-${this.mainComponent.svgw3} h-${this.mainComponent.svgh3} mr-2"
+						>
+						${this.mainComponent.svg3}</svg
+						>
+						${this.mainComponent.content3}
+					</a>
+				</li>
+			</ul>
+			</div>`;
+		} else if (this.element == 'breadcrumbs3') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<ul>
+        <li>${this.mainComponent.content1}</li>
+        <li>${this.mainComponent.content2}</li>
+        <li>${this.mainComponent.content3}</li>
+        <li>${this.mainComponent.content4}</li>
+        <li>${this.mainComponent.content5}</li>
+    </ul>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<ul>
+        <li>${this.mainComponent.content1}</li>
+        <li>${this.mainComponent.content2}</li>
+        <li>${this.mainComponent.content3}</li>
+        <li>${this.mainComponent.content4}</li>
+        <li>${this.mainComponent.content5}</li>
+    </ul>
+			</div>`;
+		} else if (this.element == 'btngroup1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<button class="btn btn-active">${this.mainComponent.content1}</button>
+		<button class="btn">${this.mainComponent.content2}</button>
+		<button class="btn">${this.mainComponent.content3}</button>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<button class="btn btn-active">${this.mainComponent.content1}</button>
+		<button class="btn">${this.mainComponent.content2}</button>
+		<button class="btn">${this.mainComponent.content3}</button>
+			</div>`;
+		} else if (this.element == 'btn1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><button
+			class="${removeBorderClass.join(' ')}"
+		>${this.mainComponent.content1}
+		</button></div>`
+				: `<button
+				class="${removeBorderClass.join(' ')}"
+			>
+			${this.mainComponent.content1}
+			</button>`;
 		}
 	}
 };

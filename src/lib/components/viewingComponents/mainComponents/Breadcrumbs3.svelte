@@ -9,15 +9,13 @@
 	 * @type {any}
 	 */
 	export let swElementDataAttrId;
-	export let title;
-	export let cta1;
-	export let cta2;
-	export let svg;
-	export let svgw;
-	export let svgh;
-	export let svgStroke;
 	export let classes;
 	export let helper;
+	export let content1;
+	export let content2;
+	export let content3;
+	export let content4;
+	export let content5;
 	/**
 	 * @type {{ width: any; top: any; left: any; }}
 	 */
@@ -40,23 +38,13 @@
 			style={`border: ${swc.selectedElement.id == swElementDataAttrId && '1px solid #FF531A'}`}
 			class={classes.join('  ')}
 		>
-			<div>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke={`${svgStroke}`}
-					class={`w-${svgw} h-${svgh}`}
-				>
-					{@html svg}
-				</svg>
-				<span>{title}</span>
-			</div>
-			<div class="flex-none">
-				<button class="btn btn-sm btn-ghost">{cta1}</button>
-				<button class="btn btn-sm btn-primary">{cta2}</button>
-			</div>
+		<ul>
+            <li>{content1}</li>
+            <li>{content2}</li>
+            <li>{content3}</li>
+            <li>{content4}</li>
+            <li>{content5}</li>
+        </ul>
 		</div>
 	</div>
 {:else}
@@ -71,22 +59,12 @@
 		style={`border: ${swc.selectedElement.id == swElementDataAttrId && '1px solid #FF531A'}`}
 		class={classes.join('  ')}
 	>
-		<div>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke-width="1.5"
-				stroke={`${svgStroke}`}
-				class={`w-${svgw} h-${svgh}`}
-			>
-				{@html svg}
-			</svg>
-			<span>{title}</span>
-		</div>
-		<div class="flex-none">
-			<button class="btn btn-sm btn-ghost">{cta1}</button>
-			<button class="btn btn-sm btn-primary">{cta2}</button>
-		</div>
+	<ul>
+        <li>{content1}</li>
+        <li>{content2}</li>
+        <li>{content3}</li>
+        <li>{content4}</li>
+        <li>{content5}</li>
+    </ul>
 	</div>
 {/if}

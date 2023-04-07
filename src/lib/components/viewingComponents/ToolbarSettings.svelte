@@ -8,6 +8,11 @@
 	import Avatar1Modifier from './modifierComponents/Avatar1Modifier.svelte';
 	import BottomNavigation1Modifier from './modifierComponents/BottomNavigation1Modifier.svelte';
 	import BottomNavigation9Modifier from './modifierComponents/BottomNavigation9Modifier.svelte';
+	import Breadcrumbs1Modifier from './modifierComponents/Breadcrumbs1Modifier.svelte';
+	import Breadcrumbs2Modifier from './modifierComponents/Breadcrumbs2Modifier.svelte';
+	import Breadcrumbs3Modifier from './modifierComponents/Breadcrumbs3Modifier.svelte';
+	import ButtonGroup1Modifier from './modifierComponents/ButtonGroup1Modifier.svelte';
+	import Button1Modifier from './modifierComponents/Button1Modifier.svelte';
 	$: swCodeH = $swCode;
 </script>
 
@@ -59,6 +64,16 @@
 			<BottomNavigation9Modifier {swCodeH} />
 			{:else if swCodeH.selectedElement.element == 'btmnav11'}
 			<BottomNavigation1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'breadcrumbs1'}
+			<Breadcrumbs1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'breadcrumbs2'}
+			<Breadcrumbs2Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'breadcrumbs3'}
+			<Breadcrumbs3Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'btngroup1'}
+			<ButtonGroup1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'btn1'}
+			<Button1Modifier {swCodeH} />
 		{/if}
 		{#if swCodeH.selectedElement.element}
 			<ToolTipModifier {swCodeH} />
