@@ -30,6 +30,11 @@ import ButtonGroup1 from './viewingComponents/mainComponents/ButtonGroup1.svelte
 import Button1 from './viewingComponents/mainComponents/Button1.svelte';
 import Card1 from './viewingComponents/mainComponents/Card1.svelte';
 import Carousel1 from './viewingComponents/mainComponents/Carousel1.svelte';
+import Chat1 from './viewingComponents/mainComponents/Chat1.svelte';
+import Checkbox1 from './viewingComponents/mainComponents/Checkbox1.svelte';
+import Collapse1 from './viewingComponents/mainComponents/Collapse1.svelte';
+import Countdown1 from './viewingComponents/mainComponents/Countdown1.svelte';
+import Divider1 from './viewingComponents/mainComponents/Divider1.svelte';
 
 export const swCode = writable({
 	cvElements: [],
@@ -194,6 +199,31 @@ export const cvElement = class cvElement {
 			});
 		} else if (this.element == 'carousel1') {
 			this.mainComponent = new Carousel1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'chat1') {
+			this.mainComponent = new Chat1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'checkbox1') {
+			this.mainComponent = new Checkbox1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'collapse1') {
+			this.mainComponent = new Collapse1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'countdown1') {
+			this.mainComponent = new Countdown1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'divider1') {
+			this.mainComponent = new Divider1({
 				target: document.querySelector('#cvh'),
 				props: this.props
 			});
@@ -1898,6 +1928,94 @@ ${this.mainComponent.svg3}
 	<div class="carousel-item">
 		<img src="${this.mainComponent.item7ImgSrc}" alt="Burger" />
 	</div>
+			</div>`;
+		} else if (this.element == 'chat1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		><div class="w-full">
+		<div class="chat chat-start">
+			<div class="chat-bubble">${this.mainComponent.chat1}</div>
+		</div>
+		<div class="chat chat-end">
+			<div class="chat-bubble">${this.mainComponent.chat2}</div>
+		</div>
+	</div>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<div class="w-full">
+		<div class="chat chat-start">
+			<div class="chat-bubble">${this.mainComponent.chat1}</div>
+		</div>
+		<div class="chat chat-end">
+			<div class="chat-bubble">${this.mainComponent.chat2}</div>
+		</div>
+	</div>
+			</div>`;
+		} else if (this.element == 'checkbox1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><input type="checkbox" checked={true}
+			class="${removeBorderClass.join(' ')}"
+		/></div>`
+				: `<input type="checkbox" checked={true}
+				class="${removeBorderClass.join(' ')}"
+			/>`;
+		} else if (this.element == 'collapse1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+			tabindex="0"
+		><div class="collapse-title text-xl font-medium">
+		${this.mainComponent.title}
+	</div>
+	<div class="collapse-content">
+		<p>${this.mainComponent.contentBody}</p>
+	</div>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+				tabindex="0"
+			>
+			<div class="collapse-title text-xl font-medium">
+		${this.mainComponent.title}
+	</div>
+	<div class="collapse-content">
+		<p>${this.mainComponent.contentBody}</p>
+	</div>
+			</div>`;
+		} else if (this.element == 'countdown1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		><span class="cd" style="--value:${this.mainComponent.seconds}" />
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<span class="cd" style="--value:${this.mainComponent.seconds}" />
+			</div>`;
+		}  else if (this.element == 'divider1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>${this.mainComponent.text}
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			${this.mainComponent.text}
 			</div>`;
 		}
 	}

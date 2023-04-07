@@ -15,6 +15,12 @@
 	import Button1Modifier from './modifierComponents/Button1Modifier.svelte';
 	import Card1Modifier from './modifierComponents/Card1Modifier.svelte';
 	import Carousel1Modifier from './modifierComponents/Carousel1Modifier.svelte';
+	import Chat1Modifier from './modifierComponents/Chat1Modifier.svelte';
+	import Checkbox1Modifier from './modifierComponents/Checkbox1Modifier.svelte';
+	import Collapse1Modifier from './modifierComponents/Collapse1Modifier.svelte';
+	import Countdown1 from './mainComponents/Countdown1.svelte';
+	import Countdown1Modifier from './modifierComponents/Countdown1Modifier.svelte';
+	import Divider1Modifier from './modifierComponents/Divider1Modifier.svelte';
 	$: swCodeH = $swCode;
 </script>
 
@@ -80,6 +86,16 @@
 			<Card1Modifier {swCodeH} />
 			{:else if swCodeH.selectedElement.element == 'carousel1'}
 			<Carousel1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'chat1'}
+			<Chat1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'checkbox1'}
+			<Checkbox1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'collapse1'}
+			<Collapse1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'countdown1'}
+			<Countdown1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'divider1'}
+			<Divider1Modifier {swCodeH} />
 		{/if}
 		{#if swCodeH.selectedElement.element}
 			<ToolTipModifier {swCodeH} />
