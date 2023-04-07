@@ -56,7 +56,7 @@
 		<Alert />
 	{:else if $viewComponent.component == 'Artboard'}
 		<Artboard />
-	{:else if $viewComponent.component == 'Avartar'}
+	{:else if $viewComponent.component == 'Avatar'}
 		<Avartar />
 	{:else if $viewComponent.component == 'Badge'}
 		<Badge />

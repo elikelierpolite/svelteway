@@ -15,7 +15,7 @@
 			image: 'https://daisyui.com/images/components/artboard.jpg'
 		},
 		{
-			title: 'Avartar',
+			title: 'Avatar',
 			description:
 				'Avatars are used to show a thumbnail representation of an individual or business in the interface.',
 			image: 'https://daisyui.com/images/components/avatar.jpg'
