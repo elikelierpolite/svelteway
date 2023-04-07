@@ -13,6 +13,8 @@
 	import Breadcrumbs3Modifier from './modifierComponents/Breadcrumbs3Modifier.svelte';
 	import ButtonGroup1Modifier from './modifierComponents/ButtonGroup1Modifier.svelte';
 	import Button1Modifier from './modifierComponents/Button1Modifier.svelte';
+	import Card1Modifier from './modifierComponents/Card1Modifier.svelte';
+	import Carousel1Modifier from './modifierComponents/Carousel1Modifier.svelte';
 	$: swCodeH = $swCode;
 </script>
 
@@ -74,6 +76,10 @@
 			<ButtonGroup1Modifier {swCodeH} />
 			{:else if swCodeH.selectedElement.element == 'btn1'}
 			<Button1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'card1'}
+			<Card1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'carousel1'}
+			<Carousel1Modifier {swCodeH} />
 		{/if}
 		{#if swCodeH.selectedElement.element}
 			<ToolTipModifier {swCodeH} />

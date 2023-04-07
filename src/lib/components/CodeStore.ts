@@ -28,6 +28,8 @@ import Breadcrumbs2 from './viewingComponents/mainComponents/Breadcrumbs2.svelte
 import Breadcrumbs3 from './viewingComponents/mainComponents/Breadcrumbs3.svelte';
 import ButtonGroup1 from './viewingComponents/mainComponents/ButtonGroup1.svelte';
 import Button1 from './viewingComponents/mainComponents/Button1.svelte';
+import Card1 from './viewingComponents/mainComponents/Card1.svelte';
+import Carousel1 from './viewingComponents/mainComponents/Carousel1.svelte';
 
 export const swCode = writable({
 	cvElements: [],
@@ -182,6 +184,16 @@ export const cvElement = class cvElement {
 			});
 		} else if (this.element == 'btn1') {
 			this.mainComponent = new Button1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'card1') {
+			this.mainComponent = new Card1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'carousel1') {
+			this.mainComponent = new Carousel1({
 				target: document.querySelector('#cvh'),
 				props: this.props
 			});
@@ -1803,6 +1815,90 @@ ${this.mainComponent.svg3}
 			>
 			${this.mainComponent.content1}
 			</button>`;
+		} else if (this.element == 'card1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		><div class="card w-96 bg-base-100 shadow-xl">
+		<figure><img src="${this.mainComponent.imgSrc}" alt="${this.mainComponent.title}" /></figure>
+		<div class="card-body">
+			<h2 class="card-title">${this.mainComponent.title}</h2>
+			<p>${this.mainComponent.description}</p>
+			<div class="card-actions justify-end">
+				<button class="btn btn-primary">${this.mainComponent.cta}</button>
+			</div>
+		</div>
+	</div>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<div class="card w-96 bg-base-100 shadow-xl">
+		<figure><img src="${this.mainComponent.imgSrc}" alt="${this.mainComponent.title}" /></figure>
+		<div class="card-body">
+			<h2 class="card-title">${this.mainComponent.title}</h2>
+			<p>${this.mainComponent.description}</p>
+			<div class="card-actions justify-end">
+				<button class="btn btn-primary">${this.mainComponent.cta}</button>
+			</div>
+		</div>
+	</div>
+			</div>`;
+		} else if (this.element == 'carousel1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		><div class="carousel-item">
+		<img src="${this.mainComponent.item1ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item2ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item3ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item4ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item5ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item6ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item6ImgSrc}" alt="Burger" />
+	</div>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<div class="carousel-item">
+		<img src="${this.mainComponent.item1ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item2ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item3ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item4ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item5ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item6ImgSrc}" alt="Burger" />
+	</div>
+	<div class="carousel-item">
+		<img src="${this.mainComponent.item7ImgSrc}" alt="Burger" />
+	</div>
+			</div>`;
 		}
 	}
 };
