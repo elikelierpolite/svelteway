@@ -1,42 +1,74 @@
+<script>
+	import { swCode, cvElement } from '../CodeStore';
+	import { v4 as uuidv4 } from 'uuid';
+
+	function addComponent() {
+		const sweid = uuidv4();
+
+		let newCvElement = new cvElement('footer1', {
+			swElementDataAttrId: sweid,
+			classes: ['footer', 'p-10', 'bg-neutral', 'text-neutral-content'],
+			helper: {
+				on: false,
+				type: 'tooltip',
+				classes: ['tooltip'],
+				title: 'Hello World!'
+			}
+		});
+		newCvElement.create();
+		newCvElement.mc.$on('selected', function () {
+			newCvElement.showToolBar();
+		});
+		swCode.update((v) => ({
+			selectedElement: newCvElement,
+			cvElements: [...v.cvElements, newCvElement]
+		}));
+		let csc = document.getElementById('open-component-select');
+		csc && csc.click();
+	}
+</script>
+
 <div class="w-full flex flex-col gap-7 justify-center mb-10">
 	<div
 		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
 		id="ch"
 		style="background-size: 5px 5px"
 	>
-		<footer class="footer p-10 bg-neutral text-neutral-content">
-			<div>
-				<span class="footer-title">Services</span>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a class="link link-hover">Branding</a>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a class="link link-hover">Design</a>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a class="link link-hover">Marketing</a>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a class="link link-hover">Advertisement</a>
-			</div>
-			<div>
-				<span class="footer-title">Company</span>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a class="link link-hover">About us</a>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a class="link link-hover">Contact</a>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a class="link link-hover">Jobs</a>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a class="link link-hover">Press kit</a>
-			</div>
-			<div>
-				<span class="footer-title">Legal</span>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a class="link link-hover">Terms of use</a>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a class="link link-hover">Privacy policy</a>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a class="link link-hover">Cookie policy</a>
-			</div>
-		</footer>
+		<button class="w-full" on:click={addComponent}>
+			<footer class="footer p-10 bg-neutral text-neutral-content">
+				<div>
+					<span class="footer-title">Services</span>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a class="link link-hover">Branding</a>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a class="link link-hover">Design</a>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a class="link link-hover">Marketing</a>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a class="link link-hover">Advertisement</a>
+				</div>
+				<div>
+					<span class="footer-title">Company</span>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a class="link link-hover">About us</a>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a class="link link-hover">Contact</a>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a class="link link-hover">Jobs</a>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a class="link link-hover">Press kit</a>
+				</div>
+				<div>
+					<span class="footer-title">Legal</span>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a class="link link-hover">Terms of use</a>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a class="link link-hover">Privacy policy</a>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a class="link link-hover">Cookie policy</a>
+				</div>
+			</footer>
+		</button>
 	</div>
 	<div
 		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
@@ -321,7 +353,7 @@
 			<div>
 				<span class="footer-title">Social</span>
 				<div class="grid grid-flow-col gap-4">
-				<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a
 						><svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -334,7 +366,7 @@
 							/></svg
 						></a
 					>
-				<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a
 						><svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -347,7 +379,7 @@
 							/></svg
 						></a
 					>
-				<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a
 						><svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -462,7 +494,7 @@
 			</div>
 			<div>
 				<div class="grid grid-flow-col gap-4">
-				<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a
 						><svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -475,7 +507,7 @@
 							/></svg
 						></a
 					>
-				<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a
 						><svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -488,7 +520,7 @@
 							/></svg
 						></a
 					>
-				<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a
 						><svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -523,7 +555,7 @@
 			</div>
 			<div>
 				<div class="grid grid-flow-col gap-4">
-				<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a
 						><svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -536,7 +568,7 @@
 							/></svg
 						></a
 					>
-				<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a
 						><svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -549,7 +581,7 @@
 							/></svg
 						></a
 					>
-				<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a
 						><svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -625,7 +657,7 @@
 			</div>
 			<div class="md:place-self-center md:justify-self-end">
 				<div class="grid grid-flow-col gap-4">
-				<!-- svelte-ignore a11y-missing-attribute -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<a
 						><svg
 							xmlns="http://www.w3.org/2000/svg"

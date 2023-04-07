@@ -37,6 +37,37 @@ import Countdown1 from './viewingComponents/mainComponents/Countdown1.svelte';
 import Divider1 from './viewingComponents/mainComponents/Divider1.svelte';
 import Drawer1 from './viewingComponents/mainComponents/Drawer1.svelte';
 import Dropdown1 from './viewingComponents/mainComponents/Dropdown1.svelte';
+import FileInput1 from './viewingComponents/mainComponents/FileInput1.svelte';
+import Footer1 from './viewingComponents/mainComponents/Footer1.svelte';
+import Hero1 from './viewingComponents/mainComponents/Hero1.svelte';
+import InputGroup1 from './viewingComponents/mainComponents/InputGroup1.svelte';
+import TextInput1 from './viewingComponents/mainComponents/TextInput1.svelte';
+import Kbd1 from './viewingComponents/mainComponents/Kbd1.svelte';
+import Link1 from './viewingComponents/mainComponents/Link1.svelte';
+import Mask1 from './viewingComponents/mainComponents/Mask1.svelte';
+import Menu1 from './viewingComponents/mainComponents/Menu1.svelte';
+import CodeM1 from './viewingComponents/mainComponents/CodeM1.svelte';
+import PhoneM1 from './viewingComponents/mainComponents/PhoneM1.svelte';
+import WindM1 from './viewingComponents/mainComponents/WindM1.svelte';
+import Modal1 from './viewingComponents/mainComponents/Modal1.svelte';
+import NavBar1 from './viewingComponents/mainComponents/NavBar1.svelte';
+import Pagination1 from './viewingComponents/mainComponents/Pagination1.svelte';
+import Progress1 from './viewingComponents/mainComponents/Progress1.svelte';
+import RadialProgress1 from './viewingComponents/mainComponents/RadialProgress1.svelte';
+import Radio1 from './viewingComponents/mainComponents/Radio1.svelte';
+import Range1 from './viewingComponents/mainComponents/Range1.svelte';
+import Rating1 from './viewingComponents/mainComponents/Rating1.svelte';
+import Select1 from './viewingComponents/mainComponents/Select1.svelte';
+import Stack1 from './viewingComponents/mainComponents/Stack1.svelte';
+import Stat1 from './viewingComponents/mainComponents/Stat1.svelte';
+import Steps1 from './viewingComponents/mainComponents/Steps1.svelte';
+import Swap1 from './viewingComponents/mainComponents/Swap1.svelte';
+import Tab1 from './viewingComponents/mainComponents/Tab1.svelte';
+import Table1 from './viewingComponents/mainComponents/Table1.svelte';
+import TextArea1 from './viewingComponents/mainComponents/TextArea1.svelte';
+import Toast1 from './viewingComponents/mainComponents/Toast1.svelte';
+import Toggle1 from './viewingComponents/mainComponents/Toggle1.svelte';
+import ToolTip1 from './viewingComponents/mainComponents/ToolTip1.svelte';
 
 export const swCode = writable({
 	cvElements: [],
@@ -236,6 +267,161 @@ export const cvElement = class cvElement {
 			});
 		} else if (this.element == 'dropdown1') {
 			this.mainComponent = new Dropdown1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'fileinput1') {
+			this.mainComponent = new FileInput1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'footer1') {
+			this.mainComponent = new Footer1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'hero1') {
+			this.mainComponent = new Hero1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'inputgroup1') {
+			this.mainComponent = new InputGroup1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'textinput1') {
+			this.mainComponent = new TextInput1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'kbd1') {
+			this.mainComponent = new Kbd1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'link1') {
+			this.mainComponent = new Link1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'mask1') {
+			this.mainComponent = new Mask1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'menu1') {
+			this.mainComponent = new Menu1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'codem1') {
+			this.mainComponent = new CodeM1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'phonem1') {
+			this.mainComponent = new PhoneM1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'windm1') {
+			this.mainComponent = new WindM1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'modal1') {
+			this.mainComponent = new Modal1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'navbar1') {
+			this.mainComponent = new NavBar1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'pagination1') {
+			this.mainComponent = new Pagination1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'progress1') {
+			this.mainComponent = new Progress1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'rprogress1') {
+			this.mainComponent = new RadialProgress1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'radio1') {
+			this.mainComponent = new Radio1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'range1') {
+			this.mainComponent = new Range1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'rating1') {
+			this.mainComponent = new Rating1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'select1') {
+			this.mainComponent = new Select1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'stack1') {
+			this.mainComponent = new Stack1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'stat1') {
+			this.mainComponent = new Stat1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'steps1') {
+			this.mainComponent = new Steps1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'swap1') {
+			this.mainComponent = new Swap1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'tab1') {
+			this.mainComponent = new Tab1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'table1') {
+			this.mainComponent = new Table1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'textarea1') {
+			this.mainComponent = new TextArea1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'toast1') {
+			this.mainComponent = new Toast1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'toggle1') {
+			this.mainComponent = new Toggle1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+		} else if (this.element == 'tooltip1') {
+			this.mainComponent = new ToolTip1({
 				target: document.querySelector('#cvh'),
 				props: this.props
 			});
@@ -2084,6 +2270,546 @@ ${this.mainComponent.svg3}
 			<li><a>${this.mainComponent.item2Text}</a></li>
 		</ul>
 			</div>`;
+		} else if (this.element == 'fileinput1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><input type="file"
+			class="${removeBorderClass.join(' ')}"
+		/></div>`
+				: `<input type="file"
+				class="${removeBorderClass.join(' ')}"
+			/>`;
+		} else if (this.element == 'footer1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><footer
+			class="${removeBorderClass.join(' ')}"
+		>
+		<div>
+					<span class="footer-title">Services</span>
+					<a class="link link-hover">Branding</a>
+					<a class="link link-hover">Design</a>
+					<a class="link link-hover">Marketing</a>
+					<a class="link link-hover">Advertisement</a>
+				</div>
+				<div>
+					<span class="footer-title">Company</span>
+					<a class="link link-hover">About us</a>
+					<a class="link link-hover">Contact</a>
+					<a class="link link-hover">Jobs</a>
+					<a class="link link-hover">Press kit</a>
+				</div>
+				<div>
+					<span class="footer-title">Legal</span>
+					<a class="link link-hover">Terms of use</a>
+					<a class="link link-hover">Privacy policy</a>
+					<a class="link link-hover">Cookie policy</a>
+				</div>
+		</footer></div>`
+				: `<footer
+				class="${removeBorderClass.join(' ')}"
+			>
+			<div>
+					<span class="footer-title">Services</span>
+					<a class="link link-hover">Branding</a>
+					<a class="link link-hover">Design</a>
+					<a class="link link-hover">Marketing</a>
+					<a class="link link-hover">Advertisement</a>
+				</div>
+				<div>
+					<span class="footer-title">Company</span>
+					<a class="link link-hover">About us</a>
+					<a class="link link-hover">Contact</a>
+					<a class="link link-hover">Jobs</a>
+					<a class="link link-hover">Press kit</a>
+				</div>
+				<div>
+					<span class="footer-title">Legal</span>
+					<a class="link link-hover">Terms of use</a>
+					<a class="link link-hover">Privacy policy</a>
+					<a class="link link-hover">Cookie policy</a>
+				</div>
+			</footer>`;
+		} else if (this.element == 'hero1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<div class="hero-content text-center">
+				<div class="max-w-md">
+					<h1 class="text-5xl font-bold">Hello there</h1>
+					<p class="py-6">
+						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+					</p>
+					<button class="btn btn-primary">Get Started</button>
+				</div>
+			</div>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<div class="hero-content text-center">
+				<div class="max-w-md">
+					<h1 class="text-5xl font-bold">Hello there</h1>
+					<p class="py-6">
+						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+					</p>
+					<button class="btn btn-primary">Get Started</button>
+				</div>
+			</div>
+			</div>`;
+		} else if (this.element == 'inputgroup1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<label class="label">
+				<span class="label-text">Your Email</span>
+			</label>
+			<label class="input-group">
+				<span>Email</span>
+				<input type="text" placeholder="info@site.com" class="input input-bordered" />
+			</label>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<label class="label">
+				<span class="label-text">Your Email</span>
+			</label>
+			<label class="input-group">
+				<span>Email</span>
+				<input type="text" placeholder="info@site.com" class="input input-bordered" />
+			</label>
+			</div>`;
+		} else if (this.element == 'textinput1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><input type="text"
+			class="${removeBorderClass.join(' ')}"
+		/></div>`
+				: `<input type="text"
+				class="${removeBorderClass.join(' ')}"
+			/>`;
+		} else if (this.element == 'kbd1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>A</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>A</div>`;
+		} else if (this.element == 'link1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>I'm a simple link</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>I'm a simple link</div>`;
+		} else if (this.element == 'mask1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><img src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg"
+				  alt=""
+				  class="${removeBorderClass.join(' ')}"
+			  /></div>`
+				: `<img src="https://daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.jpg"
+				alt=""
+				class="${removeBorderClass.join(' ')}"
+			/>`;
+		} else if (this.element == 'menu1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+			  ><li><a href="#">Item 1</a></li>
+			  <li><a href="#">Item 2</a></li>
+			  <li><a href="#">Item 3</a></li></div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+			><li><a href="#">Item 1</a></li>
+			<li><a href="#">Item 2</a></li>
+			<li><a href="#">Item 3</a></li></div>`;
+		} else if (this.element == 'codem1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+			  ><pre data-prefix="$"><code>npm i daisyui</code></pre></div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+			><pre data-prefix="$"><code>npm i daisyui</code></pre></div>`;
+		} else if (this.element == 'phonem1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+			  ><div class="camera" />
+			  <div class="display">
+				  <div class="artboard artboard-demo phone-1">Hi.</div>
+			  </div></div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+			><div class="camera" />
+			<div class="display">
+				<div class="artboard artboard-demo phone-1">Hi.</div>
+			</div></div>`;
+		} else if (this.element == 'windm1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+			  ><div class="flex justify-center px-4 py-16 border-t border-base-300">Hello!</div></div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+			><div class="flex justify-center px-4 py-16 border-t border-base-300">Hello!</div></div>`;
+		} else if (this.element == 'modal1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+			  ><label for="my-modal" class="btn">open modal</label>
+			  <input type="checkbox" id="my-modal" class="modal-toggle" />
+			  <div class="modal">
+				  <div class="modal-box">
+					  <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
+					  <p class="py-4">
+						  You've been selected for a chance to get one year of subscription to use Wikipedia for
+						  free!
+					  </p>
+					  <div class="modal-action">
+						  <label for="my-modal" class="btn">Yay!</label>
+					  </div>
+				  </div></div></div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+			><label for="my-modal" class="btn">open modal</label>
+			<input type="checkbox" id="my-modal" class="modal-toggle" />
+			<div class="modal">
+				<div class="modal-box">
+					<h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
+					<p class="py-4">
+						You've been selected for a chance to get one year of subscription to use Wikipedia for
+						free!
+					</p>
+					<div class="modal-action">
+						<label for="my-modal" class="btn">Yay!</label>
+					</div>
+				</div></div></div>`;
+		} else if (this.element == 'navbar1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+			  ><a href="#" class="btn btn-ghost normal-case text-xl">daisyUI</a></div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+			><a href="#" class="btn btn-ghost normal-case text-xl">daisyUI</a></div>`;
+		} else if (this.element == 'pagination1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+			  ><button class="btn">1</button>
+			  <button class="btn btn-active">2</button>
+			  <button class="btn">3</button>
+			  <button class="btn">4</button></div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+			><button class="btn">1</button>
+			<button class="btn btn-active">2</button>
+			<button class="btn">3</button>
+			<button class="btn">4</button></div>`;
+		} else if (this.element == 'progress1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+			  ><progress class="progress w-56" value="0" max="100" />
+			  <progress class="progress w-56" value="10" max="100" />
+			  <progress class="progress w-56" value="40" max="100" />
+			  <progress class="progress w-56" value="70" max="100" />
+			  <progress class="progress w-56" value="100" max="100" /></div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+			><progress class="progress w-56" value="0" max="100" />
+			<progress class="progress w-56" value="10" max="100" />
+			<progress class="progress w-56" value="40" max="100" />
+			<progress class="progress w-56" value="70" max="100" />
+			<progress class="progress w-56" value="100" max="100" /></div>`;
+		} else if (this.element == 'rprogress1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+				  style="--value:70;"
+			  >70%</div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+				style="--value:70;"
+			>70%</div>`;
+		} else if (this.element == 'radio1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+			  ><input type="radio" name="radio-1" class="radio" checked />
+			  <input type="radio" name="radio-1" class="radio" /></div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+			><input type="radio" name="radio-1" class="radio" checked />
+			<input type="radio" name="radio-1" class="radio" /></div>`;
+		} else if (this.element == 'range1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+			  ><input type="range" min="0" max="100" value="40" class="range max-w-xs" /></div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+			><input type="range" min="0" max="100" value="40" class="range max-w-xs" /></div>`;
+		} else if (this.element == 'rating1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div 
+				  class="${removeBorderClass.join(' ')}"
+			  ><input type="radio" name="rating-1" class="mask mask-star" />
+			  <input type="radio" name="rating-1" class="mask mask-star" checked />
+			  <input type="radio" name="rating-1" class="mask mask-star" />
+			  <input type="radio" name="rating-1" class="mask mask-star" />
+			  <input type="radio" name="rating-1" class="mask mask-star" /></div></div>`
+				: `<div 
+				class="${removeBorderClass.join(' ')}"
+			><input type="radio" name="rating-1" class="mask mask-star" />
+			<input type="radio" name="rating-1" class="mask mask-star" checked />
+			<input type="radio" name="rating-1" class="mask mask-star" />
+			<input type="radio" name="rating-1" class="mask mask-star" />
+			<input type="radio" name="rating-1" class="mask mask-star" /></div>`;
+		} else if (this.element == 'select1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><select 
+				  class="${removeBorderClass.join(' ')}"
+			  ><option disabled selected>Pick your favorite Simpson</option>
+			  <option>Homer</option>
+			  <option>Marge</option>
+			  <option>Bart</option>
+			  <option>Lisa</option>
+			  <option>Maggie</option></select></div>`
+				: `<select 
+				class="${removeBorderClass.join(' ')}"
+			><option disabled selected>Pick your favorite Simpson</option>
+			<option>Homer</option>
+			<option>Marge</option>
+			<option>Bart</option>
+			<option>Lisa</option>
+			<option>Maggie</option></select>`;
+		} else if (this.element == 'stack1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div>
+				  <div class="grid w-32 h-20 rounded bg-primary text-primary-content place-content-center">
+					  1
+				  </div>
+				  <div class="grid w-32 h-20 rounded bg-accent text-accent-content place-content-center">2</div>
+				  <div class="grid w-32 h-20 rounded bg-secondary text-secondary-content place-content-center">
+					  3
+				  </div>
+			  </div></div>`
+				: `<div>
+				<div class="grid w-32 h-20 rounded bg-primary text-primary-content place-content-center">
+					1
+				</div>
+				<div class="grid w-32 h-20 rounded bg-accent text-accent-content place-content-center">2</div>
+				<div class="grid w-32 h-20 rounded bg-secondary text-secondary-content place-content-center">
+					3
+				</div>
+			</div>`;
+		} else if (this.element == 'stat1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div class="${removeBorderClass.join(' ')}"><div class="stat">
+				  <div class="stat-title">Total Page Views</div>
+				  <div class="stat-value">89,400</div>
+				  <div class="stat-desc">21% more than last month</div>
+			  </div></div></div>`
+				: `<div class="${removeBorderClass.join(' ')}">
+				<div class="stat">
+			<div class="stat-title">Total Page Views</div>
+			<div class="stat-value">89,400</div>
+			<div class="stat-desc">21% more than last month</div>
+		</div>
+			</div>`;
+		} else if (this.element == 'steps1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><ul class="${removeBorderClass.join(' ')}">
+				  <li class="step step-primary">Register</li>
+			<li class="step step-primary">Choose plan</li>
+			<li class="step">Purchase</li>
+			<li class="step">Receive Product</li>
+			  </ul></div>`
+				: `<ul class="${removeBorderClass.join(' ')}">
+				<li class="step step-primary">Register</li>
+			<li class="step step-primary">Choose plan</li>
+			<li class="step">Purchase</li>
+			<li class="step">Receive Product</li>
+		</ul>`;
+		} else if (this.element == 'swap1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><label class="${removeBorderClass.join(' ')}">
+				  <input type="checkbox" />
+				<div class="swap-on">ON</div>
+				<div class="swap-off">OFF</div>
+			  </label></div>`
+				: `<label class="${removeBorderClass.join(' ')}">
+				<input type="checkbox" />
+				<div class="swap-on">ON</div>
+				<div class="swap-off">OFF</div>
+		</label>`;
+		} else if (this.element == 'tab1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div class="${removeBorderClass.join(' ')}">
+				  <a class="tab">Tab 1</a>
+				  <a class="tab tab-active">Tab 2</a>
+				  <a class="tab">Tab 3</a>
+			  </div></div>`
+				: `<div class="${removeBorderClass.join(' ')}">
+				<a class="tab">Tab 1</a>
+		<a class="tab tab-active">Tab 2</a>
+		<a class="tab">Tab 3</a>
+		</div>`;
+		} else if (this.element == 'table1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><table class="${removeBorderClass.join(' ')}">
+			<thead>
+				<tr>
+					<th />
+					<th>Name</th>
+					<th>Job</th>
+					<th>Favorite Color</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>1</th>
+					<td>Cy Ganderton</td>
+					<td>Quality Control Specialist</td>
+					<td>Blue</td>
+				</tr>
+				<tr>
+					<th>2</th>
+					<td>Hart Hagerty</td>
+					<td>Desktop Support Technician</td>
+					<td>Purple</td>
+				</tr>
+				<tr>
+					<th>3</th>
+					<td>Brice Swyre</td>
+					<td>Tax Accountant</td>
+					<td>Red</td>
+				</tr>
+			</tbody>
+			  </table></div>`
+				: `<table class="${removeBorderClass.join(' ')}">
+				<thead>
+				<tr>
+					<th />
+					<th>Name</th>
+					<th>Job</th>
+					<th>Favorite Color</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>1</th>
+					<td>Cy Ganderton</td>
+					<td>Quality Control Specialist</td>
+					<td>Blue</td>
+				</tr>
+				<tr>
+					<th>2</th>
+					<td>Hart Hagerty</td>
+					<td>Desktop Support Technician</td>
+					<td>Purple</td>
+				</tr>
+				<tr>
+					<th>3</th>
+					<td>Brice Swyre</td>
+					<td>Tax Accountant</td>
+					<td>Red</td>
+				</tr>
+			</tbody>
+		</table>`;
+		} else if (this.element == 'textarea1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><textarea placeholder="Bio" class="${removeBorderClass.join(' ')}" /></div>`
+				: `<textarea placeholder="Bio" class="${removeBorderClass.join(' ')}" />`;
+		} else if (this.element == 'toast1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div class="${removeBorderClass.join(' ')}"><div class="alert alert-info">
+				  <div>
+					  <span>New message arrived.</span>
+				  </div>
+			  </div></div></div>`
+				: `<div class="${removeBorderClass.join(' ')}"><div class="alert alert-info">
+				<div>
+					<span>New message arrived.</span>
+				</div>
+			</div></div>`;
+		} else if (this.element == 'toggle1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><input type="checkbox" class="${removeBorderClass.join(' ')}" /></div>`
+				: `<input type="checkbox" class="${removeBorderClass.join(' ')}" />`;
+		} else if (this.element == 'tooltip1') {
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div class="${removeBorderClass.join(' ')}" data-tip="hello"><button class="btn">Hover me</button></div></div>`
+				: `<div class="${removeBorderClass.join(' ')}" data-tip="hello"><button class="btn">Hover me</button></div>`;
 		}
 	}
 };

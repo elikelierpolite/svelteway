@@ -1,4 +1,6 @@
 <script>
+	import { swCode, cvElement } from '../CodeStore';
+	import { v4 as uuidv4 } from 'uuid';
 	import { onMount } from "svelte";
 
 
@@ -9,6 +11,31 @@
             element.indeterminate = true;
         }
     })
+
+	function addComponent() {
+		const sweid = uuidv4();
+
+		let newCvElement = new cvElement('toggle1', {
+			swElementDataAttrId: sweid,
+			classes: ['toggle'],
+			helper: {
+				on: false,
+				type: 'tooltip',
+				classes: ['tooltip'],
+				title: 'Hello World!'
+			}
+		});
+		newCvElement.create();
+		newCvElement.mc.$on('selected', function () {
+			newCvElement.showToolBar();
+		});
+		swCode.update((v) => ({
+			selectedElement: newCvElement,
+			cvElements: [...v.cvElements, newCvElement]
+		}));
+		let csc = document.getElementById('open-component-select');
+		csc && csc.click();
+	}
 </script>
 <div class="w-full flex flex-col gap-7 justify-center mb-10">
 	<div
@@ -16,7 +43,9 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+	<button class="w-full grid content-center justify-center" on:click={addComponent}>
 		<input type="checkbox" class="toggle" checked />
+	</button>
 	</div>
 	<div
 		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"

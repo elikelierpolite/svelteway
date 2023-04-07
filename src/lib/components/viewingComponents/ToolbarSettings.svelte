@@ -22,6 +22,7 @@
 	import Divider1Modifier from './modifierComponents/Divider1Modifier.svelte';
 	import Drawer1Modifier from './modifierComponents/Drawer1Modifier.svelte';
 	import Dropdown1Modifier from './modifierComponents/Dropdown1Modifier.svelte';
+	import FileInput1Modifier from './modifierComponents/FileInput1Modifier.svelte';
 	$: swCodeH = $swCode;
 </script>
 
@@ -101,6 +102,8 @@
 			<Drawer1Modifier {swCodeH} />
 			{:else if swCodeH.selectedElement.element == 'dropdown1'}
 			<Dropdown1Modifier {swCodeH} />
+			{:else if swCodeH.selectedElement.element == 'fileinput1'}
+			<FileInput1Modifier {swCodeH} />
 		{/if}
 		{#if swCodeH.selectedElement.element}
 			<ToolTipModifier {swCodeH} />

@@ -1,21 +1,53 @@
+<script>
+	import { swCode, cvElement } from '../CodeStore';
+	import { v4 as uuidv4 } from 'uuid';
+
+	function addComponent() {
+		const sweid = uuidv4();
+
+		let newCvElement = new cvElement('hero1', {
+			swElementDataAttrId: sweid,
+			classes: ['hero', 'min-h-screen', 'bg-base-200'],
+			helper: {
+				on: false,
+				type: 'tooltip',
+				classes: ['tooltip'],
+				title: 'Hello World!'
+			}
+		});
+		newCvElement.create();
+		newCvElement.mc.$on('selected', function () {
+			newCvElement.showToolBar();
+		});
+		swCode.update((v) => ({
+			selectedElement: newCvElement,
+			cvElements: [...v.cvElements, newCvElement]
+		}));
+		let csc = document.getElementById('open-component-select');
+		csc && csc.click();
+	}
+</script>
+
 <div class="w-full flex flex-col gap-7 justify-center mb-10">
 	<div
 		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
 		id="ch"
 		style="background-size: 5px 5px"
 	>
-		<div class="hero min-h-screen bg-base-200">
-			<div class="hero-content text-center">
-				<div class="max-w-md">
-					<h1 class="text-5xl font-bold">Hello there</h1>
-					<p class="py-6">
-						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
-					</p>
-					<button class="btn btn-primary">Get Started</button>
+		<button class="w-full" on:click={addComponent}>
+			<div class="hero min-h-screen bg-base-200">
+				<div class="hero-content text-center">
+					<div class="max-w-md">
+						<h1 class="text-5xl font-bold">Hello there</h1>
+						<p class="py-6">
+							Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+							exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+						</p>
+						<button class="btn btn-primary">Get Started</button>
+					</div>
 				</div>
 			</div>
-		</div>
+		</button>
 	</div>
 	<div
 		class="preview border-base-300 bg-base-200 rounded-b-box rounded-tr-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden border bg-cover bg-top p-4 hover:cursor-pointer"
