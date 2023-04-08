@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 'use strict';
-import { mkdir } from 'node:fs/promises';
 import { Buffer } from 'node:buffer';
 import * as fs from 'fs';
 import { cwd } from 'process';
+import replaceInFile from 'replace-in-file';
 
 const printUsageDetails = () => {
 	const actions = [
@@ -25,6 +25,11 @@ const printUsageDetails = () => {
 const svelteWayDev = async () => {
 	try {
 		const currentDirectory = cwd().replace(/\\/g, '/')
+		if (fs.existsSync(`${currentDirectory}/Svelteway-safe-layout.svelte`)) {
+			const content = await fs.promises.readFile(`${currentDirectory}/Svelteway-safe-layout.svelte`);
+			const buf = Buffer.from(`${content}`, 'utf8')
+			fs.writeFileSync(`${currentDirectory}/src/routes/+layout.svelte`, buf);
+		}
 		const folderName = `${currentDirectory}/src/routes/api/svelteway`;
 		const buf = Buffer.from(`import type { Actions } from './$types';
 		import { redirect } from '@sveltejs/kit';
@@ -63,7 +68,29 @@ const svelteWayDev = async () => {
 const svelteWayBuild = async () => {
 	try {
 		const currentDirectory = cwd().replace(/\\/g, '/')
-		fs.rmdirSync(`${currentDirectory}/src/routes/api/svelteway`, { recursive: true });
+		const layoutFile = `${currentDirectory}/src/routes/+layout.svelte`
+  		const content = await fs.promises.readFile(layoutFile)
+		const buf = Buffer.from(`${content}`, 'utf8')
+		fs.writeFileSync(`${currentDirectory}/Svelteway-safe-layout.svelte`, buf);
+		fs.rm(`${currentDirectory}/src/routes/api/svelteway`, { recursive: true });
+		const options = {
+			files: layoutFile,
+			from: '<Layout data={data}>',
+			to: '',
+		  };
+		const options2 = {
+			files: layoutFile,
+			from: '</Layout>',
+			to: '',
+		  };
+		const options3 = {
+			files: layoutFile,
+			from: `import Layout from '$lib/components/Layout.svelte';`,
+			to: '',
+		  };
+		  const results = await replaceInFile(options)
+		  const results2 = await replaceInFile(options2)
+		  const results3 = await replaceInFile(options3)
 	} catch (err) {
 		console.error(err);
 	}

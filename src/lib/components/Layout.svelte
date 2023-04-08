@@ -1,5 +1,5 @@
 <script>
-	import '../app.css';
+	import '../styles/globals.css';
 	import ActionButtons from './ActionButtons.svelte';
 	import Canvas from './Canvas.svelte';
 	import { swCode } from './CodeStore';
@@ -7,10 +7,7 @@
 	import axios from 'axios';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	// @ts-ignore
-	// @ts-ignore
 	export let data;
-	// @ts-ignore
 	let swc = [];
 	function swSave() {
 		$swCode.cvElements.forEach((element) => {
@@ -42,7 +39,7 @@
 </script>
 
 <Toaster />
-<div data-theme="corporate" class="h-[100vh] w-[100vw] font-sans">
+<div data-theme="light" class="h-[100vh] w-[100vw] font-sans">
 	<div class="flex h-full w-full">
 		<ActionButtons />
 		<Canvas on:save={swSave} {data}>

@@ -15,9 +15,8 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"bin": {
-		"svelteway": "./dist/cli.js"
+		"svelteway": "./dist/bin/cli.js"
 	},
-	"licence": "MIT",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
@@ -65,5 +64,17 @@
 		"replace-in-file": "^6.3.5",
 		"svelte-french-toast": "^1.0.4-beta.0",
 		"uuid": "^9.0.0"
-	}
+	},
+	"licence": "MIT",
+	"author": "Elikelier Polite",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/elikelierpolite/svelteway.git"
+	  },
+	  "keywords": [
+		"svelte",
+		"sveltekit",
+		"svelteui",
+		"svelteway"
+	  ]
 }

@@ -487,8 +487,11 @@ export const cvElement = class cvElement {
 		return this.classes.join('  ');
 	}
 	swecode() {
-		const removeBorderClass = this.mainComponent.classes.filter(
-			(cls) => cls !== 'hover:border-[1px]' && 'hover:border-[#FF531A]'
+		const removedBorder = this.mainComponent.classes.filter(
+			(cls) => cls !== 'hover:border-[1px]'
+		);
+		const removeBorderClass = removedBorder.filter(
+			(cls) => cls !== 'hover:border-[#FF531A]'
 		);
 		if (this.element == 'alert1') {
 			this.code = this.mainComponent.helper.on
