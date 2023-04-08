@@ -9,7 +9,7 @@ export const load = (async ({ route }) => {
 	return {
 		data: {
       source: content.toString('utf8'),
-      file: fileToRead
+      file: fileToRead,
     }
 	};
 }) satisfies LayoutServerLoad;
