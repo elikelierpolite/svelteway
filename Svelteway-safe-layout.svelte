@@ -4,6 +4,6 @@
   export let data
 </script>
 
-<Layout data={data}>
+<Layout {data}>
   <slot />
 </Layout>
