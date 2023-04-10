@@ -2,8 +2,8 @@
 	"name": "svelteway",
 	"version": "0.0.36",
 	"scripts": {
-		"dev": "svelteway dev && vite dev",
-		"build": "svelteway build && vite build && npm run package",
+		"dev": "vite dev",
+		"build": "vite build && npm run package",
 		"preview": "vite preview",
 		"package": "svelte-kit sync && svelte-package && publint",
 		"prepublishOnly": "npm run package",

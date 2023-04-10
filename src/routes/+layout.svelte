@@ -1,9 +1,19 @@
 <script>
 	import '../app.css';
+	import { page } from "$app/stores";
+	import { afterUpdate } from 'svelte';
+	
+	$: isHomePage = false
+	afterUpdate(() => {
+		if($page.route.id == '/'){
+			isHomePage = true
+		} else {
+			isHomePage = false
+		}
+	});
 </script>
-
 <div data-theme="dark">
-<header aria-label="Site Header" class="bg-[#2E2E2E] shadow-lg">
+<header aria-label="Site Header" class="bg-[#1E1E20] shadow-lg">
 	<div class="mx-auto flex h-16 max-w-screen-xl items-center gap-2 px-2">
 		<a class="block text-teal-600" href="/">
 			<span class="sr-only">Home</span>
@@ -99,3 +109,11 @@
 </header>
 <slot />
 </div>
+
+<footer class={`${!isHomePage && 'mb-16'} md:mb-0 footer footer-center p-4 bg-[#1E1E20] text-base-content border-y-2 border-black`}>
+	<div>
+		<p>
+			Released under the MIT License. Copyright © 2023 Eliekelier Polite & Svelteway Contributors
+		</p>
+	</div>
+</footer>
