@@ -1,26 +1,21 @@
 <svelte:head>
-	<title>Svelteway | Docs</title>
+	<title>Svelteway | Installation</title>
 </svelte:head>
 
 <div class="w-full">
 	<div class="grid grid-cols-1 justify-between md:grid-cols-4">
 		<div class="col-span-3 w-full max-w-full">
-			<h1 class="mt-5 text-5xl font-extrabold sm:text-5xl">Introduction</h1>
-			<h1 class="text-2xl sm:text-2xl mt-10">Before we begin</h1>
-			<div class="divider" />
-			<div class="p-3 border-2 border-[#FF531A] rounded-sm shadow-md max-w-full">
-				<p class="text-lg font-semibold">
-					If you're new to Svelte or SvelteKit we recommend checking out the <span
-						class="text-[#FF531A]"
-						><a href="https://learn.svelte.dev" target="_blank">interactive tutorial.</a></span
-					><br /><br />
-					If you get stuck, reach out for help in the
-					<span class="text-[#FF531A]"
-						><a href="https://svelte.dev/chat" target="_blank">Discord chatroom.</a></span
-					>
-				</p>
+			<h1 class="mt-5 text-5xl font-extrabold sm:text-5xl">Installation</h1>
+			<h1 class="text-xl sm:text-xl mt-10">
+				The easiest way to start building a SvelteWay app is to run npm create:
+			</h1>
+			<div class="mockup-code mt-2 bg-[#242424]">
+				<pre data-prefix="$"><code><span class="text-[#EAB095]">npm</span> create svelteway@latest my-app</code></pre>
+				<pre data-prefix="$"><code><span class="text-[#EAB095]">cd</span> my-app</code></pre>
+				<pre data-prefix="$"><code><span class="text-[#EAB095]">npm install</span></code></pre>
+				<pre data-prefix="$"><code><span class="text-[#EAB095]">npm</span> run dev</code></pre>
 			</div>
-			<h1 class="text-2xl sm:text-2xl mt-10">What is SvelteWay?</h1>
+			<h1 class="text-2xl sm:text-2xl mt-10">Manual Setup</h1>
 			<div class="divider" />
 			<div>
 				<p class="text-lg">
@@ -54,9 +49,8 @@
 		</div>
 		<div class="hidden md:block">
 			<ul data-theme="swtheme" class="menu bg-[#1A1A1A] w-56">
-				<li class="bordered"><a>Introduction</a></li>
-				<li><a>Before we begin</a></li>
-				<li><a>What is SvelteWay?</a></li>
+				<li class="bordered"><a>Create SvelteWay</a></li>
+				<li><a>Manual Setup</a></li>
 			</ul>
 		</div>
 	</div>

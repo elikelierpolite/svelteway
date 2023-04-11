@@ -1,8 +1,8 @@
-<div class="drawer drawer-mobile">
+<div class="drawer drawer-mobile bg-[#1A1A1A]">
 	<input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-	<div class="drawer-content bg-[#1A1A1A] flex flex-col items-center justify-center">
-		<!-- Page content here -->
-		<div class="btm-nav mt-5 lg:hidden">
+	<div class="drawer-content bg-[#1A1A1A] flex flex-col w-full m-5 mt-10">
+		<slot />
+		<div class="btm-nav mt-5 lg:hidden bg-[#1E1E20]">
 			<label for="my-drawer-2" class="btn btn-ghost drawer-button lg:hidden sticky bottom-5 left-2"
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -27,6 +27,7 @@
 			<!-- Sidebar content here -->
 			<li><a class="btn-ghost" href="">Introduction</a></li>
 			<li><a class="btn-ghost" href="">Installation</a></li>
+			<li><a class="btn-ghost" href="">Usage</a></li>
 		</ul>
 	</div>
 </div>

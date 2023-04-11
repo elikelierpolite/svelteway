@@ -417,7 +417,7 @@
 					</button>
 					<h2 class="card-title">Custom Design Systems</h2>
 					<p style="font-size: 14px; font-weight: 500; line-height:24px">
-						Create your custom design system for your application.
+						Create your custom design system for your applications.
 					</p>
 					<div class="card-actions justify-end" />
 				</div>
@@ -600,7 +600,7 @@
 					</button>
 					<h2 class="card-title">Backend Integration</h2>
 					<p style="font-size: 14px; font-weight: 500; line-height:24px">
-						Backend Integration with PocketBase, SupaBase, Firebase etc (GUI.)
+						Backend Integration with PocketBase, SupaBase, Firebase etc.
 					</p>
 					<div class="card-actions justify-end" />
 				</div>
