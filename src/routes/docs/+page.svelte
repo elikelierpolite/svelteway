@@ -28,7 +28,7 @@
 					words "A very opinionated way to build UI's for your Svelte Kit Applications".<br /><br />
 					SvelteWay Includes a WYSIWYG Editor on your SvelteKit Pages and let's you create and edit UI
 					Components visually in the browser and save the components code in your pages.<br />Thus
-					reducing the time it takes from Dev to Production!
+					reducing the time it takes from Dev to Production.
 				</p>
 			</div>
 			<div class="grid content-end justify-end mt-5 mb-10 md:mb-0">

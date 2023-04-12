@@ -60,7 +60,11 @@ const svelteWayDev = async () => {
 		try {
 			if (!fs.existsSync(folderName)) {
 				fs.mkdirSync(folderName);
+				if (fs.existsSync(`${currentDirectory}/Svelteway-safe-layout.svelte`)) {
 				fs.writeFileSync(`${folderName}/+page.server.ts`, buf);
+				} else {
+					fs.writeFileSync(`${folderName}/+page.server.js`, buf);
+				}
 			}
 		} catch (err) {
 			console.error(err);

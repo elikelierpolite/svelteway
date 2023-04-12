@@ -1,2 +1,2 @@
-import Layout from './components/Layout.svelte';
+import { default as Layout } from './components/Layout.svelte';
 export default Layout;
