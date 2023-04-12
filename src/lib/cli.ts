@@ -60,8 +60,8 @@ const svelteWayDev = async () => {
 		try {
 			if (!fs.existsSync(folderName)) {
 				fs.mkdirSync(folderName);
-				if (fs.existsSync(`${currentDirectory}/Svelteway-safe-layout.svelte`)) {
-				fs.writeFileSync(`${folderName}/+page.server.ts`, buf);
+				if (fs.existsSync(`${currentDirectory}/tsconfig.json`)) {
+					fs.writeFileSync(`${folderName}/+page.server.ts`, buf);
 				} else {
 					fs.writeFileSync(`${folderName}/+page.server.js`, buf);
 				}
@@ -95,7 +95,7 @@ const svelteWayBuild = async () => {
 			from: [
 				/<Layout \{data\}>/g,
 				/<\/Layout>/g,
-				/import Layout from '\$lib\/components\/Layout\.svelte';/g
+				/import \{ Layout \} from 'svelteway';/g
 			],
 			to: ''
 		};
