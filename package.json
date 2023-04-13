@@ -1,6 +1,6 @@
 {
 	"name": "svelteway",
-	"version": "0.0.38",
+	"version": "0.0.39",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -38,7 +38,6 @@
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.14",
-		"daisyui": "^2.51.4",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
@@ -63,18 +62,20 @@
 		"axios": "^1.3.4",
 		"replace-in-file": "^6.3.5",
 		"svelte-french-toast": "^1.0.4-beta.0",
-		"uuid": "^9.0.0"
+		"uuid": "^9.0.0",
+		"daisyui": "^2.51.4"
 	},
 	"licence": "MIT",
 	"author": "Elikelier Polite",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/elikelierpolite/svelteway.git"
-	  },
-	  "keywords": [
+	},
+	"keywords": [
 		"svelte",
 		"sveltekit",
 		"svelteui",
 		"svelteway"
-	  ]
+	],
+	"license": "MIT"
 }
