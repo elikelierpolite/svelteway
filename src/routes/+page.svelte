@@ -41,7 +41,7 @@
 			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
 				<div class="card-body">
 					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
-						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7">
+						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-9 h-9">
 							<g id="color">
 								<path
 									fill="#f4aa41"
@@ -166,7 +166,7 @@
 			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
 				<div class="card-body">
 					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
-						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7">
+						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-9 h-9">
 							<g id="color">
 								<path
 									fill="#FCEA2B"
@@ -249,7 +249,7 @@
 							viewBox="0 0 72 72"
 							version="1.1"
 							xmlns="http://www.w3.org/2000/svg"
-							class="w-7 h-7"
+							class="w-9 h-9"
 						>
 							<g id="color">
 								<polygon
@@ -341,7 +341,7 @@
 			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
 				<div class="card-body">
 					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
-						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7">
+						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-9 h-9">
 							<g id="color">
 								<path
 									fill="#D0CFCE"
@@ -471,7 +471,7 @@
 			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
 				<div class="card-body">
 					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
-						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7">
+						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-9 h-9">
 							<g id="color">
 								<path
 									fill="#F4AA41"
@@ -540,7 +540,7 @@
 			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
 				<div class="card-body">
 					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
-						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7">
+						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-9 h-9">
 							<g id="color">
 								<path
 									fill="#FCEA2B"
@@ -577,7 +577,7 @@
 			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
 				<div class="card-body">
 					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
-						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7">
+						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-9 h-9">
 							<g id="color">
 								<ellipse
 									cx="29.5854"
@@ -656,7 +656,7 @@
 			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
 				<div class="card-body">
 					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
-						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7">
+						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-9 h-9">
 							<g id="color">
 								<path
 									fill="#a57939"
@@ -723,7 +723,7 @@
 			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
 				<div class="card-body">
 					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
-						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7">
+						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-9 h-9">
 							<g id="color">
 								<path
 									fill="#d0cfce"
@@ -912,7 +912,7 @@
 				viewBox="0 0 24 24"
 				stroke-width="1.5"
 				stroke="currentColor"
-				class="w-10 h-10"
+				class="w-9 h-9"
 			>
 				<path
 					stroke-linecap="round"
@@ -926,7 +926,7 @@
 			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
 				<div class="card-body">
 					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
-						<img alt="" class="w-7 h-7" src="/favicon.png" />
+						<img alt="" class="w-9 h-9" src="/favicon.png" />
 					</button>
 					<h2 class="card-title">The Svelte Team</h2>
 					<div class="card-actions justify-start">
@@ -939,7 +939,7 @@
 			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
 				<div class="card-body">
 					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
-						<img alt="" class="w-7 h-7" src="/twfavicon.ico" />
+						<img alt="" class="w-9 h-9" src="/twfavicon.ico" />
 					</button>
 					<h2 class="card-title">Tailwind Labs</h2>
 					<div class="card-actions justify-start">
@@ -950,7 +950,7 @@
 			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
 				<div class="card-body">
 					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
-						<img alt="" class="w-7 h-7" src="/daifavicon.ico" />
+						<img alt="" class="w-9 h-9" src="/daifavicon.ico" />
 					</button>
 					<h2 class="card-title text-center">Daisy UI</h2>
 					<div class="card-actions justify-start">

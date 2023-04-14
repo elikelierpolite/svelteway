@@ -1,5 +1,6 @@
 <script>
 	import '../styles/globals.css';
+	import '../styles/app.css';
 	import ActionButtons from './ActionButtons.svelte';
 	import Canvas from './Canvas.svelte';
 	import { swCode } from './CodeStore';

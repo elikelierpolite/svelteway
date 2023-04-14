@@ -24,10 +24,9 @@
 			<div class="divider" />
 			<div>
 				<p class="text-lg">
-					SvelteWay is the most svelte way to build UI's for your Svelte Kit applications, In other
-					words "A very opinionated way to build UI's for your Svelte Kit Applications".<br /><br />
-					SvelteWay Includes a WYSIWYG Editor on your SvelteKit Pages and let's you create and edit UI
-					Components visually in the browser and save the components code in your pages.<br />Thus
+					SvelteWay is the most svelte way to build UI's for your Svelte Kit applications<br /><br />
+					SvelteWay includes a WYSIWYG editor on your SvelteKit pages and let's you create and edit UI
+					components visually in the browser and save the components code in your pages.<br />Thus
 					reducing the time it takes from Dev to Production.
 				</p>
 			</div>

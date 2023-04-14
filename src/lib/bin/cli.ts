@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 import { Buffer } from 'node:buffer';
-import * as fs from 'fs';
+import fs from 'node:fs';
 import { cwd } from 'process';
 import replaceInFile from 'replace-in-file';
 
@@ -24,7 +24,7 @@ const printUsageDetails = () => {
 };
 const svelteWayDev = async () => {
 	try {
-		const currentDirectory = cwd().replace(/\\/g, '/');
+		const currentDirectory = cwd();
 		if (fs.existsSync(`${currentDirectory}/svelteway-safe-layout.svelte`)) {
 			const content = await fs.promises.readFile(
 				`${currentDirectory}/svelteway-safe-layout.svelte`
@@ -32,12 +32,14 @@ const svelteWayDev = async () => {
 			const buf = Buffer.from(`${content}`, 'utf8');
 			fs.writeFileSync(`${currentDirectory}/src/routes/+layout.svelte`, buf);
 		}
+		const apiFolder = `${currentDirectory}/src/routes/api/svelteway`;
 		const folderName = `${currentDirectory}/src/routes/api/svelteway`;
+		const themeFile = `${currentDirectory}/static/theme.txt`;
 		const buf = Buffer.from(
 			`import type { Actions } from './$types';
 			import { redirect } from '@sveltejs/kit';
 			import { Buffer } from 'node:buffer';
-			import * as fs from 'fs';
+			import fs from 'node:fs';;
 			import { cwd } from 'process';
 			
 			export const actions = {
@@ -77,7 +79,7 @@ const svelteWayDev = async () => {
 		const bufJs = Buffer.from(
 			`import { redirect } from '@sveltejs/kit';
 			import { Buffer } from 'node:buffer';
-			import * as fs from 'fs';
+			import fs from 'node:fs';;
 			import { cwd } from 'process';
 			
 			export const actions = {
@@ -115,6 +117,13 @@ const svelteWayDev = async () => {
 			'utf8'
 		);
 		try {
+			if (!fs.existsSync(themeFile)) {
+				const themeBuf = Buffer.from(`light`, 'utf8');
+				fs.writeFileSync(themeFile, themeBuf);
+			}
+			if (!fs.existsSync(apiFolder)) {
+				fs.mkdirSync(apiFolder);
+			}
 			if (!fs.existsSync(folderName)) {
 				fs.mkdirSync(folderName);
 				if (fs.existsSync(`${currentDirectory}/tsconfig.json`)) {
@@ -133,7 +142,7 @@ const svelteWayDev = async () => {
 };
 const svelteWayBuild = async () => {
 	try {
-		const currentDirectory = cwd().replace(/\\/g, '/');
+		const currentDirectory = cwd();
 		const layoutFile = `${currentDirectory}/src/routes/+layout.svelte`;
 		const content = await fs.promises.readFile(layoutFile);
 		const buf = Buffer.from(`${content}`, 'utf8');

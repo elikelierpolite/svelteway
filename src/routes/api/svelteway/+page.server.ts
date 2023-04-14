@@ -1,7 +1,7 @@
 import type { Actions } from './$types';
 import { redirect } from '@sveltejs/kit';
 import { Buffer } from 'node:buffer';
-import * as fs from 'fs';
+import fs from 'node:fs';
 import { cwd } from 'process';
 
 export const actions = {
@@ -20,7 +20,7 @@ export const actions = {
 		}
 	},
 	theme: async ({ request }) => {
-		const currentDirectory = cwd().replace(/\\/g, '/');
+		const currentDirectory = cwd();
 		const themeFile = `${currentDirectory}/static/theme.txt`;
 		const data = await request.formData();
 		const theme = data.get('theme');
