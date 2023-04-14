@@ -25,9 +25,9 @@ const printUsageDetails = () => {
 const svelteWayDev = async () => {
 	try {
 		const currentDirectory = cwd().replace(/\\/g, '/');
-		if (fs.existsSync(`${currentDirectory}/Svelteway-safe-layout.svelte`)) {
+		if (fs.existsSync(`${currentDirectory}/svelteway-safe-layout.svelte`)) {
 			const content = await fs.promises.readFile(
-				`${currentDirectory}/Svelteway-safe-layout.svelte`
+				`${currentDirectory}/svelteway-safe-layout.svelte`
 			);
 			const buf = Buffer.from(`${content}`, 'utf8');
 			fs.writeFileSync(`${currentDirectory}/src/routes/+layout.svelte`, buf);
@@ -35,26 +35,83 @@ const svelteWayDev = async () => {
 		const folderName = `${currentDirectory}/src/routes/api/svelteway`;
 		const buf = Buffer.from(
 			`import type { Actions } from './$types';
-		import { redirect } from '@sveltejs/kit';
-		import { Buffer } from 'node:buffer';
-		import * as fs from 'fs';
-		
-		export const actions = {
-			default: async ({ request }) => {
-			const data = await request.formData()
-				const path = data.get('path');
-				const swc = data.get('swc');
-				const buf = Buffer.from(swc, 'utf8');
-				try {
-					if (swc) {
-						fs.writeFileSync(path, buf);
+			import { redirect } from '@sveltejs/kit';
+			import { Buffer } from 'node:buffer';
+			import * as fs from 'fs';
+			import { cwd } from 'process';
+			
+			export const actions = {
+				save: async ({ request }) => {
+					const data = await request.formData();
+					const path = data.get('path');
+					const swc = data.get('swc');
+					const buf = Buffer.from(swc, 'utf8');
+					try {
+						if (swc) {
+							fs.writeFileSync(path, buf);
+						}
+						throw redirect(307, data.get('redirectTo'));
+					} catch (err) {
+						console.error(err);
 					}
-					throw redirect(307, data.get('redirectTo'));
-				} catch (err) {
-					console.error(err);
+				},
+				theme: async ({ request }) => {
+					const currentDirectory = cwd().replace(/\\\\/g, '/');
+					const themeFile = \`\${currentDirectory}/static/theme.txt\`;
+					const data = await request.formData();
+					const theme = data.get('theme');
+					const buf = Buffer.from(theme, 'utf8');
+					try {
+						if (theme) {
+							fs.writeFileSync(themeFile, buf);
+							throw redirect(307, data.get('redirectTo'));
+						}
+					} catch (err) {
+						console.error(err);
+					}
 				}
-			}
-		} satisfies Actions;`,
+			} satisfies Actions;
+			`,
+			'utf8'
+		);
+		const bufJs = Buffer.from(
+			`import { redirect } from '@sveltejs/kit';
+			import { Buffer } from 'node:buffer';
+			import * as fs from 'fs';
+			import { cwd } from 'process';
+			
+			export const actions = {
+				save: async ({ request }) => {
+					const data = await request.formData();
+					const path = data.get('path');
+					const swc = data.get('swc');
+					const buf = Buffer.from(swc, 'utf8');
+					try {
+						if (swc) {
+							fs.writeFileSync(path, buf);
+						}
+						throw redirect(307, data.get('redirectTo'));
+					} catch (err) {
+						console.error(err);
+					}
+				},
+				theme: async ({ request }) => {
+					const currentDirectory = cwd().replace(/\\\\/g, '/');
+					const themeFile = \`\${currentDirectory}/static/theme.txt\`;
+					const data = await request.formData();
+					const theme = data.get('theme');
+					const buf = Buffer.from(theme, 'utf8');
+					try {
+						if (theme) {
+							fs.writeFileSync(themeFile, buf);
+							throw redirect(307, data.get('redirectTo'));
+						}
+					} catch (err) {
+						console.error(err);
+					}
+				}
+			};
+			`,
 			'utf8'
 		);
 		try {
@@ -63,7 +120,7 @@ const svelteWayDev = async () => {
 				if (fs.existsSync(`${currentDirectory}/tsconfig.json`)) {
 					fs.writeFileSync(`${folderName}/+page.server.ts`, buf);
 				} else {
-					fs.writeFileSync(`${folderName}/+page.server.js`, buf);
+					fs.writeFileSync(`${folderName}/+page.server.js`, bufJs);
 				}
 			}
 		} catch (err) {
@@ -80,7 +137,11 @@ const svelteWayBuild = async () => {
 		const layoutFile = `${currentDirectory}/src/routes/+layout.svelte`;
 		const content = await fs.promises.readFile(layoutFile);
 		const buf = Buffer.from(`${content}`, 'utf8');
-		fs.writeFileSync(`${currentDirectory}/Svelteway-safe-layout.svelte`, buf);
+		const themeFile = `${currentDirectory}/static/theme.txt`;
+		const themeContent = await fs.promises.readFile(themeFile);
+		const themeContent2 = JSON.stringify(themeContent.toString('utf8'));
+		const theme = JSON.parse(themeContent2);
+		fs.writeFileSync(`${currentDirectory}/svelteway-safe-layout.svelte`, buf);
 		if (fs.existsSync(`${currentDirectory}/src/routes/api/svelteway`)) {
 			fs.rm(
 				`${currentDirectory}/src/routes/api/svelteway`,
@@ -95,9 +156,11 @@ const svelteWayBuild = async () => {
 			from: [
 				/<Layout \{data\}>/g,
 				/<\/Layout>/g,
-				/import Layout from '\$lib\/components\/Layout\.svelte';/g
+				// eslint-disable-next-line no-useless-escape
+				/import { Layout } from \"svelteway\";/g,
+				/<div data-theme={theme}>\r\n\t\t<slot \/>\r\n\t<\/div>/g
 			],
-			to: ''
+			to: ['', '', '', `<div data-theme="${theme}}><slot /></div>`]
 		};
 		const results = await replaceInFile(options);
 	} catch (err) {

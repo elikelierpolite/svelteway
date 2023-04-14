@@ -1,7 +1,5 @@
 <svelte:head>
-	<title>
-		Svelteway | Home
-	</title>
+	<title>Svelteway | Home</title>
 </svelte:head>
 <div>
 	<section class="relative bg-cover bg-center bg-no-repeat">
@@ -46,65 +44,121 @@
 						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7">
 							<g id="color">
 								<path
-									fill="#F4AA41"
-									stroke="none"
-									d="M33.5357,31.9911c-1.4016-4.2877-0.2247-9.41,3.4285-13.0632c5.018-5.018,12.8077-5.3639,17.3989-0.7727 s4.2452,12.381-0.7728,17.3989c-4.057,4.057-10.4347,5.5131-14.2685,2.5888"
-								/>
-								<polyline
-									fill="#F4AA41"
-									stroke="#F4AA41"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-miterlimit="10"
-									stroke-width="2"
-									points="33.652,31.7364 31.2181,34.1872 14.6444,50.5142 14.6444,57.6603 22.0426,57.6603 22.0426,53.0835 27.0544,53.0835 27.0544,47.3024 32.04,47.3024 34.3913,44.9292 34.3913,40.6274 36.3618,40.6274 39.4524,37.5368"
+									fill="#f4aa41"
+									d="M35.5723,66.6641a1.003,1.003,0,0,1-.5-.1338L9.3829,51.6982a1,1,0,0,1-.5-.8662l-.001-29.664a1,1,0,0,1,.5-.8662L35.0723,5.47a1.0045,1.0045,0,0,1,1,0L61.7628,20.3018a1,1,0,0,1,.0019,1.7314L36.629,36.61,36.5723,65.666a1.0008,1.0008,0,0,1-1,.9981Z"
 								/>
 								<polygon
-									fill="#E27022"
-									stroke="none"
-									points="15.9847,53.3457 15.9857,51.4386 31.8977,35.8744 32.8505,36.8484"
+									fill="#f4aa41"
+									points="35.572 65 61.262 50.832 61.438 21.317 35.202 36.033 35.572 65"
 								/>
-								<circle cx="48.5201" cy="23.9982" r="3.9521" fill="#E27022" stroke="none" />
+								<path
+									fill="#d0cfce"
+									d="M44.4415,37.9783a2.471,2.471,0,0,1-1.249-2.163V31.6434l-25.07-14.5293a1,1,0,0,1-.001-1.7305l8.2608-4.792a1.0032,1.0032,0,0,1,1.0019-.001L53.0216,25.3924a1,1,0,0,1,.5.8662V32.283a3.2891,3.2891,0,0,1-1.64,2.8409l-4.9444,2.8544a2.4738,2.4738,0,0,1-2.4961,0Z"
+								/>
+								<path
+									fill="#d0cfce"
+									d="M45.3377,60.3412a1,1,0,0,1-.5-.8662V56.139a2.9781,2.9781,0,0,1,1.4853-2.5722L52.3963,50.06a1.8472,1.8472,0,0,1,2.7705,1.6v3.0069a1,1,0,0,1-.5.8662l-8.3291,4.8086a1.0011,1.0011,0,0,1-1,0Z"
+								/>
+								<path
+									fill="#3f3f3f"
+									d="M44.4274,45.9464v.8683a1.4967,1.4967,0,0,0,2.2451,1.2962l6.8048-3.76a2.28,2.28,0,0,0,1.14-1.9745V41.258a1.4442,1.4442,0,0,0-2.1663-1.2507l-6.7455,3.7252A2.5565,2.5565,0,0,0,44.4274,45.9464Z"
+								/>
+								<polygon
+									fill="#fff"
+									points="31.083 38.917 22.785 34.264 22.785 41.706 31.083 46.359 31.083 38.917"
+								/>
 							</g>
-							<g id="hair" />
-							<g id="skin" />
-							<g id="skin-shadow" />
 							<g id="line">
-								<polyline
+								<polygon
 									fill="none"
-									stroke="#000000"
+									stroke="#000"
 									stroke-linecap="round"
 									stroke-linejoin="round"
-									stroke-miterlimit="10"
 									stroke-width="2"
-									points="30.735,34.6557 14.3026,50.6814 14.3026,57.9214 21.868,57.9214 21.868,53.2845 26.9929,53.2845 26.9929,47.4274 32.0913,47.4274 34.4957,45.023 34.4957,40.6647 36.5107,40.6647"
+									points="61.262 21.168 35.572 6.336 9.882 21.168 9.882 50.832 35.572 65.664 61.262 50.832 61.262 21.168"
 								/>
-								<circle
-									cx="48.5201"
-									cy="23.9982"
-									r="3.9521"
+								<line
+									x1="35.5724"
+									x2="35.5724"
+									y1="36.0333"
+									y2="65.6642"
 									fill="none"
-									stroke="#000000"
+									stroke="#000"
 									stroke-linecap="round"
 									stroke-linejoin="round"
-									stroke-miterlimit="10"
+									stroke-width="2"
+								/>
+								<line
+									x1="35.6301"
+									x2="9.9401"
+									y1="36.0333"
+									y2="21.2012"
+									fill="none"
+									stroke="#000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+								/>
+								<line
+									x1="52.5169"
+									x2="61.2624"
+									y1="26.2504"
+									y2="21.2012"
+									fill="none"
+									stroke="#000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+								/>
+								<line
+									x1="35.5724"
+									x2="44.1879"
+									y1="36.0333"
+									y2="31.0591"
+									fill="none"
+									stroke="#000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
 									stroke-width="2"
 								/>
 								<path
 									fill="none"
-									stroke="#000000"
+									stroke="#000"
 									stroke-linecap="round"
 									stroke-linejoin="round"
-									stroke-miterlimit="10"
 									stroke-width="2"
-									d="M34.2256,31.1781c-1.4298-4.2383-0.3466-9.2209,3.1804-12.6947c4.8446-4.7715,12.4654-4.8894,17.0216-0.2634 s4.3223,12.2441-0.5223,17.0156c-3.9169,3.8577-9.6484,4.6736-14.1079,2.3998"
+									d="M26.884,11.4565,52.5215,26.2583v6.0248a2.28,2.28,0,0,1-1.14,1.9745l-4.9439,2.8543a1.4967,1.4967,0,0,1-2.2451-1.2962V31.0671L18.6236,16.2488"
+								/>
+								<polygon
+									fill="none"
+									stroke="#000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									points="31.083 38.917 22.785 34.264 22.785 41.706 31.083 46.359 31.083 38.917"
+								/>
+								<path
+									fill="none"
+									stroke="#000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M54.1667,54.6663V51.66a.8472.8472,0,0,0-1.2708-.7337l-6.073,3.5062a1.97,1.97,0,0,0-.9853,1.7065v3.3361"
+								/>
+								<path
+									fill="none"
+									stroke="#000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M44.4274,45.9464v.8683a1.4967,1.4967,0,0,0,2.2451,1.2962l6.8048-3.76a2.28,2.28,0,0,0,1.14-1.9745V41.258a1.4442,1.4442,0,0,0-2.1663-1.2507l-6.7455,3.7252A2.5565,2.5565,0,0,0,44.4274,45.9464Z"
 								/>
 							</g>
 						</svg>
 					</button>
-					<h2 class="card-title">Fully Typed API</h2>
+					<h2 class="card-title">49+ UI Components</h2>
 					<p style="font-size: 14px; font-weight: 500; line-height:24px">
-						Flexible programmatic API with full TypeScript typing.
+						Over 49 Daisy UI components to use and customise with Tailwind CSS.
 					</p>
 					<div class="card-actions justify-end" />
 				</div>
@@ -117,28 +171,169 @@
 								<path
 									fill="#FCEA2B"
 									stroke="none"
-									d="M48.143,3.7261L16.316,37.8507c-0.6029,0.6465-0.1141,1.6589,0.801,1.6589h19.1066L19.1503,67.0482 c-0.1662,0.2681,0.215,0.5364,0.4424,0.3114l36.0628-35.704c0.6436-0.6372,0.1626-1.6882-0.7725-1.6882H36.3826L48.143,3.7261z"
+									d="M43.2779,20.5208c0.2751-0.6458,1.4448-3.2894,1.915-3.8596c2.5924-3.1437,7.5403-3.3442,7.5403-3.3442 s0.7413,4.8964-1.8486,8.0389c-0.7005,0.8493-1.573,1.4837-2.4733,1.9575l-1.8646,0.8496 c0.8166-0.4354,3.5897-1.6339,4.5743-1.7568c4.0433-0.5046,7.7775,2.7478,7.7775,2.7478s-2.8239,4.0682-6.8647,4.5736 c-1.5043,0.1875-2.9658-0.1449-4.2082-0.6363l-1.5123-0.5623c1.0721,0.4001,3.6449,1.5619,4.525,2.46 c2.8519,2.9103,2.5281,7.8516,2.5281,7.8516s-4.9474,0.2194-7.7984-2.6884c-0.6293-0.6423-1.8855-3.7761-2.2431-4.5413 l0.7669,2.3973c0.2385,0.7124,0.3923,1.4743,0.4068,2.268c0.0742,4.074-3.5548,7.4433-3.5548,7.4433s-3.7467-3.2383-3.822-7.3099 c-0.0151-0.834,1.3468-4.7053,1.3468-4.7053l-1.1396,2.622c-1.7718,2.4884-4.5155,4.1433-7.5548,4.4487 c-0.9254,0.093-1.5437,0.0656-1.5437,0.0656s-0.3238-4.9413,2.5281-7.8516c0.8287-0.8457,1.8343-1.4269,2.844-1.8259l1.711-0.7108 c-0.0038,0.0015-4.3141,1.4544-5.7507,1.2753c-4.0408-0.5054-6.8647-4.5736-6.8647-4.5736s3.7341-3.2524,7.7775-2.7478 c0.8371,0.1045,3.8427,1.578,4.5608,1.9202l-2.2099-1.2115c-0.7715-0.4485-1.5076-1.0231-2.1146-1.759 c-2.59-3.1425-1.8486-8.0389-1.8486-8.0389s4.9479,0.2005,7.5403,3.3441c0.5013,0.6079,1.8537,3.2157,2.135,3.9064l-0.9102-1.9404 c-0.2945-0.7916-0.49-1.6496-0.5066-2.5482c-0.0737-4.0736,3.5548-7.4433,3.5548-7.4433s3.7478,3.2359,3.822,7.3099 c0.0163,0.8967-0.1467,1.7592-0.411,2.5592"
+								/>
+								<circle cx="40.7923" cy="26.177" r="5" fill="#F1B31C" stroke="none" />
+								<path
+									fill="#5C9E31"
+									stroke="none"
+									d="M23.3647,38.9665c2.3438,2.8687,1.6469,7.3169,1.6469,7.3169s-4.4974-0.2037-6.8419-3.0725 s-1.6469-7.3169-1.6469-7.3169S21.0209,36.1001,23.3647,38.9665z"
+								/>
+								<path
+									fill="#5C9E31"
+									stroke="none"
+									d="M36.6533,52.5013c2.8575-2.3347,7.2883-1.6405,7.2883-1.6405s-0.2029,4.4799-3.0605,6.8152 c-2.8575,2.3353-7.2883,1.6405-7.2883,1.6405S33.7981,54.836,36.6533,52.5013z"
 								/>
 							</g>
 							<g id="hair" />
 							<g id="skin" />
 							<g id="skin-shadow" />
 							<g id="line">
+								<circle
+									cx="40.7923"
+									cy="26.177"
+									r="5"
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+								/>
 								<path
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M23.8586,38.5631 c2.7895,3.4142,1.96,8.708,1.96,8.708s-5.3525-0.2425-8.1427-3.6566s-1.96-8.708-1.96-8.708S21.0691,35.1517,23.8586,38.5631z"
+								/>
+								<path
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M43.2779,20.5208 c0.2751-0.6458,1.4448-3.2894,1.915-3.8596c2.5924-3.1437,7.5403-3.3442,7.5403-3.3442s0.7413,4.8964-1.8486,8.0389 c-0.7005,0.8493-1.573,1.4837-2.4733,1.9575l-1.8646,0.8496c0.8166-0.4354,3.5897-1.6339,4.5743-1.7568 c4.0433-0.5046,7.7775,2.7478,7.7775,2.7478s-2.8239,4.0682-6.8647,4.5736c-1.5043,0.1875-2.9658-0.1449-4.2082-0.6363 l-1.5123-0.5623c1.0721,0.4001,3.6449,1.5619,4.525,2.46c2.8519,2.9103,2.5281,7.8516,2.5281,7.8516s-4.9474,0.2194-7.7984-2.6884 c-0.6293-0.6423-1.8855-3.7761-2.2431-4.5413l0.7669,2.3973c0.2385,0.7124,0.3923,1.4743,0.4068,2.268 c0.0742,4.074-3.5548,7.4433-3.5548,7.4433s-3.7467-3.2383-3.822-7.3099c-0.0151-0.834,1.3468-4.7053,1.3468-4.7053l-1.1396,2.622 c-1.7718,2.4884-4.5155,4.1433-7.5548,4.4487c-0.9254,0.093-1.5437,0.0656-1.5437,0.0656s-0.3238-4.9413,2.5281-7.8516 c0.8287-0.8457,1.8343-1.4269,2.844-1.8259l1.711-0.7108c-0.0038,0.0015-4.3141,1.4544-5.7507,1.2753 c-4.0408-0.5054-6.8647-4.5736-6.8647-4.5736s3.7341-3.2524,7.7775-2.7478c0.8371,0.1045,3.8427,1.578,4.5608,1.9202 l-2.2099-1.2115c-0.7715-0.4485-1.5076-1.0231-2.1146-1.759c-2.59-3.1425-1.8486-8.0389-1.8486-8.0389s4.9479,0.2005,7.5403,3.3441 c0.5013,0.6079,1.8537,3.2157,2.135,3.9064l-0.9102-1.9404c-0.2945-0.7916-0.49-1.6496-0.5066-2.5482 c-0.0737-4.0736,3.5548-7.4433,3.5548-7.4433s3.7478,3.2359,3.822,7.3099c0.0163,0.8967-0.1467,1.7592-0.411,2.5592"
+								/>
+								<path
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M36.2415,51.9973 c3.4142-2.7895,8.708-1.96,8.708-1.96s-0.2425,5.3525-3.6566,8.1427c-3.4142,2.7902-8.708,1.96-8.708,1.96 S32.8301,54.7868,36.2415,51.9973z"
+								/>
+								<path
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M34.3663,41.0292 c-3.438,3.548-7.676,10.246-5.829,20.735"
+								/>
+							</g>
+						</svg>
+					</button>
+					<h2 class="card-title">Instant Theming</h2>
+					<p style="font-size: 14px; font-weight: 500; line-height:24px">
+						Instant Theme Picker including all major Daisy UI Themes.
+					</p>
+					<div class="card-actions justify-end" />
+				</div>
+			</div>
+			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
+				<div class="card-body">
+					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
+						<svg
+							id="emoji"
+							viewBox="0 0 72 72"
+							version="1.1"
+							xmlns="http://www.w3.org/2000/svg"
+							class="w-7 h-7"
+						>
+							<g id="color">
+								<polygon
+									fill="#61B2E4"
+									points="56.3771,11.9798 16.3771,11.9798 4,23.3481 36,64.0837 68,23.3481"
+								/>
+								<polyline
+									fill="#92D3F5"
+									points="37.3698,62.3355 55.7486,23.3482 36,11.9798 56.3771,11.9798 68,23.3481 37.3698,62.3355"
+								/>
+							</g>
+							<g id="hair" />
+							<g id="skin" />
+							<g id="skin-shadow" />
+							<g id="line">
+								<polygon
 									fill="none"
 									stroke="#000000"
 									stroke-linecap="round"
 									stroke-linejoin="round"
 									stroke-miterlimit="10"
 									stroke-width="2"
-									d="M48.1628,4.4406L16.3224,37.7817c-0.6174,0.6465-0.1168,1.6589,0.8201,1.6589h19.0829l-18.304,28.8333l37.7269-36.4785 c0.659-0.6372,0.1665-1.6882-0.791-1.6882H36.3846L48.1628,4.4406z"
+									points="56.3771,11.9798 16.3771,11.9798 4,23.3481 36,64.0837 68,23.3481"
+								/>
+								<polyline
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-miterlimit="10"
+									stroke-width="2"
+									points="55.7486,23.8595 36,64.0837 36,24.3482 36,11.9798 16.2556,23.3482"
+								/>
+								<line
+									x1="16.2556"
+									x2="36.0042"
+									y1="23.8595"
+									y2="64.0837"
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-miterlimit="10"
+									stroke-width="2"
+								/>
+								<line
+									x1="4"
+									x2="68"
+									y1="23.3482"
+									y2="23.3482"
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-miterlimit="10"
+									stroke-width="2"
+								/>
+								<line
+									x1="36"
+									x2="55.7486"
+									y1="11.9798"
+									y2="23.3482"
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-miterlimit="10"
+									stroke-width="2"
+								/>
+								<polygon
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-miterlimit="10"
+									stroke-width="2"
+									points="56.3771,11.9798 16.3771,11.9798 4,23.3481 36,64.0837 68,23.3481"
 								/>
 							</g>
 						</svg>
 					</button>
-					<h2 class="card-title">Lightning Fast HMR</h2>
+					<h2 class="card-title">SVG Library</h2>
 					<p style="font-size: 14px; font-weight: 500; line-height:24px">
-						Hot Module Replacement (HMR) that stays fast regardless of app size.
+						You no longer have to look very far to find beautiful hand-crafted SVG icons.
 					</p>
 					<div class="card-actions justify-end" />
 				</div>
@@ -269,6 +464,109 @@
 					<h2 class="card-title">Precise Toolbar</h2>
 					<p style="font-size: 14px; font-weight: 500; line-height:24px">
 						Precise toolbar for customising your UI components.
+					</p>
+					<div class="card-actions justify-end" />
+				</div>
+			</div>
+			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
+				<div class="card-body">
+					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
+						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7">
+							<g id="color">
+								<path
+									fill="#F4AA41"
+									stroke="none"
+									d="M33.5357,31.9911c-1.4016-4.2877-0.2247-9.41,3.4285-13.0632c5.018-5.018,12.8077-5.3639,17.3989-0.7727 s4.2452,12.381-0.7728,17.3989c-4.057,4.057-10.4347,5.5131-14.2685,2.5888"
+								/>
+								<polyline
+									fill="#F4AA41"
+									stroke="#F4AA41"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-miterlimit="10"
+									stroke-width="2"
+									points="33.652,31.7364 31.2181,34.1872 14.6444,50.5142 14.6444,57.6603 22.0426,57.6603 22.0426,53.0835 27.0544,53.0835 27.0544,47.3024 32.04,47.3024 34.3913,44.9292 34.3913,40.6274 36.3618,40.6274 39.4524,37.5368"
+								/>
+								<polygon
+									fill="#E27022"
+									stroke="none"
+									points="15.9847,53.3457 15.9857,51.4386 31.8977,35.8744 32.8505,36.8484"
+								/>
+								<circle cx="48.5201" cy="23.9982" r="3.9521" fill="#E27022" stroke="none" />
+							</g>
+							<g id="hair" />
+							<g id="skin" />
+							<g id="skin-shadow" />
+							<g id="line">
+								<polyline
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-miterlimit="10"
+									stroke-width="2"
+									points="30.735,34.6557 14.3026,50.6814 14.3026,57.9214 21.868,57.9214 21.868,53.2845 26.9929,53.2845 26.9929,47.4274 32.0913,47.4274 34.4957,45.023 34.4957,40.6647 36.5107,40.6647"
+								/>
+								<circle
+									cx="48.5201"
+									cy="23.9982"
+									r="3.9521"
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-miterlimit="10"
+									stroke-width="2"
+								/>
+								<path
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-miterlimit="10"
+									stroke-width="2"
+									d="M34.2256,31.1781c-1.4298-4.2383-0.3466-9.2209,3.1804-12.6947c4.8446-4.7715,12.4654-4.8894,17.0216-0.2634 s4.3223,12.2441-0.5223,17.0156c-3.9169,3.8577-9.6484,4.6736-14.1079,2.3998"
+								/>
+							</g>
+						</svg>
+					</button>
+					<h2 class="card-title">Fully Typed API</h2>
+					<p style="font-size: 14px; font-weight: 500; line-height:24px">
+						Flexible programmatic API with full TypeScript typing.
+					</p>
+					<div class="card-actions justify-end" />
+				</div>
+			</div>
+			<div class="card w-96 max-w-full bg-[#252529] shadow-xl">
+				<div class="card-body">
+					<button class="btn btn-square no-animation bg-[#1E1E20] hover:bg-[#1E1E20]">
+						<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7">
+							<g id="color">
+								<path
+									fill="#FCEA2B"
+									stroke="none"
+									d="M48.143,3.7261L16.316,37.8507c-0.6029,0.6465-0.1141,1.6589,0.801,1.6589h19.1066L19.1503,67.0482 c-0.1662,0.2681,0.215,0.5364,0.4424,0.3114l36.0628-35.704c0.6436-0.6372,0.1626-1.6882-0.7725-1.6882H36.3826L48.143,3.7261z"
+								/>
+							</g>
+							<g id="hair" />
+							<g id="skin" />
+							<g id="skin-shadow" />
+							<g id="line">
+								<path
+									fill="none"
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-miterlimit="10"
+									stroke-width="2"
+									d="M48.1628,4.4406L16.3224,37.7817c-0.6174,0.6465-0.1168,1.6589,0.8201,1.6589h19.0829l-18.304,28.8333l37.7269-36.4785 c0.659-0.6372,0.1665-1.6882-0.791-1.6882H36.3846L48.1628,4.4406z"
+								/>
+							</g>
+						</svg>
+					</button>
+					<h2 class="card-title">Lightning Fast HMR</h2>
+					<p style="font-size: 14px; font-weight: 500; line-height:24px">
+						Hot Module Replacement (HMR) that stays fast regardless of app size.
 					</p>
 					<div class="card-actions justify-end" />
 				</div>
@@ -632,7 +930,9 @@
 					</button>
 					<h2 class="card-title">The Svelte Team</h2>
 					<div class="card-actions justify-start">
-						<a class="btn btn-info mt-5" href="https://github.com/sveltejs/svelte" target="_blank">View</a>
+						<a class="btn btn-info mt-5" href="https://github.com/sveltejs/svelte" target="_blank"
+							>View</a
+						>
 					</div>
 				</div>
 			</div>

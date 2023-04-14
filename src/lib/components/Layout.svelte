@@ -9,6 +9,7 @@
 	import { page } from '$app/stores';
 	export let data;
 	let swc = [];
+	let theme = JSON.parse(data.data.theme)
 	function swSave() {
 		$swCode.cvElements.forEach((element) => {
 			element.swecode()
@@ -22,7 +23,7 @@
 		bodyFormData.append('redirectTo', $page.route.id);
 		axios({
 			method: 'post',
-			url: '/api/svelteway',
+			url: '/api/svelteway?/save',
 			data: bodyFormData,
 			headers: { 'Content-Type': 'multipart/form-data' }
 		});
@@ -39,7 +40,7 @@
 </script>
 
 <Toaster />
-<div data-theme="light" class="h-[100vh] w-[100vw] font-sans">
+<div data-theme={theme} class="h-[100vh] w-[100vw] font-sans">
 	<div class="flex h-full w-full">
 		<ActionButtons />
 		<Canvas on:save={swSave} {data}>
