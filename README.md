@@ -1,58 +1,68 @@
-# create-svelte
+<img src="./quick-ship.png" alt="" />
+<p align="center">
+<img src="https://badgen.net/badge/license/MIT/blue" />
+<img src="https://badgen.net/npm/v/svelteway" />
+</p>
+<p align="center">
+<a href="https://svelteway.vercel.app">Website</a> · <a href="https://npmjs.com/package/svelteway">NPM Package</a>
+</p>
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# sveltway
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+> The most svelte way to build UI's for your svelte kit applications!
 
 ## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
-
 ```bash
 # create a new project in the current directory
-npm create svelte@latest
+npm create svelteway@latest
 
 # create a new project in my-app
-npm create svelte@latest my-app
+npm create svelteway@latest my-app
 ```
 
-## Developing
+## Basic usage
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Wrap your root +layout with `<Layout {data} />` and pass the required data prop.
 
-```bash
-npm run dev
+```js
+<script>
+import { Layout } from 'svelteway'
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+export let data;
+</script>
+
+<Layout {data}>
+    <slot />
+</Layout>
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+For more on +layout.server code, see [the website](https://svelteway.vercel.app/installation).
 
-## Building
+## Thanks
 
-To build your library:
+Special Thanks to the Svelte Team, Tailwind Labs and DaisyUI.
 
-```bash
-npm run package
 ```
+MIT License Copyright (c) 2023 Elikelier Polite
 
-To create a production version of your showcase app:
+Permission is hereby granted,
+free of charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
 
-```bash
-npm run build
-```
+The above copyright notice and this permission notice
+(including the next paragraph) shall be included in all copies or substantial
+portions of the Software.
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 ```
