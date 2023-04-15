@@ -1,6 +1,6 @@
 {
 	"name": "svelteway",
-	"version": "0.0.61",
+	"version": "0.0.62",
 	"scripts": {
 		"dev": "concurrently \"tailwindcss -i ./src/app.css -o ./src/lib/styles/app.css --watch\" \"vite dev\"",
 		"build": "vite build && npm run package",
