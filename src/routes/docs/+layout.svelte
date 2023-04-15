@@ -1,3 +1,7 @@
+<script>
+	import { page } from "$app/stores";
+</script>
+
 <div class="drawer drawer-mobile bg-[#1A1A1A]">
 	<input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
 	<div class="drawer-content bg-[#1A1A1A] flex flex-col w-full m-5 mt-10">
@@ -25,9 +29,9 @@
 		<label for="my-drawer-2" class="drawer-overlay" />
 		<ul class="menu p-4 w-80 text-base-content bg-[#1E1E1E]">
 			<!-- Sidebar content here -->
-			<li><a class="btn-ghost" href="">Introduction</a></li>
-			<li><a class="btn-ghost" href="">Installation</a></li>
-			<li><a class="btn-ghost" href="">Usage</a></li>
+			<li><a class={`btn-ghost ${$page.route.id == "/docs" && 'text-[#FF531A]'}`} href="/docs">Introduction</a></li>
+			<li><a class={`btn-ghost ${$page.route.id == "/docs/installation" && 'text-[#FF531A]'}`} href="/docs/installation">Installation</a></li>
+			<li><a class={`btn-ghost ${$page.route.id == "/docs/usage" && 'text-[#FF531A]'}`} href="/docs/usage">Usage</a></li>
 		</ul>
 	</div>
 </div>

@@ -11974,6 +11974,26 @@ html {
   width: 100vw;
 }
 
+.w-\[100px\] {
+  width: 100px;
+}
+
+.w-\[200px\] {
+  width: 200px;
+}
+
+.w-\[250px\] {
+  width: 250px;
+}
+
+.w-\[350px\] {
+  width: 350px;
+}
+
+.w-\[340px\] {
+  width: 340px;
+}
+
 .min-w-0 {
   min-width: 0px;
 }
@@ -27476,6 +27496,11 @@ html {
   color: rgb(65 55 255 / var(--tw-text-opacity));
 }
 
+.text-\[\#6b6b6b\] {
+  --tw-text-opacity: 1;
+  color: rgb(107 107 107 / var(--tw-text-opacity));
+}
+
 .text-\[\#84ff6e\] {
   --tw-text-opacity: 1;
   color: rgb(132 255 110 / var(--tw-text-opacity));
@@ -28701,16 +28726,6 @@ html {
 .text-zinc-900 {
   --tw-text-opacity: 1;
   color: rgb(24 24 27 / var(--tw-text-opacity));
-}
-
-.text-\[\#afafaf\] {
-  --tw-text-opacity: 1;
-  color: rgb(175 175 175 / var(--tw-text-opacity));
-}
-
-.text-\[\#6b6b6b\] {
-  --tw-text-opacity: 1;
-  color: rgb(107 107 107 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -36417,6 +36432,10 @@ html {
   content: var(--tw-content);
 }
 
+body {
+  background-color: #2A303C;
+}
+
 .hover\:btn-active:hover {
   --tw-border-opacity: 1;
   border-color: hsl(var(--nf, var(--n)) / var(--tw-border-opacity));
@@ -37046,6 +37065,11 @@ html {
     line-height: 1.75rem;
   }
 
+  .sm\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
   .sm\:leading-relaxed {
     line-height: 1.625;
   }
@@ -37058,6 +37082,14 @@ html {
 
   .md\:block {
     display: block;
+  }
+
+  .md\:w-\[250px\] {
+    width: 250px;
+  }
+
+  .md\:w-full {
+    width: 100%;
   }
 
   .md\:grid-cols-3 {

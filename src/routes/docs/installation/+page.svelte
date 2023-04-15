@@ -1,11 +1,16 @@
 <script>
 	import LayoutCodeComponent from './LayoutCodeComponent.svelte';
+	import toast, { Toaster } from 'svelte-french-toast';
+	function copyCode() {
+		toast.success('Copied!');
+	}
 </script>
 
 <svelte:head>
 	<title>Svelteway | Installation</title>
 </svelte:head>
 
+<Toaster />
 <div class="w-full">
 	<div class="grid grid-cols-1 justify-between md:grid-cols-4">
 		<div class="col-span-3 w-full max-w-full">

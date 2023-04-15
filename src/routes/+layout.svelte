@@ -63,7 +63,7 @@
 				<ul class="flex items-center text-md gap-4">
 					<li>
 						<a
-							class="text-[#CCCCCC] transition hover:underline hover:decoration-blue-500 hover:text-blue-500"
+							class={`${isHomePage ? 'text-[#CCCCCC]' : 'text-[#FF531A]'} transition hover:underline hover:decoration-blue-500 hover:text-blue-500`}
 							href="/docs"
 						>
 							Docs
