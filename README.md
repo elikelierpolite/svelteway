@@ -1,4 +1,3 @@
-<img src="./quick-ship.png" alt="" />
 <p align="center">
 <img src="https://badgen.net/badge/license/MIT/blue" />
 <img src="https://badgen.net/npm/v/svelteway" />
@@ -37,7 +36,7 @@ export let data;
 </Layout>
 ```
 
-For more on +layout.server code, see [the website](https://svelteway.vercel.app/installation).
+For more on +layout.server code, see [svelteway manual setup](https://svelteway.vercel.app/installation).
 
 ## Thanks
 
