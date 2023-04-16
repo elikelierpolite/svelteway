@@ -111,7 +111,7 @@
 				<pre data-prefix=""><code
 						><span>{'	'}</span><span class="text-[#cd2ebd]">const</span><span
 							class="text-[#ff7b29]"> theme</span
-						><span class="text-[#35b8ff]">{' ='}</span><span class="text-[#ff2f55]">{' data'}</span><span>.</span><span class="text-[#ff2f55]">{'data'}</span><span>.</span><span>{'theme'}</span></code
+						><span class="text-[#35b8ff]">{' ='}</span><span class="text-[#ff7b29]"> {'JSON'}</span><span>{'.'}</span><span class="text-[#35b8ff]">{'parse('}</span><span class="text-[#ff2f55]">{'data'}</span><span>.</span><span class="text-[#ff2f55]">{'data'}</span><span>.</span><span>{'theme'}</span><span class="text-[#35b8ff]">{')'}</span></code
 					></pre>
 				<pre data-prefix=""><code
 						><span>{'</'}</span><span class="text-[#cd2ebd]">{'script'}</span><span>{'>'}</span
