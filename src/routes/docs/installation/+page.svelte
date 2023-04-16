@@ -2,7 +2,7 @@
 	import LayoutCodeComponent from './LayoutCodeComponent.svelte';
 	import toast, { Toaster } from 'svelte-french-toast';
 	function copyCode() {
-		const layoutCode = `<script>\r\n  import \"..\/app.css\";\r\n  import { Layout } from \"svelteway\";\r\n  export let data;\r\n  let theme = JSON.parse(data.data.theme);\r\n<\/script>\r\n\r\n<Layout {data}>\r\n  <div data-theme={theme}>\r\n    <slot \/>\r\n  <\/div>\r\n<\/Layout>`;
+		const layoutCode = `<script>\r\n  import \"..\/app.css\";\r\n  import { Layout } from \"svelteway\";\r\n  export let data;\r\n  const theme = JSON.parse(data.data.theme);\r\n<\/script>\r\n\r\n<Layout {data}>\r\n  <div data-theme={theme}>\r\n    <slot \/>\r\n  <\/div>\r\n<\/Layout>`;
 		navigator.clipboard.writeText(layoutCode);
 		toast.success('Copied!');
 	}

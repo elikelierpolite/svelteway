@@ -169,7 +169,8 @@ const svelteWayDev = async () => {
 					"import { cwd } from 'process';",
 					"import fs from 'node:fs';",
 					'const currentDirectory = cwd();',
-					"const fileToRead =\r\n\t\troute.id == '/'\r\n\t\t\t? `${currentDirectory}/src/routes/+page.svelte`\r\n\t\t\t: `${currentDirectory}/src/routes/${route.id}/+page.svelte`;",
+					// eslint-disable-next-line no-useless-escape
+					"const fileToRead =\r\n\t\troute.id == \'\/\'\r\n\t\t\t? `${currentDirectory}\/src\/routes\/+page.svelte`\r\n\t\t\t: `${currentDirectory}\/src\/routes\/${route.id}\/+page.svelte`;",
 					'const themeFile = `${currentDirectory}/static/theme.txt`;',
 					'const themeContent = await fs.promises.readFile(themeFile);',
 					'const content = await fs.promises.readFile(fileToRead);',
@@ -251,7 +252,6 @@ const svelteWayBuild = async () => {
 				'//svelteway-safe-themeFile-declaration do not erase this line',
 				'//svelteway-safe-themeContent-declaration do not erase this line',
 				'//svelteway-safe-content-declaration do not erase this line',
-				'//svelteway-safe-source-data do not erase this line',
 				'//svelteway-safe-source-data do not erase this line',
 				'//svelteway-safe-file-data do not erase this line',
 				'//svelteway-safe-theme-data do not erase this line'
