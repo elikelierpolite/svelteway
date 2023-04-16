@@ -11939,6 +11939,10 @@ html {
   width: 30px;
 }
 
+.w-\[340px\] {
+  width: 340px;
+}
+
 .w-\[896px\] {
   width: 896px;
 }
@@ -11972,26 +11976,6 @@ html {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[100px\] {
-  width: 100px;
-}
-
-.w-\[200px\] {
-  width: 200px;
-}
-
-.w-\[250px\] {
-  width: 250px;
-}
-
-.w-\[350px\] {
-  width: 350px;
-}
-
-.w-\[340px\] {
-  width: 340px;
 }
 
 .min-w-0 {
@@ -37060,13 +37044,13 @@ body {
     line-height: 1;
   }
 
-  .sm\:text-xl {
-    font-size: 1.25rem;
+  .sm\:text-lg {
+    font-size: 1.125rem;
     line-height: 1.75rem;
   }
 
-  .sm\:text-lg {
-    font-size: 1.125rem;
+  .sm\:text-xl {
+    font-size: 1.25rem;
     line-height: 1.75rem;
   }
 
@@ -37082,10 +37066,6 @@ body {
 
   .md\:block {
     display: block;
-  }
-
-  .md\:w-\[250px\] {
-    width: 250px;
   }
 
   .md\:w-full {

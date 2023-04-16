@@ -25,16 +25,16 @@ const printUsageDetails = () => {
 const svelteWayDev = async () => {
 	try {
 		const currentDirectory = cwd();
-		if (fs.existsSync(`${currentDirectory}/svelteway-safe-layout.svelte`)) {
-			const content = await fs.promises.readFile(
-				`${currentDirectory}/svelteway-safe-layout.svelte`
-			);
-			const buf = Buffer.from(`${content}`, 'utf8');
-			fs.writeFileSync(`${currentDirectory}/src/routes/+layout.svelte`, buf);
-		}
-		const apiFolder = `${currentDirectory}/src/routes/api/svelteway`;
+		const apiFolder = `${currentDirectory}/src/routes/api`;
 		const folderName = `${currentDirectory}/src/routes/api/svelteway`;
 		const themeFile = `${currentDirectory}/static/theme.txt`;
+		const themeContent = await fs.promises.readFile(themeFile);
+		const themeContent2 = JSON.stringify(themeContent.toString('utf8'));
+		const theme = JSON.parse(themeContent2);
+		const layoutFile = `${currentDirectory}/src/routes/+layout.svelte`;
+		const layoutServerFile = fs.existsSync(`${currentDirectory}/tsconfig.json`)
+			? `${currentDirectory}/src/routes/+layout.server.ts`
+			: `${currentDirectory}/src/routes/+layout.server.js`;
 		const buf = Buffer.from(
 			`import type { Actions } from './$types';
 			import { redirect } from '@sveltejs/kit';
@@ -132,6 +132,56 @@ const svelteWayDev = async () => {
 					fs.writeFileSync(`${folderName}/+page.server.js`, bufJs);
 				}
 			}
+			const themeRegex = new RegExp(`<div data-theme="${theme}"><slot /></div>`, 'g');
+			const options = {
+				files: [layoutFile, layoutServerFile],
+				from: [
+					/<!-- svelteway-safe-layout-ot do not erase this line -->/g,
+					/<!-- svelteway-safe-layout-ct do not erase this line -->/g,
+					// eslint-disable-next-line no-useless-escape
+					/\/\/ svelteway-safe-layout-import do not erase this line/g,
+					/\/\/ svelteway-safe-theme-constant do not erase this line/g,
+					// eslint-disable-next-line no-useless-escape
+					themeRegex,
+					// eslint-disable-next-line no-useless-escape
+					/\/\/svelteway-safe-cwd-import do not erase this line/g,
+					// eslint-disable-next-line no-useless-escape
+					/\/\/svelteway-safe-fs-import do not erase this line/g,
+					/\/\/svelteway-safe-cwd-declaration do not erase this line/g,
+					// eslint-disable-next-line no-useless-escape
+					///svelteway-safe-fileToRead-declaration do not erase this line/g,
+					/\/\/svelteway-safe-themeFile-declaration do not erase this line/g,
+					/\/\/svelteway-safe-themeContent-declaration do not erase this line/g,
+					/\/\/svelteway-safe-content-declaration do not erase this line/g,
+					// eslint-disable-next-line no-useless-escape
+					/\/\/svelteway-safe-source-data do not erase this line/g,
+					/\/\/svelteway-safe-file-data do not erase this line/g,
+					// eslint-disable-next-line no-useless-escape
+					/\/\/svelteway-safe-theme-data do not erase this line/g
+				],
+				to: [
+					'<Layout {data}>',
+					'</Layout>',
+					'import { Layout } from "svelteway";',
+					`const theme = JSON.parse(data.data.theme);`,
+					`<div data-theme={theme}><slot />
+			t</div>`,
+					"import { cwd } from 'process';",
+					"import fs from 'node:fs';",
+					'const currentDirectory = cwd();',
+					"const fileToRead =\r\n\t\troute.id == '/'\r\n\t\t\t? `${currentDirectory}/src/routes/+page.svelte`\r\n\t\t\t: `${currentDirectory}/src/routes/${route.id}/+page.svelte`;",
+					'const themeFile = `${currentDirectory}/static/theme.txt`;',
+					'const themeContent = await fs.promises.readFile(themeFile);',
+					'const content = await fs.promises.readFile(fileToRead);',
+					'',
+					"source: content.toString('utf8'),",
+					'file: fileToRead,',
+					"theme: JSON.stringify(themeContent.toString('utf8'))"
+				]
+			};
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			//@ts-ignore
+			await replaceInFile(options);
 		} catch (err) {
 			console.error(err);
 		}
@@ -144,6 +194,9 @@ const svelteWayBuild = async () => {
 	try {
 		const currentDirectory = cwd();
 		const layoutFile = `${currentDirectory}/src/routes/+layout.svelte`;
+		const layoutServerFile = fs.existsSync(`${currentDirectory}/tsconfig.json`)
+			? `${currentDirectory}/src/routes/+layout.server.ts`
+			: `${currentDirectory}/src/routes/+layout.server.js`;
 		const content = await fs.promises.readFile(layoutFile);
 		const buf = Buffer.from(`${content}`, 'utf8');
 		const themeFile = `${currentDirectory}/static/theme.txt`;
@@ -155,23 +208,58 @@ const svelteWayBuild = async () => {
 			fs.rm(
 				`${currentDirectory}/src/routes/api/svelteway`,
 				{ recursive: true, force: true },
-				(err) => {
+				() => {
 					return;
 				}
 			);
 		}
 		const options = {
-			files: layoutFile,
+			files: [layoutFile, layoutServerFile],
 			from: [
 				/<Layout \{data\}>/g,
 				/<\/Layout>/g,
 				// eslint-disable-next-line no-useless-escape
 				/import { Layout } from \"svelteway\";/g,
-				/<div data-theme={theme}>\r\n\t\t<slot \/>\r\n\t<\/div>/g
+				/const theme = JSON.parse(data.data.theme);/g,
+				/<div data-theme={theme}>\r\n\t\t<slot \/>\r\n\t<\/div>/g,
+				// eslint-disable-next-line no-useless-escape
+				/import { cwd } from \'process\';/g,
+				// eslint-disable-next-line no-useless-escape
+				/import fs from \'node:fs\';/g,
+				/const currentDirectory = cwd();/g,
+				// eslint-disable-next-line no-useless-escape
+				/const fileToRead =\r\n\t\troute.id == \'\/\'\r\n\t\t\t? `${currentDirectory}\/src\/routes\/+page.svelte`\r\n\t\t\t: `${currentDirectory}\/src\/routes\/${route.id}\/+page.svelte`;/g,
+				/const themeFile = `${currentDirectory}\/static\/theme.txt`;/g,
+				/const themeContent = await fs.promises.readFile(themeFile);/g,
+				/const content = await fs.promises.readFile(fileToRead);/g,
+				// eslint-disable-next-line no-useless-escape
+				/source: content.toString(\'utf8\'),/g,
+				/file: fileToRead,/g,
+				// eslint-disable-next-line no-useless-escape
+				/theme: JSON.stringify(themeContent.toString(\'utf8\'))/g
 			],
-			to: ['', '', '', `<div data-theme="${theme}}><slot /></div>`]
+			to: [
+				'<!-- svelteway-safe-layout-ot do not erase this line -->',
+				'<!-- svelteway-safe-layout-ct do not erase this line -->',
+				'// svelteway-safe-layout-import do not erase this line',
+				`// svelteway-safe-theme-constant do not erase this line`,
+				`<div data-theme="${theme}"><slot /></div>`,
+				'//svelteway-safe-cwd-import do not erase this line',
+				'//svelteway-safe-fs-import do not erase this line',
+				'//svelteway-safe-cwd-declaration do not erase this line',
+				'//svelteway-safe-fileToRead-declaration do not erase this line',
+				'//svelteway-safe-themeFile-declaration do not erase this line',
+				'//svelteway-safe-themeContent-declaration do not erase this line',
+				'//svelteway-safe-content-declaration do not erase this line',
+				'//svelteway-safe-source-data do not erase this line',
+				'//svelteway-safe-source-data do not erase this line',
+				'//svelteway-safe-file-data do not erase this line',
+				'//svelteway-safe-theme-data do not erase this line'
+			]
 		};
-		const results = await replaceInFile(options);
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		//@ts-ignore
+		await replaceInFile(options);
 	} catch (err) {
 		return;
 	}
