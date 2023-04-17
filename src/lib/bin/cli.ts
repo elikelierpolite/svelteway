@@ -324,6 +324,7 @@ const svelteWayBuild = async () => {
 				/data-theme=\{theme\}/i,
 				/import { cwd } from 'process';/g,
 				/import fs from 'node:fs';/g,
+				/''/i
 			],
 			to: [
 				'<!-- svelteway-safe-layout-ot do not erase this line -->',
@@ -346,6 +347,7 @@ const svelteWayBuild = async () => {
 				`data-theme="${theme}"`,
 				'// svelteway-safe-cwd-import do not erase this line',
 				'// svelteway-safe-fs-import do not erase this line',
+				'\''
 			]
 		};
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
