@@ -4,6 +4,7 @@ import { Buffer } from 'node:buffer';
 import fs from 'node:fs';
 import { cwd } from 'process';
 import replaceInFile from 'replace-in-file';
+import prettier from 'prettier';
 
 const printUsageDetails = () => {
 	const actions = [
@@ -36,7 +37,7 @@ const svelteWayDev = async () => {
 		const layoutServerFile = fs.existsSync(`${currentDirectory}/tsconfig.json`)
 			? `${currentDirectory}/src/routes/+layout.server.ts`
 			: `${currentDirectory}/src/routes/+layout.server.js`;
-		const buf = Buffer.from(
+		let buf = Buffer.from(
 			`import type { Actions } from './$types';
 			import { redirect } from '@sveltejs/kit';
 			import { Buffer } from 'node:buffer';
@@ -77,7 +78,16 @@ const svelteWayDev = async () => {
 			`,
 			'utf8'
 		);
-		const bufJs = Buffer.from(
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		//@ts-ignore
+		buf = prettier.format(buf, {
+			parser: 'babel',
+			useTabs: true,
+			singleQuote: true,
+			trailingComma: 'none',
+			printWidth: 100
+		});
+		let bufJs = Buffer.from(
 			`import { redirect } from '@sveltejs/kit';
 			import { Buffer } from 'node:buffer';
 			import fs from 'node:fs';;
@@ -117,6 +127,15 @@ const svelteWayDev = async () => {
 			`,
 			'utf8'
 		);
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		//@ts-ignore
+		bufJs = prettier.format(bufJs, {
+			parser: 'babel',
+			useTabs: true,
+			singleQuote: true,
+			trailingComma: 'none',
+			printWidth: 100
+		});
 		try {
 			if (!fs.existsSync(themeFile)) {
 				const themeBuf = Buffer.from(`light`, 'utf8');
@@ -219,8 +238,7 @@ const svelteWayDev = async () => {
 					'</Layout>',
 					'import { Layout } from "svelteway";',
 					`const theme = JSON.parse(data.data.theme);`,
-					`<div data-theme={theme}><slot />
-			t</div>`,
+					`<div data-theme={theme}><slot /></div>`,
 					"import { cwd } from 'process';",
 					"import fs from 'node:fs';",
 					'const currentDirectory = cwd();',
@@ -231,12 +249,21 @@ const svelteWayDev = async () => {
 					"source: content.toString('utf8'),",
 					'file: fileToRead,',
 					"theme: JSON.stringify(themeContent.toString('utf8'))",
-					`onwarn: (warning, handler) => {
+					prettier.format(
+						`onwarn: (warning, handler) => {
 						if (warning.code.startsWith('a11y-')) {
 							return;
 						}
 						handler(warning);
-					},`
+					},`,
+						{
+							parser: 'babel',
+							useTabs: true,
+							singleQuote: true,
+							trailingComma: 'none',
+							printWidth: 100
+						}
+					)
 				]
 			};
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -270,27 +297,21 @@ const svelteWayBuild = async () => {
 				}
 			);
 		}
-		const sveltewayLot = new RegExp(`<Layout {data}>`, 'm');
-		const sveltewayCot = new RegExp(`</Layout>`, 'm');
-		const sveltewayLi = new RegExp(`import { Layout } from "svelteway";`, 'm');
-		const sveltewayTc = new RegExp(`theme`, 'm');
-		const sveltewayCwd = new RegExp(`currentDirectory`, 'm');
-		const sveltewayFtr = new RegExp(
-			`fileToRead`,
-			'm'
-		);
-		const sveltewayTf = new RegExp(
-			`themeFile`,
-			'm'
-		);
-		const sveltewayThemec = new RegExp(
-			`themeContent`,
-			'm'
-		);
-		const sveltewayC = new RegExp(`content`, 'm');
-		const sveltewayDs = new RegExp(`source:`, 'm');
-		const sveltewayDf = new RegExp(`file: fileToRead,`, 'm');
-		const sveltewayDt = new RegExp(`theme:`, 'm');
+		const sveltewayLot = new RegExp('<Layout {data}>', 'm');
+		const sveltewayCot = new RegExp('</Layout>', 'm');
+		const sveltewayLi = /import \{ Layout \} from 'svelteway';/i;
+		const sveltewayTc = /const theme = JSON\.parse\(data\.data\.theme\);/i;
+		const sveltewayCwd = /const currentDirectory = cwd\(\)/i;
+		const sveltewayFtr =
+			/const fileToRead = route\.id == '\/' \? `\$\{currentDirectory\}\/src\/routes\/\+page\.svelte` : `\$\{currentDirectory\}\/src\/routes\/\$\{route\.id\}\/\+page\.svelte`/i;
+		const sveltewayFtr2 =
+			/\tconst fileToRead = \t\troute\.id == '\/' \t\t\t\? `\$\{currentDirectory\}\/src\/routes\/\+page\.svelte` \t\t\t: `\$\{currentDirectory\}\/src\/routes\/\$\{route\.id\}\/\+page\.svelte`;/i;
+		const sveltewayTf = /const themeFile = `\$\{currentDirectory\}\/static\/theme\.txt`/i;
+		const sveltewayThemec = /const themeContent = await fs\.promises\.readFile\(themeFile\);/i;
+		const sveltewayC = /const content = await fs\.promises\.readFile\(fileToRead\);/i;
+		const sveltewayDs = /source: content\.toString\('utf8'\),/i;
+		const sveltewayDf = /file: fileToRead,/i;
+		const sveltewayDt = /theme: JSON\.stringify\(themeContent\.toString\('utf8'\)\)/i;
 		const options = {
 			files: [layoutFile, layoutServerFile],
 			from: [
@@ -299,10 +320,13 @@ const svelteWayBuild = async () => {
 				sveltewayLi,
 				sveltewayTc,
 				/<div data-theme={theme}>\r\n\t\t<slot \/>\r\n\t<\/div>/g,
+				/\t<div data-theme=\{theme\}><slot \/><\/div>/i,
+				/\t<div data-theme=\{theme\}> \t\t<slot \/> \t<\/div>/i,
 				/import { cwd } from 'process';/g,
 				/import fs from 'node:fs';/g,
 				sveltewayCwd,
 				sveltewayFtr,
+				sveltewayFtr2,
 				sveltewayTf,
 				sveltewayThemec,
 				sveltewayC,
@@ -316,9 +340,12 @@ const svelteWayBuild = async () => {
 				'// svelteway-safe-layout-import do not erase this line',
 				`// svelteway-safe-theme-constant do not erase this line`,
 				`<div data-theme="${theme}"><slot /></div>`,
+				`<div data-theme="${theme}"><slot /></div>`,
+				`<div data-theme="${theme}"><slot /></div>`,
 				'// svelteway-safe-cwd-import do not erase this line',
 				'// svelteway-safe-fs-import do not erase this line',
 				'// svelteway-safe-cwd-declaration do not erase this line',
+				'// svelteway-safe-fileToRead-declaration do not erase this line',
 				'// svelteway-safe-fileToRead-declaration do not erase this line',
 				'// svelteway-safe-themeFile-declaration do not erase this line',
 				'// svelteway-safe-themeContent-declaration do not erase this line',

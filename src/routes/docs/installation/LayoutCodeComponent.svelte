@@ -1,5 +1,6 @@
 <script>
 	import toast, { Toaster } from 'svelte-french-toast';
+import prettier from 'prettier';
 	let usingTypeScript = true;
 	function useTypescript() {
 		usingTypeScript = true;
@@ -9,7 +10,7 @@
 	}
 
 	function copyCode() {
-		const codeTs = `import type { LayoutServerLoad } from './$types';
+		let codeTs = `import type { LayoutServerLoad } from './$types';
   import { cwd } from 'process';
   import fs from 'node:fs';
   
@@ -28,7 +29,7 @@
     };
   }) satisfies LayoutServerLoad;
   `;
-		const codeJs = `import { cwd } from 'process';
+		let codeJs = `import { cwd } from 'process';
 	import fs from 'node:fs';
 	
 	export const load = (async ({ route }) => {
@@ -45,6 +46,20 @@
 		}
 		};
 	})`;
+	codeTs = prettier.format(codeTs, {
+			parser: 'babel',
+			useTabs: true,
+			singleQuote: true,
+			trailingComma: 'none',
+			printWidth: 100
+		});
+	codeJs = prettier.format(codeJs, {
+			parser: 'babel',
+			useTabs: true,
+			singleQuote: true,
+			trailingComma: 'none',
+			printWidth: 100
+		});
 		if (usingTypeScript) {
 			navigator.clipboard.writeText(codeTs);
 		} else {
