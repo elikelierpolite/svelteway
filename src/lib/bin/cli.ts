@@ -284,6 +284,7 @@ const svelteWayBuild = async () => {
 		const sveltewayLot = new RegExp('<Layout {data}>', 'm');
 		const sveltewayCot = new RegExp('</Layout>', 'm');
 		const sveltewayLi = /import \{ Layout \} from 'svelteway';/i;
+		const sveltewayLi2 = new RegExp('import { Layout } from "svelteway";', 'm');
 		const sveltewayTc = /const theme = JSON\.parse\(data\.data\.theme\);/i;
 		const sveltewayCwd = /const currentDirectory = cwd\(\)/i;
 		const sveltewayFtr =
@@ -292,8 +293,8 @@ const svelteWayBuild = async () => {
 			/\tconst fileToRead = \t\troute\.id == '\/' \t\t\t\? `\$\{currentDirectory\}\/src\/routes\/\+page\.svelte` \t\t\t: `\$\{currentDirectory\}\/src\/routes\/\$\{route\.id\}\/\+page\.svelte`;/i;
 		const sveltewayFtr3 =
 			/const fileToRead = \t\troute\.id == '\/' \t\t\t\? `\$\{currentDirectory\}\/src\/routes\/\+page\.svelte` \t\t\t: `\$\{currentDirectory\}\/src\/routes\/\$\{route\.id\}\/\+page\.svelte`;/i;
-		const sveltewayFtr4 = /currentDirectory/i;
-		const sveltewayFtr5 = /route\.id/i;
+		const sveltewayFtr4 = /currentDirectory/g;
+		const sveltewayFtr5 = /\/\$\{route\.id\}\//i;
 		const sveltewayTf = /const themeFile = `\$\{currentDirectory\}\/static\/theme\.txt`/i;
 		const sveltewayThemec = /const themeContent = await fs\.promises\.readFile\(themeFile\);/i;
 		const sveltewayC = /const content = await fs\.promises\.readFile\(fileToRead\);/i;
@@ -306,6 +307,7 @@ const svelteWayBuild = async () => {
 				sveltewayLot,
 				sveltewayCot,
 				sveltewayLi,
+				sveltewayLi2,
 				sveltewayTc,
 				sveltewayCwd,
 				sveltewayFtr,
@@ -326,6 +328,7 @@ const svelteWayBuild = async () => {
 			to: [
 				'<!-- svelteway-safe-layout-ot do not erase this line -->',
 				'<!-- svelteway-safe-layout-ct do not erase this line -->',
+				'// svelteway-safe-layout-import do not erase this line',
 				'// svelteway-safe-layout-import do not erase this line',
 				`// svelteway-safe-theme-constant do not erase this line`,
 				'// svelteway-safe-cwd-declaration do not erase this line',
