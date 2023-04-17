@@ -41,7 +41,7 @@ const theme = JSON.parse(data.data.theme);
 </Layout>
 ```
 
-For more on +layout.server code, see [svelteway manual setup](https://svelteway.vercel.app/installation).
+For more on +layout.server code, see [svelteway manual setup](https://svelteway.vercel.app/docs/installation).
 
 ## Thanks
 
