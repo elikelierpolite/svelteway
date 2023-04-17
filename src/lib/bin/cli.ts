@@ -227,17 +227,17 @@ const svelteWayBuild = async () => {
 				/import { cwd } from \'process\';/g,
 				// eslint-disable-next-line no-useless-escape
 				/import fs from \'node:fs\';/g,
-				/const currentDirectory = cwd();/g,
+				/\tconst currentDirectory = cwd();/g,
 				// eslint-disable-next-line no-useless-escape
-				/const fileToRead =\r\n\t\troute.id == \'\/\'\r\n\t\t\t? `${currentDirectory}\/src\/routes\/+page.svelte`\r\n\t\t\t: `${currentDirectory}\/src\/routes\/${route.id}\/+page.svelte`;/g,
-				/const themeFile = `${currentDirectory}\/static\/theme.txt`;/g,
-				/const themeContent = await fs.promises.readFile(themeFile);/g,
-				/const content = await fs.promises.readFile(fileToRead);/g,
+				/\tconst fileToRead =\r\n\t\troute.id == \'\/\'\r\n\t\t\t? `${currentDirectory}\/src\/routes\/+page.svelte`\r\n\t\t\t: `${currentDirectory}\/src\/routes\/${route.id}\/+page.svelte`;/g,
+				/\tconst themeFile = `${currentDirectory}\/static\/theme.txt`;/g,
+				/\tconst themeContent = await fs.promises.readFile(themeFile);/g,
+				/\tconst content = await fs.promises.readFile(fileToRead);/g,
 				// eslint-disable-next-line no-useless-escape
-				/source: content.toString(\'utf8\'),/g,
-				/file: fileToRead,/g,
+				/\t\t\tsource: content.toString(\'utf8\'),/g,
+				/\t\t\tfile: fileToRead,/g,
 				// eslint-disable-next-line no-useless-escape
-				/theme: JSON.stringify(themeContent.toString(\'utf8\'))/g
+				/\t\t\ttheme: JSON.stringify(themeContent.toString(\'utf8\'))/g
 			],
 			to: [
 				'<!-- svelteway-safe-layout-ot do not erase this line -->',

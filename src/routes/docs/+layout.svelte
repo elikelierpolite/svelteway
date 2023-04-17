@@ -1,11 +1,18 @@
 <script>
-	import { page } from "$app/stores";
+	import { page } from '$app/stores';
+	import { afterUpdate } from 'svelte';
+	afterUpdate(() => {
+			const docsContent = document.getElementById('docsContent');
+			docsContent.scroll({top:0,behavior:'smooth'});
+	});
 </script>
 
 <div class="drawer drawer-mobile bg-[#1A1A1A]">
 	<input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-	<div class="drawer-content bg-[#1A1A1A] flex flex-col w-full m-5 mt-10">
-		<slot />
+	<div class="drawer-content bg-[#1A1A1A] flex flex-col w-full m-5 mt-10 container mx-auto" id="docsContent">
+		<div class="m-5" id="docsContent">
+			<slot />
+		</div>
 		<div class="btm-nav mt-5 lg:hidden bg-[#1E1E20]">
 			<label for="my-drawer-2" class="btn btn-ghost drawer-button lg:hidden sticky bottom-5 left-2"
 				><svg
@@ -29,9 +36,23 @@
 		<label for="my-drawer-2" class="drawer-overlay" />
 		<ul class="menu p-4 w-80 text-base-content bg-[#1E1E1E]">
 			<!-- Sidebar content here -->
-			<li><a class={`btn-ghost ${$page.route.id == "/docs" && 'text-[#FF531A]'}`} href="/docs">Introduction</a></li>
-			<li><a class={`btn-ghost ${$page.route.id == "/docs/installation" && 'text-[#FF531A]'}`} href="/docs/installation">Installation</a></li>
-			<li><a class={`btn-ghost ${$page.route.id == "/docs/usage" && 'text-[#FF531A]'}`} href="/docs/usage">Usage</a></li>
+			<li>
+				<a class={`btn-ghost ${$page.route.id == '/docs' && 'text-[#FF531A]'}`} href="/docs"
+					>Introduction</a
+				>
+			</li>
+			<li>
+				<a
+					class={`btn-ghost ${$page.route.id == '/docs/installation' && 'text-[#FF531A]'}`}
+					href="/docs/installation">Installation</a
+				>
+			</li>
+			<li>
+				<a
+					class={`btn-ghost ${$page.route.id == '/docs/usage' && 'text-[#FF531A]'}`}
+					href="/docs/usage">Usage</a
+				>
+			</li>
 		</ul>
 	</div>
 </div>
