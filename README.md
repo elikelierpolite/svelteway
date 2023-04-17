@@ -9,7 +9,9 @@
 # sveltway
 
 > The most svelte way to build UI's for your svelte kit applications!
+
 [![Watch the video](https://img.youtube.com/vi/r1Kag_QLsoM/maxresdefault.jpg)](https://youtu.be/r1Kag_QLsoM)
+
 ## Creating a project
 
 ```bash

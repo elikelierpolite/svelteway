@@ -1,16 +1,8 @@
 <script>
 	import LayoutCodeComponent from './LayoutCodeComponent.svelte';
 	import toast, { Toaster } from 'svelte-french-toast';
-	import prettier from 'prettier';
 	function copyCode() {
-		let layoutCode = `<script>\r\n  import \"..\/app.css\";\r\n  import { Layout } from \"svelteway\";\r\n  export let data;\r\n  const theme = JSON.parse(data.data.theme);\r\n<\/script>\r\n\r\n<Layout {data}>\r\n  <div data-theme={theme}>\r\n    <slot \/>\r\n  <\/div>\r\n<\/Layout>`;
-		layoutCode = prettier.format(layoutCode, {
-			parser: 'babel',
-			useTabs: true,
-			singleQuote: true,
-			trailingComma: 'none',
-			printWidth: 100
-		});
+		const layoutCode = `<script>\r\n  import \"..\/app.css\";\r\n  import { Layout } from \"svelteway\";\r\n  export let data;\r\n  const theme = JSON.parse(data.data.theme);\r\n<\/script>\r\n\r\n<Layout {data}>\r\n  <div data-theme={theme}>\r\n    <slot \/>\r\n  <\/div>\r\n<\/Layout>`;
 		navigator.clipboard.writeText(layoutCode);
 		toast.success('Copied!');
 	}
@@ -47,7 +39,7 @@
 					></pre>
 			</div>
 			<div class="mt-2">
-				<p class="text-lg flex gap-2">
+				<p class="text-lg flex gap-2 ">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -119,12 +111,7 @@
 				<pre data-prefix=""><code
 						><span>{'	'}</span><span class="text-[#cd2ebd]">const</span><span
 							class="text-[#ff7b29]"> theme</span
-						><span class="text-[#35b8ff]">{' ='}</span><span class="text-[#ff7b29]"> {'JSON'}</span
-						><span>{'.'}</span><span class="text-[#35b8ff]">{'parse('}</span><span
-							class="text-[#ff2f55]">{'data'}</span
-						><span>.</span><span class="text-[#ff2f55]">{'data'}</span><span>.</span><span
-							>{'theme'}</span
-						><span class="text-[#35b8ff]">{')'}</span></code
+						><span class="text-[#35b8ff]">{' ='}</span><span class="text-[#ff7b29]"> {'JSON'}</span><span>{'.'}</span><span class="text-[#35b8ff]">{'parse('}</span><span class="text-[#ff2f55]">{'data'}</span><span>.</span><span class="text-[#ff2f55]">{'data'}</span><span>.</span><span>{'theme'}</span><span class="text-[#35b8ff]">{')'}</span></code
 					></pre>
 				<pre data-prefix=""><code
 						><span>{'</'}</span><span class="text-[#cd2ebd]">{'script'}</span><span>{'>'}</span
@@ -139,12 +126,10 @@
 				<pre data-prefix=""><code
 						><span>{'	'}</span><span class="text-[#6b6b6b]">{'// ...'}</span></code
 					></pre>
-				<pre data-prefix=""><code
+					<pre data-prefix=""><code
 						><span>{'<'}</span><span class="text-[#ff2f55]">{'div'}</span><span
 							class="text-[#ff7b29]"> {'data-theme'}</span
-						><span>=</span><span class="text-[#f4cf46]">{'{'}</span><span>theme</span><span
-							class="text-[#f4cf46]">{'}'}</span
-						><span>{'>'}</span></code
+						><span>=</span><span class="text-[#f4cf46]">{'{'}</span><span>theme</span><span class="text-[#f4cf46]">{'}'}</span><span>{'>'}</span></code
 					></pre>
 				<pre data-prefix=""><code
 						><span>{'	'}</span><span>{'<'}</span><span class="text-[#cd2ebd]">{'slot'}</span><span
@@ -152,7 +137,8 @@
 						></code
 					></pre>
 				<pre data-prefix=""><code
-						><span>{'</'}</span><span class="text-[#ff2f55]">{'div'}</span><span>{'>'}</span></code
+						><span>{'</'}</span><span class="text-[#ff2f55]">{'div'}</span><span>{'>'}</span
+						></code
 					></pre>
 				<pre data-prefix=""><code
 						><span>{'</'}</span><span class="text-[#f4cf46]">{'Layout'}</span><span>{'>'}</span

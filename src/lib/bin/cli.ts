@@ -4,7 +4,6 @@ import { Buffer } from 'node:buffer';
 import fs from 'node:fs';
 import { cwd } from 'process';
 import replaceInFile from 'replace-in-file';
-import prettier from 'prettier';
 
 const printUsageDetails = () => {
 	const actions = [
@@ -37,7 +36,7 @@ const svelteWayDev = async () => {
 		const layoutServerFile = fs.existsSync(`${currentDirectory}/tsconfig.json`)
 			? `${currentDirectory}/src/routes/+layout.server.ts`
 			: `${currentDirectory}/src/routes/+layout.server.js`;
-		let buf = Buffer.from(
+		const buf = Buffer.from(
 			`import type { Actions } from './$types';
 			import { redirect } from '@sveltejs/kit';
 			import { Buffer } from 'node:buffer';
@@ -78,16 +77,7 @@ const svelteWayDev = async () => {
 			`,
 			'utf8'
 		);
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		//@ts-ignore
-		buf = prettier.format(buf, {
-			parser: 'babel',
-			useTabs: true,
-			singleQuote: true,
-			trailingComma: 'none',
-			printWidth: 100
-		});
-		let bufJs = Buffer.from(
+		const bufJs = Buffer.from(
 			`import { redirect } from '@sveltejs/kit';
 			import { Buffer } from 'node:buffer';
 			import fs from 'node:fs';;
@@ -127,15 +117,6 @@ const svelteWayDev = async () => {
 			`,
 			'utf8'
 		);
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		//@ts-ignore
-		bufJs = prettier.format(bufJs, {
-			parser: 'babel',
-			useTabs: true,
-			singleQuote: true,
-			trailingComma: 'none',
-			printWidth: 100
-		});
 		try {
 			if (!fs.existsSync(themeFile)) {
 				const themeBuf = Buffer.from(`light`, 'utf8');
@@ -249,21 +230,12 @@ const svelteWayDev = async () => {
 					"source: content.toString('utf8'),",
 					'file: fileToRead,',
 					"theme: JSON.stringify(themeContent.toString('utf8'))",
-					prettier.format(
-						`onwarn: (warning, handler) => {
+					`onwarn: (warning, handler) => {
 						if (warning.code.startsWith('a11y-')) {
 							return;
 						}
 						handler(warning);
-					},`,
-						{
-							parser: 'babel',
-							useTabs: true,
-							singleQuote: true,
-							trailingComma: 'none',
-							printWidth: 100
-						}
-					)
+					},`
 				]
 			};
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
