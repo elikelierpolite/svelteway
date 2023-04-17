@@ -278,6 +278,8 @@ const svelteWayBuild = async () => {
 			/const fileToRead = route\.id == '\/' \? `\$\{currentDirectory\}\/src\/routes\/\+page\.svelte` : `\$\{currentDirectory\}\/src\/routes\/\$\{route\.id\}\/\+page\.svelte`/i;
 		const sveltewayFtr2 =
 			/\tconst fileToRead = \t\troute\.id == '\/' \t\t\t\? `\$\{currentDirectory\}\/src\/routes\/\+page\.svelte` \t\t\t: `\$\{currentDirectory\}\/src\/routes\/\$\{route\.id\}\/\+page\.svelte`;/i;
+		const sveltewayFtr3 =
+			/const fileToRead = \t\troute\.id == '\/' \t\t\t\? `\$\{currentDirectory\}\/src\/routes\/\+page\.svelte` \t\t\t: `\$\{currentDirectory\}\/src\/routes\/\$\{route\.id\}\/\+page\.svelte`;/i;
 		const sveltewayTf = /const themeFile = `\$\{currentDirectory\}\/static\/theme\.txt`/i;
 		const sveltewayThemec = /const themeContent = await fs\.promises\.readFile\(themeFile\);/i;
 		const sveltewayC = /const content = await fs\.promises\.readFile\(fileToRead\);/i;
@@ -299,6 +301,7 @@ const svelteWayBuild = async () => {
 				sveltewayCwd,
 				sveltewayFtr,
 				sveltewayFtr2,
+				sveltewayFtr3,
 				sveltewayTf,
 				sveltewayThemec,
 				sveltewayC,
@@ -317,6 +320,7 @@ const svelteWayBuild = async () => {
 				'// svelteway-safe-cwd-import do not erase this line',
 				'// svelteway-safe-fs-import do not erase this line',
 				'// svelteway-safe-cwd-declaration do not erase this line',
+				'// svelteway-safe-fileToRead-declaration do not erase this line',
 				'// svelteway-safe-fileToRead-declaration do not erase this line',
 				'// svelteway-safe-fileToRead-declaration do not erase this line',
 				'// svelteway-safe-themeFile-declaration do not erase this line',
