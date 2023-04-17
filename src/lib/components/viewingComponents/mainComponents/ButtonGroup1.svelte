@@ -9,7 +9,6 @@
 	 * @type {any}
 	 */
 	export let swElementDataAttrId;
-	export let content;
 	export let classes;
 	export let helper;
 	export let content1;

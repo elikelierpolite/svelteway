@@ -184,7 +184,9 @@
 		</div>
 		<div class="hidden md:block">
 			<ul data-theme="swtheme" class="menu bg-[#1A1A1A] w-56">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li class="bordered"><a>Create SvelteWay</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Manual Setup</a></li>
 			</ul>
 		</div>

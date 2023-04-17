@@ -1,4 +1,5 @@
 <script>
+	// @ts-ignore
 	import { swCode, cvElement } from '../CodeStore';
 	import { v4 as uuidv4 } from 'uuid';
 
@@ -33,6 +34,8 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -70,6 +73,8 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -107,6 +112,8 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -144,6 +151,8 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -181,6 +190,8 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -218,6 +229,8 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -255,6 +268,8 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -292,6 +307,8 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -332,6 +349,8 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -372,6 +391,8 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -409,6 +430,8 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');

@@ -24,6 +24,7 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -71,7 +72,9 @@
 				<label for="my-drawer-2" class="drawer-overlay" />
 				<ul class="menu p-4 w-80 bg-base-100 text-base-content">
 					<!-- Sidebar content here -->
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<li><a>Sidebar Item 1</a></li>
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<li><a>Sidebar Item 2</a></li>
 				</ul>
 			</div>

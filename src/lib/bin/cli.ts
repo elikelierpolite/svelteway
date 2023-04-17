@@ -25,6 +25,7 @@ const printUsageDetails = () => {
 const svelteWayDev = async () => {
 	try {
 		const currentDirectory = cwd();
+		const svelteConfigFile = `${currentDirectory}/svelte.config.js`;
 		const apiFolder = `${currentDirectory}/src/routes/api`;
 		const folderName = `${currentDirectory}/src/routes/api/svelteway`;
 		const themeFile = `${currentDirectory}/static/theme.txt`;
@@ -132,32 +133,86 @@ const svelteWayDev = async () => {
 					fs.writeFileSync(`${folderName}/+page.server.js`, bufJs);
 				}
 			}
-			const themeRegex = new RegExp(`<div data-theme="${theme}"><slot /></div>`, 'g');
+			const themeRegex = new RegExp(`<div data-theme="${theme}"><slot /></div>`, 'm');
+			const sveltewaySafeLayoutOtRegex = new RegExp(
+				`<!-- svelteway-safe-layout-ot do not erase this line -->`,
+				'm'
+			);
+			const sveltewaySafeLayoutCtRegex = new RegExp(
+				`<!-- svelteway-safe-layout-ct do not erase this line -->`,
+				'm'
+			);
+			const sveltewaySafeLayoutImportRegex = new RegExp(
+				`// svelteway-safe-layout-import do not erase this line`,
+				'm'
+			);
+			const sveltewaySafeLayoutThemeConstantRegex = new RegExp(
+				`// svelteway-safe-theme-constant do not erase this line`,
+				'm'
+			);
+			const sveltewaySafeLayoutCwdImportRegex = new RegExp(
+				`// svelteway-safe-cwd-import do not erase this line`,
+				'm'
+			);
+			const sveltewaySafeLayoutFsImportRegex = new RegExp(
+				`// svelteway-safe-fs-import do not erase this line`,
+				'm'
+			);
+			const sveltewaySafeLayoutCwdDeclarationRegex = new RegExp(
+				`// svelteway-safe-cwd-declaration do not erase this line`,
+				'm'
+			);
+			const sveltewaySafeLayoutFtrDeclarationRegex = new RegExp(
+				`// svelteway-safe-fileToRead-declaration do not erase this line`,
+				'm'
+			);
+			const sveltewaySafethemeFileDeclarationRegex = new RegExp(
+				`// svelteway-safe-themeFile-declaration do not erase this line`,
+				'm'
+			);
+			const sveltewaySafethemeContentDeclarationRegex = new RegExp(
+				`// svelteway-safe-themeContent-declaration do not erase this line`,
+				'm'
+			);
+			const sveltewaySafeContentDeclarationRegex = new RegExp(
+				`// svelteway-safe-content-declaration do not erase this line`,
+				'm'
+			);
+			const sveltewaySafeSourceDataRegex = new RegExp(
+				`// svelteway-safe-source-data do not erase this line`,
+				'm'
+			);
+			const sveltewaySafeFileDataRegex = new RegExp(
+				`// svelteway-safe-file-data do not erase this line`,
+				'm'
+			);
+			const sveltewaySafeThemeDataRegex = new RegExp(
+				`// svelteway-safe-theme-data do not erase this line`,
+				'm'
+			);
+			const sveltewaySvelteConfigRegex = new RegExp(
+				`// for more information about preprocessors`,
+				'm'
+			);
 			const options = {
-				files: [layoutFile, layoutServerFile],
+				files: [layoutFile, layoutServerFile, svelteConfigFile],
 				from: [
-					/<!-- svelteway-safe-layout-ot do not erase this line -->/g,
-					/<!-- svelteway-safe-layout-ct do not erase this line -->/g,
-					// eslint-disable-next-line no-useless-escape
-					/\/\/ svelteway-safe-layout-import do not erase this line/g,
-					/\/\/ svelteway-safe-theme-constant do not erase this line/g,
-					// eslint-disable-next-line no-useless-escape
+					sveltewaySafeLayoutOtRegex,
+					sveltewaySafeLayoutCtRegex,
+					sveltewaySafeLayoutImportRegex,
+					sveltewaySafeLayoutThemeConstantRegex,
 					themeRegex,
-					// eslint-disable-next-line no-useless-escape
-					/\/\/svelteway-safe-cwd-import do not erase this line/g,
-					// eslint-disable-next-line no-useless-escape
-					/\/\/svelteway-safe-fs-import do not erase this line/g,
-					/\/\/svelteway-safe-cwd-declaration do not erase this line/g,
-					// eslint-disable-next-line no-useless-escape
-					///svelteway-safe-fileToRead-declaration do not erase this line/g,
-					/\/\/svelteway-safe-themeFile-declaration do not erase this line/g,
-					/\/\/svelteway-safe-themeContent-declaration do not erase this line/g,
-					/\/\/svelteway-safe-content-declaration do not erase this line/g,
-					// eslint-disable-next-line no-useless-escape
-					/\/\/svelteway-safe-source-data do not erase this line/g,
-					/\/\/svelteway-safe-file-data do not erase this line/g,
-					// eslint-disable-next-line no-useless-escape
-					/\/\/svelteway-safe-theme-data do not erase this line/g
+					sveltewaySafeLayoutCwdImportRegex,
+					sveltewaySafeLayoutFsImportRegex,
+					sveltewaySafeLayoutCwdDeclarationRegex,
+					sveltewaySafeLayoutFtrDeclarationRegex,
+					sveltewaySafethemeFileDeclarationRegex,
+					sveltewaySafethemeContentDeclarationRegex,
+					sveltewaySafeContentDeclarationRegex,
+					sveltewaySafeSourceDataRegex,
+					sveltewaySafeFileDataRegex,
+					sveltewaySafeThemeDataRegex,
+					sveltewaySvelteConfigRegex
 				],
 				to: [
 					'<Layout {data}>',
@@ -169,15 +224,19 @@ const svelteWayDev = async () => {
 					"import { cwd } from 'process';",
 					"import fs from 'node:fs';",
 					'const currentDirectory = cwd();',
-					// eslint-disable-next-line no-useless-escape
-					"const fileToRead =\r\n\t\troute.id == \'\/\'\r\n\t\t\t? `${currentDirectory}\/src\/routes\/+page.svelte`\r\n\t\t\t: `${currentDirectory}\/src\/routes\/${route.id}\/+page.svelte`;",
+					"const fileToRead =\r\n\t\troute.id == '/'\r\n\t\t\t? `${currentDirectory}/src/routes/+page.svelte`\r\n\t\t\t: `${currentDirectory}/src/routes/${route.id}/+page.svelte`;",
 					'const themeFile = `${currentDirectory}/static/theme.txt`;',
 					'const themeContent = await fs.promises.readFile(themeFile);',
 					'const content = await fs.promises.readFile(fileToRead);',
-					'',
 					"source: content.toString('utf8'),",
 					'file: fileToRead,',
-					"theme: JSON.stringify(themeContent.toString('utf8'))"
+					"theme: JSON.stringify(themeContent.toString('utf8'))",
+					`onwarn: (warning, handler) => {
+						if (warning.code.startsWith('a11y-')) {
+							return;
+						}
+						handler(warning);
+					},`
 				]
 			};
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -198,13 +257,10 @@ const svelteWayBuild = async () => {
 		const layoutServerFile = fs.existsSync(`${currentDirectory}/tsconfig.json`)
 			? `${currentDirectory}/src/routes/+layout.server.ts`
 			: `${currentDirectory}/src/routes/+layout.server.js`;
-		const content = await fs.promises.readFile(layoutFile);
-		const buf = Buffer.from(`${content}`, 'utf8');
 		const themeFile = `${currentDirectory}/static/theme.txt`;
 		const themeContent = await fs.promises.readFile(themeFile);
 		const themeContent2 = JSON.stringify(themeContent.toString('utf8'));
 		const theme = JSON.parse(themeContent2);
-		fs.writeFileSync(`${currentDirectory}/svelteway-safe-layout.svelte`, buf);
 		if (fs.existsSync(`${currentDirectory}/src/routes/api/svelteway`)) {
 			fs.rm(
 				`${currentDirectory}/src/routes/api/svelteway`,
@@ -214,30 +270,45 @@ const svelteWayBuild = async () => {
 				}
 			);
 		}
+		const sveltewayLot = new RegExp(`<Layout {data}>`, 'm');
+		const sveltewayCot = new RegExp(`</Layout>`, 'm');
+		const sveltewayLi = new RegExp(`import { Layout } from "svelteway";`, 'm');
+		const sveltewayTc = new RegExp(`theme`, 'm');
+		const sveltewayCwd = new RegExp(`currentDirectory`, 'm');
+		const sveltewayFtr = new RegExp(
+			`fileToRead`,
+			'm'
+		);
+		const sveltewayTf = new RegExp(
+			`themeFile`,
+			'm'
+		);
+		const sveltewayThemec = new RegExp(
+			`themeContent`,
+			'm'
+		);
+		const sveltewayC = new RegExp(`content`, 'm');
+		const sveltewayDs = new RegExp(`source:`, 'm');
+		const sveltewayDf = new RegExp(`file: fileToRead,`, 'm');
+		const sveltewayDt = new RegExp(`theme:`, 'm');
 		const options = {
 			files: [layoutFile, layoutServerFile],
 			from: [
-				/<Layout \{data\}>/g,
-				/<\/Layout>/g,
-				// eslint-disable-next-line no-useless-escape
-				/import { Layout } from \"svelteway\";/g,
-				/const theme = JSON.parse(data.data.theme);/g,
+				sveltewayLot,
+				sveltewayCot,
+				sveltewayLi,
+				sveltewayTc,
 				/<div data-theme={theme}>\r\n\t\t<slot \/>\r\n\t<\/div>/g,
-				// eslint-disable-next-line no-useless-escape
-				/import { cwd } from \'process\';/g,
-				// eslint-disable-next-line no-useless-escape
-				/import fs from \'node:fs\';/g,
-				/\tconst currentDirectory = cwd();/g,
-				// eslint-disable-next-line no-useless-escape
-				/\tconst fileToRead =\r\n\t\troute.id == \'\/\'\r\n\t\t\t? `${currentDirectory}\/src\/routes\/+page.svelte`\r\n\t\t\t: `${currentDirectory}\/src\/routes\/${route.id}\/+page.svelte`;/g,
-				/\tconst themeFile = `${currentDirectory}\/static\/theme.txt`;/g,
-				/\tconst themeContent = await fs.promises.readFile(themeFile);/g,
-				/\tconst content = await fs.promises.readFile(fileToRead);/g,
-				// eslint-disable-next-line no-useless-escape
-				/\t\t\tsource: content.toString(\'utf8\'),/g,
-				/\t\t\tfile: fileToRead,/g,
-				// eslint-disable-next-line no-useless-escape
-				/\t\t\ttheme: JSON.stringify(themeContent.toString(\'utf8\'))/g
+				/import { cwd } from 'process';/g,
+				/import fs from 'node:fs';/g,
+				sveltewayCwd,
+				sveltewayFtr,
+				sveltewayTf,
+				sveltewayThemec,
+				sveltewayC,
+				sveltewayDs,
+				sveltewayDf,
+				sveltewayDt
 			],
 			to: [
 				'<!-- svelteway-safe-layout-ot do not erase this line -->',
@@ -245,16 +316,16 @@ const svelteWayBuild = async () => {
 				'// svelteway-safe-layout-import do not erase this line',
 				`// svelteway-safe-theme-constant do not erase this line`,
 				`<div data-theme="${theme}"><slot /></div>`,
-				'//svelteway-safe-cwd-import do not erase this line',
-				'//svelteway-safe-fs-import do not erase this line',
-				'//svelteway-safe-cwd-declaration do not erase this line',
-				'//svelteway-safe-fileToRead-declaration do not erase this line',
-				'//svelteway-safe-themeFile-declaration do not erase this line',
-				'//svelteway-safe-themeContent-declaration do not erase this line',
-				'//svelteway-safe-content-declaration do not erase this line',
-				'//svelteway-safe-source-data do not erase this line',
-				'//svelteway-safe-file-data do not erase this line',
-				'//svelteway-safe-theme-data do not erase this line'
+				'// svelteway-safe-cwd-import do not erase this line',
+				'// svelteway-safe-fs-import do not erase this line',
+				'// svelteway-safe-cwd-declaration do not erase this line',
+				'// svelteway-safe-fileToRead-declaration do not erase this line',
+				'// svelteway-safe-themeFile-declaration do not erase this line',
+				'// svelteway-safe-themeContent-declaration do not erase this line',
+				'// svelteway-safe-content-declaration do not erase this line',
+				'// svelteway-safe-source-data do not erase this line',
+				'// svelteway-safe-file-data do not erase this line',
+				'// svelteway-safe-theme-data do not erase this line'
 			]
 		};
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment

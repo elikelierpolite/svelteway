@@ -53,8 +53,11 @@
 		</div>
 		<div class="hidden md:block">
 			<ul data-theme="swtheme" class="menu bg-[#1A1A1A] w-56">
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li class="bordered"><a>Introduction</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>Before we begin</a></li>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><a>What is SvelteWay?</a></li>
 			</ul>
 		</div>

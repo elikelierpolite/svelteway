@@ -5,6 +5,12 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
+	onwarn: (warning, handler) => {
+		if (warning.code.startsWith('a11y-')) {
+			return;
+		}
+		handler(warning);
+	},
 	preprocess: vitePreprocess(),
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.

@@ -22,6 +22,7 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -129,6 +130,7 @@
 		id="ch"
 		style="background-size: 5px 5px"
 	>
+		<!-- svelte-ignore a11y-invalid-attribute -->
 		<a role="button" class="btn" href="#">Link</a>
 		<button type="submit" class="btn">Button</button>
 		<input type="button" value="Input" class="btn" />

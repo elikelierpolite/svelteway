@@ -24,6 +24,7 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');

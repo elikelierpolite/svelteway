@@ -24,6 +24,7 @@
 		});
 		swCode.update((v) => ({
 			selectedElement: newCvElement,
+			// @ts-ignore
 			cvElements: [...v.cvElements, newCvElement]
 		}));
 		let csc = document.getElementById('open-component-select');
@@ -76,9 +77,12 @@
 	>
 		<button class="w-full" on:click={addComponent}>
 			<div class="dropdown mb-32">
+				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 				<label tabindex="0" class="m-1 btn">Click</label>
 				<ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<li><a>Item 1</a></li>
+					<!-- svelte-ignore a11y-missing-attribute -->
 					<li><a>Item 2</a></li>
 				</ul>
 			</div>

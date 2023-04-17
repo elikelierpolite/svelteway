@@ -2,8 +2,6 @@
 	import SelectComponent from './SelectComponent.svelte';
 	import ToolbarContent from './viewingComponents/ToolbarContent.svelte';
 	import { createEventDispatcher } from 'svelte';
-	export let data;
-
 	const dispatch = createEventDispatcher()
 </script>
 

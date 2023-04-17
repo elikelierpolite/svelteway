@@ -26,7 +26,8 @@
 					</a>
 
 					<a
-						href="#"
+						target="_blank"
+						href="https://github.com/elikelierpolite/svelteway"
 						class="block w-full rounded bg-[#1E1E20] px-12 py-3 text-lg font-medium text-[#CCCCCC] shadow focus:outline-none sm:w-auto"
 					>
 						GitHub
