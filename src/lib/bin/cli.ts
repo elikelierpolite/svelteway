@@ -299,8 +299,8 @@ const svelteWayBuild = async () => {
 		const sveltewayThemec = /const themeContent = await fs\.promises\.readFile\(themeFile\);/i;
 		const sveltewayC = /const content = await fs\.promises\.readFile\(fileToRead\);/i;
 		const sveltewayDs = /source: content\.toString\('utf8'\),/i;
-		const sveltewayDf = /file: fileToRead,/i;
-		const sveltewayDt = /theme: JSON\.stringify\(themeContent\.toString\('utf8'\)\)/i;
+		const sveltewayDf = /file: fileToRead,/g;
+		const sveltewayDt = /theme: JSON\.stringify\(themeContent\.toString\('utf8'\)\)/g;
 		const options = {
 			files: [layoutFile, layoutServerFile],
 			from: [
@@ -321,10 +321,10 @@ const svelteWayBuild = async () => {
 				sveltewayDs,
 				sveltewayDf,
 				sveltewayDt,
-				/data-theme=\{theme\}/i,
+				/data-theme=\{theme\}/g,
 				/import { cwd } from 'process';/g,
 				/import fs from 'node:fs';/g,
-				/''/i
+				/''/g
 			],
 			to: [
 				'<!-- svelteway-safe-layout-ot do not erase this line -->',
