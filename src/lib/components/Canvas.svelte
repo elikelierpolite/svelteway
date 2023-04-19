@@ -1,6 +1,7 @@
-<script>
+<script>//@ts-nocheck
 	import SelectComponent from './SelectComponent.svelte';
 	import ToolbarContent from './viewingComponents/ToolbarContent.svelte';
+	import ToolbarStyles from './viewingComponents/ToolbarStyles.svelte';
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher()
 </script>

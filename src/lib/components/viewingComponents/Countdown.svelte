@@ -1,7 +1,13 @@
-<script>
+<script>//@ts-nocheck
 	import { onMount } from 'svelte';
 	import { useEffect } from '../hooks';
-	import { swCode, cvElement } from '../CodeStore';
+	let swCode
+	let cvElement
+	onMount(async () => {
+		const { swCode:swCode2, cvElement:cvElement2 } = await import('../CodeStore')
+		swCode = swCode2
+		cvElement = cvElement2
+	})
 	import { v4 as uuidv4 } from 'uuid';
 
 	function addComponent() {

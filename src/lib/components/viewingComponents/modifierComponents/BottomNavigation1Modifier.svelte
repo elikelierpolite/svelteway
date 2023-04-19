@@ -1,4 +1,4 @@
-<script>
+<script>//@ts-nocheck
 	import { svgOutlineList } from '../svg-outline';
 	import ColorPicker, { ChromeVariant } from 'svelte-awesome-color-picker';
 	export let swCodeH;

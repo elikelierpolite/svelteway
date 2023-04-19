@@ -1,4 +1,4 @@
-<script>
+<script>//@ts-nocheck
 	const componentsToSelect = [
 		{
 			title: 'Alert',

@@ -1,4 +1,4 @@
-<script>
+<script>//@ts-nocheck
 	import toast, { Toaster } from 'svelte-french-toast';
 	let usingTypeScript = true;
 	function useTypescript() {

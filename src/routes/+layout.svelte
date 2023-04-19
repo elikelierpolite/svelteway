@@ -2,6 +2,7 @@
 	import '../app.css';
 	import { page } from '$app/stores';
 	import { afterUpdate } from 'svelte';
+	import Layout from '$lib/components/Layout.svelte'
 
 	$: isHomePage = false;
 	afterUpdate(() => {
@@ -11,9 +12,11 @@
 			isHomePage = false;
 		}
 	});
+export let data 
+const theme = JSON.parse(data.data.theme)
 </script>
-
-<div data-theme="dark">
+<Layout {data}>
+<div data-theme={theme}>
 	<header aria-label="Site Header" class="bg-[#1E1E20] shadow-lg">
 		<div class="mx-auto flex h-16 max-w-screen-xl items-center gap-2 px-2">
 			<a class="block text-teal-600" href="/">
@@ -126,3 +129,4 @@
 		</p>
 	</div>
 </footer>
+</Layout>

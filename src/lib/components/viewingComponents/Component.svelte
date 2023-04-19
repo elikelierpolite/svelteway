@@ -1,4 +1,4 @@
-<script>
+<script>//@ts-nocheck
 	import Alert from './Alert.svelte';
 	import { viewComponent } from '../viewComponentsStore';
 	import Artboard from './Artboard.svelte';

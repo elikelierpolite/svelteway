@@ -1,11 +1,22 @@
-<script>
-	import { swToolbar } from '../CodeStore';
+<script>//@ts-nocheck
 	import ToolbarSettings from './ToolbarSettings.svelte';
-	import ToolbarStyles from './ToolbarStyles.svelte';
+	import { onMount } from 'svelte'
+	import { swToolbar } from '../CodeStore'
+
+	let ToolbarStyles
+	onMount(async () => {
+		ToolbarStyles = ($swToolbar?.id !== 'toolbar' && await import('./ToolbarStyles.svelte')).default;
+	})
 </script>
 
 <div>
-	{#key $swToolbar.id}
+		{#if $swToolbar?.id == 'toolbar'}
 			<ToolbarSettings />
-	{/key}
+				{:else}
+					{#if ToolbarStyles}
+						<svelte:component this={ToolbarStyles} />
+					{:else}
+						<h1>Loading...</h1>
+					{/if}
+		{/if}
 </div>

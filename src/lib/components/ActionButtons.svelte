@@ -1,4 +1,4 @@
-<script>
+<script>//@ts-nocheck
 	import { page } from "$app/stores";
 	import axios from "axios";
 	import toast, { Toaster } from 'svelte-french-toast';

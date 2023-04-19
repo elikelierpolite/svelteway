@@ -1,4 +1,4 @@
-<script>
+<script>//@ts-nocheck
 	import '../styles/globals.css';
 	import '../styles/app.css';
 	import ActionButtons from './ActionButtons.svelte';
@@ -44,7 +44,7 @@
 <div data-theme={theme} class="h-[100vh] w-[100vw] font-sans">
 	<div class="flex h-full w-full">
 		<ActionButtons />
-		<Canvas on:save={swSave} {data}>
+		<Canvas on:save={swSave}>
 			<slot />
 		</Canvas>
 	</div>
