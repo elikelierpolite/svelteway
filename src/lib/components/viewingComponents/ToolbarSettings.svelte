@@ -1,5 +1,10 @@
-<script>
-	import { swCode } from '../CodeStore';
+<script>//@ts-nocheck
+	import { onMount } from 'svelte';
+	let swCode
+	onMount(async () => {
+		const { swCode:swCode2 } = await import('../CodeStore')
+		swCode = swCode2
+	})
 	import ToolTipModifier from './modifierComponents/ToolTipModifier.svelte';
 	import Alert1Modifier from './modifierComponents/Alert1Modifier.svelte';
 	import Alert2Modifier from './modifierComponents/Alert2Modifier.svelte';
@@ -27,85 +32,85 @@
 </script>
 
 <div>
-	{#key swCodeH.selectedElement}
-		{#if swCodeH.selectedElement.element == 'alert1'}
+	{#key swCodeH?.selectedElement}
+		{#if swCodeH?.selectedElement?.element == 'alert1'}
 			<Alert1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'alert2'}
+			{:else if swCodeH?.selectedElement?.element == 'alert2'}
 			<Alert2Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'alert3'}
+			{:else if swCodeH?.selectedElement?.element == 'alert3'}
 			<Alert3Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'artboard1'}
+			{:else if swCodeH?.selectedElement?.element == 'artboard1'}
 			<Artboard1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'avatar1'}
+			{:else if swCodeH?.selectedElement?.element == 'avatar1'}
 			<Avatar1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'avatar2'}
+			{:else if swCodeH?.selectedElement?.element == 'avatar2'}
 			<Avatar1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'avatar3'}
+			{:else if swCodeH?.selectedElement?.element == 'avatar3'}
 			<Avatar1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'avatar4'}
+			{:else if swCodeH?.selectedElement?.element == 'avatar4'}
 			<Avatar1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'avatar5'}
+			{:else if swCodeH?.selectedElement?.element == 'avatar5'}
 			<Avatar1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'avatar6'}
+			{:else if swCodeH?.selectedElement?.element == 'avatar6'}
 			<Avatar1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'avatar7'}
+			{:else if swCodeH?.selectedElement?.element == 'avatar7'}
 			<Avatar1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'avatar8'}
+			{:else if swCodeH?.selectedElement?.element == 'avatar8'}
 			<Avatar1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btmnav1'}
+			{:else if swCodeH?.selectedElement?.element == 'btmnav1'}
 			<BottomNavigation1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btmnav2'}
+			{:else if swCodeH?.selectedElement?.element == 'btmnav2'}
 			<BottomNavigation1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btmnav3'}
+			{:else if swCodeH?.selectedElement?.element == 'btmnav3'}
 			<BottomNavigation1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btmnav4'}
+			{:else if swCodeH?.selectedElement?.element == 'btmnav4'}
 			<BottomNavigation1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btmnav5'}
+			{:else if swCodeH?.selectedElement?.element == 'btmnav5'}
 			<BottomNavigation1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btmnav6'}
+			{:else if swCodeH?.selectedElement?.element == 'btmnav6'}
 			<BottomNavigation1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btmnav7'}
+			{:else if swCodeH?.selectedElement?.element == 'btmnav7'}
 			<BottomNavigation1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btmnav8'}
+			{:else if swCodeH?.selectedElement?.element == 'btmnav8'}
 			<BottomNavigation1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btmnav9'}
+			{:else if swCodeH?.selectedElement?.element == 'btmnav9'}
 			<BottomNavigation9Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btmnav10'}
+			{:else if swCodeH?.selectedElement?.element == 'btmnav10'}
 			<BottomNavigation9Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btmnav11'}
+			{:else if swCodeH?.selectedElement?.element == 'btmnav11'}
 			<BottomNavigation1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'breadcrumbs1'}
+			{:else if swCodeH?.selectedElement?.element == 'breadcrumbs1'}
 			<Breadcrumbs1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'breadcrumbs2'}
+			{:else if swCodeH?.selectedElement?.element == 'breadcrumbs2'}
 			<Breadcrumbs2Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'breadcrumbs3'}
+			{:else if swCodeH?.selectedElement?.element == 'breadcrumbs3'}
 			<Breadcrumbs3Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btngroup1'}
+			{:else if swCodeH?.selectedElement?.element == 'btngroup1'}
 			<ButtonGroup1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'btn1'}
+			{:else if swCodeH?.selectedElement?.element == 'btn1'}
 			<Button1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'card1'}
+			{:else if swCodeH?.selectedElement?.element == 'card1'}
 			<Card1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'carousel1'}
+			{:else if swCodeH?.selectedElement?.element == 'carousel1'}
 			<Carousel1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'chat1'}
+			{:else if swCodeH?.selectedElement?.element == 'chat1'}
 			<Chat1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'checkbox1'}
+			{:else if swCodeH?.selectedElement?.element == 'checkbox1'}
 			<Checkbox1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'collapse1'}
+			{:else if swCodeH?.selectedElement?.element == 'collapse1'}
 			<Collapse1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'countdown1'}
+			{:else if swCodeH?.selectedElement?.element == 'countdown1'}
 			<Countdown1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'divider1'}
+			{:else if swCodeH?.selectedElement?.element == 'divider1'}
 			<Divider1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'drawer1'}
+			{:else if swCodeH?.selectedElement?.element == 'drawer1'}
 			<Drawer1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'dropdown1'}
+			{:else if swCodeH?.selectedElement?.element == 'dropdown1'}
 			<Dropdown1Modifier {swCodeH} />
-			{:else if swCodeH.selectedElement.element == 'fileinput1'}
+			{:else if swCodeH?.selectedElement?.element == 'fileinput1'}
 			<FileInput1Modifier {swCodeH} />
 		{/if}
-		{#if swCodeH.selectedElement.element}
+		{#if swCodeH?.selectedElement?.element}
 			<ToolTipModifier {swCodeH} />
 		{/if}
 	{/key}

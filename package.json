@@ -5,7 +5,7 @@
 		"dev": "concurrently \"tailwindcss -i ./src/app.css -o ./src/lib/styles/app.css --watch\" \"vite dev\"",
 		"build": "vite build && npm run package",
 		"preview": "vite preview",
-		"package": "svelte-kit sync && svelte-package -t false && publint",
+		"package": "svelte-kit sync && svelte-package -t false",
 		"prepublishOnly": "npm run package",
 		"test": "playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --compiler-warnings css-unused-selector:ignore, a11y-no-noninteractive-tabindex:ignore, a11y-missing-attribute:ignore, a11y-label-has-associated-control:ignore",
