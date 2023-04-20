@@ -12,7 +12,6 @@
 		}
 	});
 </script>
-
 <div data-theme="dark">
 	<header aria-label="Site Header" class="bg-[#1E1E20] shadow-lg">
 		<div class="mx-auto flex h-16 max-w-screen-xl items-center gap-2 px-2">

@@ -166,14 +166,8 @@ const svelteWayDev = async () => {
 				`// svelteway-safe-fileToRead-declaration do not erase this line`,
 				'm'
 			);
-			const sveltewaySafeLayoutFtrDeclarationRegex2 = new RegExp(
-				`'currentDirectory'`,
-				'g'
-			);
-			const sveltewaySafeLayoutFtrDeclarationRegex3 = new RegExp(
-				`'/\${route.id}/'`,
-				'm'
-			);
+			const sveltewaySafeLayoutFtrDeclarationRegex2 = new RegExp(`'currentDirectory'`, 'g');
+			const sveltewaySafeLayoutFtrDeclarationRegex3 = new RegExp(`'/\${route.id}/'`, 'm');
 			const sveltewaySafethemeFileDeclarationRegex = new RegExp(
 				`// svelteway-safe-themeFile-declaration do not erase this line`,
 				'm'
@@ -234,8 +228,8 @@ const svelteWayDev = async () => {
 					"import fs from 'node:fs';",
 					'const currentDirectory = cwd();',
 					"const fileToRead =\r\n\t\troute.id == '/'\r\n\t\t\t? `${currentDirectory}/src/routes/+page.svelte`\r\n\t\t\t: `${currentDirectory}/src/routes/${route.id}/+page.svelte`;",
-					"currentDirectory",
-					"route.id",
+					'currentDirectory',
+					'route.id',
 					'const themeFile = `${currentDirectory}/static/theme.txt`;',
 					'const themeContent = await fs.promises.readFile(themeFile);',
 					'const content = await fs.promises.readFile(fileToRead);',
@@ -253,13 +247,13 @@ const svelteWayDev = async () => {
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			//@ts-ignore
 			await replaceInFile(options);
+			process.exit(0);
 		} catch (err) {
 			console.error(err);
 		}
 	} catch (err) {
 		console.error(err);
 	}
-	process.exit(0);
 };
 const svelteWayBuild = async () => {
 	try {
@@ -336,8 +330,8 @@ const svelteWayBuild = async () => {
 				'// svelteway-safe-fileToRead-declaration do not erase this line',
 				'// svelteway-safe-fileToRead-declaration do not erase this line',
 				'// svelteway-safe-fileToRead-declaration do not erase this line',
-				'\'currentDirectory\'',
-				'\'route.id\'',
+				"'currentDirectory'",
+				"'route.id'",
 				'// svelteway-safe-themeFile-declaration do not erase this line',
 				'// svelteway-safe-themeContent-declaration do not erase this line',
 				'// svelteway-safe-content-declaration do not erase this line',
@@ -347,16 +341,16 @@ const svelteWayBuild = async () => {
 				`data-theme="${theme}"`,
 				'// svelteway-safe-cwd-import do not erase this line',
 				'// svelteway-safe-fs-import do not erase this line',
-				'\''
+				"'"
 			]
 		};
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		//@ts-ignore
 		await replaceInFile(options);
+		process.exit(0);
 	} catch (err) {
 		return;
 	}
-	process.exit(0);
 };
 const action = process.argv[2];
 switch (action) {
