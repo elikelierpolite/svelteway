@@ -50,6 +50,7 @@
 			<button
 			on:click={() => {
 				swToolbar.update(() => ({ id: 'styles' }));
+				swToolbar.update(() => ({ id: 'styles' }));
 				if ($swCode.selectedElement) {
 					$swCode.selectedElement.toggleToolBar();
 				}
