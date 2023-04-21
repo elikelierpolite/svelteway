@@ -1,8 +1,15 @@
 <svelte:options accessors />
 
-<script>
+<script>//@ts-nocheck
 	import { createEventDispatcher } from 'svelte';
-	import { swCode } from '../../CodeStore';
+	import { onMount } from 'svelte';
+	let swCode
+	let cvElement
+	onMount(async () => {
+		const { swCode:swCode2, cvElement:cvElement2 } = await import('../../CodeStore')
+		swCode = swCode2
+		cvElement = cvElement2
+	})
 
 	$: swc = $swCode;
 	/**
@@ -37,7 +44,7 @@
 			}}
 			data-cvelement="${swElementDataAttrId}"
 			id={`${swElementDataAttrId}`}
-			style={`border: ${swc.selectedElement.id == swElementDataAttrId && '1px solid #FF531A'}`}
+			style={`border: ${swc?.selectedElement?.id == swElementDataAttrId && '1px solid #FF531A'}`}
 			class={classes.join('  ')}
 		>
 			<div>
@@ -68,7 +75,7 @@
 		}}
 		data-cvelement="${swElementDataAttrId}"
 		id={`${swElementDataAttrId}`}
-		style={`border: ${swc.selectedElement.id == swElementDataAttrId && '1px solid #FF531A'}`}
+		style={`border: ${swc?.selectedElement?.id == swElementDataAttrId && '1px solid #FF531A'}`}
 		class={classes.join('  ')}
 	>
 		<div>

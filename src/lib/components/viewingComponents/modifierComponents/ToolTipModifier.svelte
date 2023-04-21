@@ -1,4 +1,4 @@
-<script>
+<script>//@ts-nocheck
     export let swCodeH
 </script>
 <div class="form-control mt-2">

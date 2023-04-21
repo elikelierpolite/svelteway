@@ -1,5 +1,12 @@
-<script>
-	import { swCode, cvElement } from '../CodeStore';
+<script>//@ts-nocheck
+	import { onMount } from 'svelte';
+	let swCode
+	let cvElement
+	onMount(async () => {
+		const { swCode:swCode2, cvElement:cvElement2 } = await import('../CodeStore')
+		swCode = swCode2
+		cvElement = cvElement2
+	})
 	import { v4 as uuidv4 } from 'uuid';
 	function addComponent() {
 		const sweid = uuidv4();

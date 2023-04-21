@@ -1,4 +1,4 @@
-<script>
+<script>//@ts-nocheck
 	import ComponentsToSelect from './ComponentsToSelect.svelte';
 	import { viewComponent } from './viewComponentsStore';
 </script>

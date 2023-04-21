@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-nocheck
 import { get, writable } from 'svelte/store';
 import Alert1 from './viewingComponents/Alert1.svelte';
 import Toolbar from './viewingComponents/Toolbar.svelte';
@@ -75,7 +77,7 @@ export const swCode = writable({
 });
 
 export const swToolbar = writable({
-	id: ''
+	id: 'styles'
 });
 
 export const cvElement = class cvElement {

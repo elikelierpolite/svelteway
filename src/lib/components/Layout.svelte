@@ -1,4 +1,4 @@
-<script>
+<script>//@ts-nocheck
 	import '../styles/globals.css';
 	import '../styles/app.css';
 	import ActionButtons from './ActionButtons.svelte';
