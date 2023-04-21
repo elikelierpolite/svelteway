@@ -1,6 +1,6 @@
 {
 	"name": "svelteway",
-	"version": "0.0.99",
+	"version": "0.0.100",
 	"scripts": {
 		"dev": "concurrently \"tailwindcss -i ./src/app.css -o ./src/lib/styles/app.css --watch\" \"vite dev\"",
 		"build": "vite build && npm run package",
@@ -19,7 +19,7 @@
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.js",
+			"types": "./dist/types/index.d.ts",
 			"svelte": "./dist/index.js"
 		}
 	},
@@ -57,7 +57,7 @@
 		"vitest": "^0.25.3"
 	},
 	"svelte": "./dist/index.js",
-	"types": "./dist/index.js",
+	"types": "./dist/types/index.d.ts",
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/kit": "^1.5.0",
