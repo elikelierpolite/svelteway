@@ -49,9 +49,15 @@
 	import Toast from './Toast.svelte';
 	import Toggle from './Toggle.svelte';
 	import Tooltip from './Tooltip.svelte';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+			const componentContent = document.getElementById('component-content');
+			componentContent.scroll({top:0,behavior:'smooth'});
+	});
 </script>
 
-<div class="ml-8">
+<div class="ml-8" id="component-content">
 	{#if $viewComponent.component == 'Alert'}
 		<Alert />
 	{:else if $viewComponent.component == 'Artboard'}

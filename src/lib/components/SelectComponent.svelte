@@ -9,7 +9,7 @@
 <!-- Put this part before </body> tag -->
 <input type="checkbox" id="selct-component-modal" class="modal-toggle" />
 <div class="modal">
-	<div class="modal-box w-11/12 max-w-5xl">
+	<div class="modal-box w-11/12 max-w-5xl" id='component-content'>
 		{#if $viewComponent.viewing}
 			<button
 				on:click={() => viewComponent.update((v) => ({ ...v, viewing: false }))}

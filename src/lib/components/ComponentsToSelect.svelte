@@ -1,6 +1,7 @@
 <script>//@ts-nocheck
 	import { viewComponent } from './viewComponentsStore';
 	import Component from './viewingComponents/Component.svelte';
+	import { afterUpdate } from 'svelte';
 
 	const componentsToSelect = [
 		{
@@ -262,9 +263,14 @@
 	];
 
 	$: vc = $viewComponent
+	// afterUpdate(() => {
+	// 		const docsContent = document.getElementById('component-content');
+	// 		docsContent.scroll({top:0,behavior:'smooth'});
+	// });
 </script>
 
 <div class="w-full">
+	{#key vc.viewing}
 	{#if vc.viewing}
 		<Component />
 	{:else}
@@ -290,4 +296,5 @@
 			{/each}
 		</div>
 	{/if}
+	{/key}
 </div>

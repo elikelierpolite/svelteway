@@ -1,18 +1,9 @@
 <script>
 	//@ts-nocheck
 	import ToolbarSettings from './ToolbarSettings.svelte';
-	import { onMount } from 'svelte';
+	import ToolbarStyles from './ToolbarStyles.svelte';
 	import { swToolbar } from '../CodeStore';
 
-	onMount(async () => {
-		if ($swToolbar?.id == 'styles') {
-			(async () => {
-				const ToolbarStyles = (await import('./ToolbarStyles.svelte')).default;
-				const stylesTarget = document.getElementById('tbs');
-				new ToolbarStyles({ target: stylesTarget });
-			})();
-		}
-	});
 </script>
 
 <div>
@@ -20,7 +11,7 @@
 	{#if $swToolbar?.id == 'toolbar'}
 		<ToolbarSettings />
 	{:else}
-		<div id="tbs" />
+		<ToolbarStyles />
 	{/if}
 	{/key}
 </div>
