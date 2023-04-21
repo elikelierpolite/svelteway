@@ -7,7 +7,7 @@
 	onMount(async () => {
 		if ($swToolbar?.id !== 'toolbar') {
 			(async () => {
-				const ToolbarStyles = await import('./ToolbarStyles.svelte');
+				const ToolbarStyles = (await import('./ToolbarStyles.svelte')).default;
 				const stylesTarget = document.getElementById('tbs');
 				new ToolbarStyles({ target: stylesTarget });
 			})();
