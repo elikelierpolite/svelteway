@@ -77,7 +77,7 @@ export const swCode = writable({
 });
 
 export const swToolbar = writable({
-	id: 'styles'
+	id: 'toolbar'
 });
 
 export const cvElement = class cvElement {
