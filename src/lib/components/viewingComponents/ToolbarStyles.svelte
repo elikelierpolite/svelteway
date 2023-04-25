@@ -44,9 +44,9 @@
 
 	let nodeRef;
 	function handleClickOutside() {
-		swToolbar.update(() => ({ id: 'toolbar' }));
-		$swCode.selectedElement.toggleToolBar();
-		nodeRef.parentNode.removeChild(nodeRef);
+		swToolbar?.update(() => ({ id: 'toolbar' }));
+		$swCode?.selectedElement.toggleToolBar();
+		nodeRef?.parentNode.removeChild(nodeRef);
 	}
 </script>
 

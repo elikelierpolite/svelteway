@@ -1,15 +1,101 @@
 <script>//@ts-nocheck
-	import { onMount } from 'svelte';
-	let swCode
-	let cvElement
-	onMount(async () => {
-		const { swCode:swCode2, cvElement:cvElement2 } = await import('../CodeStore')
-		swCode = swCode2
-		cvElement = cvElement2
-	})
 	import { v4 as uuidv4 } from 'uuid';
+	import { swCode } from '../CodeStore';
+	import { get } from 'svelte/store';
+	import Button1 from './mainComponents/Button1.svelte';
+	import Toolbar from './Toolbar.svelte';
 
 	function addComponent() {
+		const cvElement = class cvElement {
+		constructor(element, props) {
+			this.id = props.swElementDataAttrId;
+			this.element = element;
+			this.props = props;
+		}
+		create() {
+			this.mainComponent = new Button1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+			this.toolbar = new Toolbar({
+				target: document.querySelector('#cvh'),
+				props: {
+					visible: false,
+					sweid: this.id
+				}
+			});
+		}
+		showToolBar() {
+			const { cvElements } = get(swCode);
+			swCode.set({ cvElements, selectedElement: this });
+			cvElements.forEach((element) => element.disableToolBar());
+			this.toolbar.$set({ visible: true });
+		}
+		toggleToolBar() {
+			const toggleToolbar = document.querySelector('#toggle-toolbar');
+			toggleToolbar.click();
+		}
+		disableToolBar() {
+			this.toolbar.$set({ visible: false });
+		}
+		setClassModifier(cls) {
+			const arr = [...this.mc.classes];
+			for (let index = 0; index < arr.length; index++) {
+				if (arr[index] === cls.from) {
+					arr[index] = cls.to;
+				}
+			}
+			this.mainComponent.$set({ classes: arr });
+		}
+		setHelper(helper) {
+			this.mainComponent.$set({ helper: helper });
+		}
+		setStylesClass(cls) {
+			const arr = [...this.mc.classes];
+			let far = false;
+			cls.from.forEach((clss) => {
+				if (arr.includes(clss)) {
+					const index = arr.indexOf(clss);
+					arr[index] = cls.to;
+					far = true;
+				}
+			});
+			if (!far) {
+				arr.push(cls.to);
+			}
+			this.mainComponent.$set({ classes: arr });
+		}
+		get mc() {
+			return this.mainComponent;
+		}
+		get tb() {
+			return this.toolbar;
+		}
+		get sweid() {
+			return this.id;
+		}
+		get clss() {
+			return this.classes.join('  ');
+		}
+		swecode() {
+			const removedBorder = this.mainComponent.classes.filter(
+				(cls) => cls !== 'hover:border-[1px]'
+			);
+			const removeBorderClass = removedBorder.filter((cls) => cls !== 'hover:border-[#FF531A]');
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><button
+			class="${removeBorderClass.join(' ')}"
+		>${this.mainComponent.content1}
+		</button></div>`
+				: `<button
+				class="${removeBorderClass.join(' ')}"
+			>
+			${this.mainComponent.content1}
+			</button>`;
+		}
+	};
 		const sweid = uuidv4();
 
 		let newCvElement = new cvElement('btn1', {

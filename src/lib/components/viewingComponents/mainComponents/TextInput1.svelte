@@ -54,5 +54,6 @@
 		style={`border: ${swc?.selectedElement?.id == swElementDataAttrId && '1px solid #FF531A'}`}
 		class={classes.join(' ')}
         type="text"
+		placeholder="Type here"
 	/>
 {/if}

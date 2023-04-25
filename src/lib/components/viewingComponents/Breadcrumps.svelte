@@ -1,15 +1,112 @@
 <script>//@ts-nocheck
-	import { onMount } from 'svelte';
-	let swCode
-	let cvElement
-	onMount(async () => {
-		const { swCode:swCode2, cvElement:cvElement2 } = await import('../CodeStore')
-		swCode = swCode2
-		cvElement = cvElement2
-	})
 	import { v4 as uuidv4 } from 'uuid';
+	import { swCode } from '../CodeStore';
+	import { get } from 'svelte/store';
+	import Breadcrumbs1 from './mainComponents/Breadcrumbs1.svelte';
+	import Breadcrumbs2 from './mainComponents/Breadcrumbs2.svelte';
+	import Breadcrumbs3 from './mainComponents/Breadcrumbs3.svelte';
+	import Toolbar from './Toolbar.svelte';
 
 	function addComponent() {
+		const cvElement = class cvElement {
+		constructor(element, props) {
+			this.id = props.swElementDataAttrId;
+			this.element = element;
+			this.props = props;
+		}
+		create() {
+			this.mainComponent = new Breadcrumbs1({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+			this.toolbar = new Toolbar({
+				target: document.querySelector('#cvh'),
+				props: {
+					visible: false,
+					sweid: this.id
+				}
+			});
+		}
+		showToolBar() {
+			const { cvElements } = get(swCode);
+			swCode.set({ cvElements, selectedElement: this });
+			cvElements.forEach((element) => element.disableToolBar());
+			this.toolbar.$set({ visible: true });
+		}
+		toggleToolBar() {
+			const toggleToolbar = document.querySelector('#toggle-toolbar');
+			toggleToolbar.click();
+		}
+		disableToolBar() {
+			this.toolbar.$set({ visible: false });
+		}
+		setClassModifier(cls) {
+			const arr = [...this.mc.classes];
+			for (let index = 0; index < arr.length; index++) {
+				if (arr[index] === cls.from) {
+					arr[index] = cls.to;
+				}
+			}
+			this.mainComponent.$set({ classes: arr });
+		}
+		setHelper(helper) {
+			this.mainComponent.$set({ helper: helper });
+		}
+		setStylesClass(cls) {
+			const arr = [...this.mc.classes];
+			let far = false;
+			cls.from.forEach((clss) => {
+				if (arr.includes(clss)) {
+					const index = arr.indexOf(clss);
+					arr[index] = cls.to;
+					far = true;
+				}
+			});
+			if (!far) {
+				arr.push(cls.to);
+			}
+			this.mainComponent.$set({ classes: arr });
+		}
+		get mc() {
+			return this.mainComponent;
+		}
+		get tb() {
+			return this.toolbar;
+		}
+		get sweid() {
+			return this.id;
+		}
+		get clss() {
+			return this.classes.join('  ');
+		}
+		swecode() {
+			const removedBorder = this.mainComponent.classes.filter(
+				(cls) => cls !== 'hover:border-[1px]'
+			);
+			const removeBorderClass = removedBorder.filter((cls) => cls !== 'hover:border-[#FF531A]');
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<ul>
+			<li><a>${this.mainComponent.content1}</a></li>
+			<li><a>${this.mainComponent.content2}</a></li>
+			<li>${this.mainComponent.content3}</li>
+		</ul>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<ul>
+			<li><a>${this.mainComponent.content1}</a></li>
+			<li><a>${this.mainComponent.content2}</a></li>
+			<li>${this.mainComponent.content3}</li>
+		</ul>
+			</div>`;
+		}
+	};
 		const sweid = uuidv4();
 
 		let newCvElement = new cvElement('breadcrumbs1', {
@@ -40,6 +137,183 @@
 	}
 
 	function addComponent2() {
+		const cvElement = class cvElement {
+		constructor(element, props) {
+			this.id = props.swElementDataAttrId;
+			this.element = element;
+			this.props = props;
+		}
+		create() {
+			this.mainComponent = new Breadcrumbs2({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+			this.toolbar = new Toolbar({
+				target: document.querySelector('#cvh'),
+				props: {
+					visible: false,
+					sweid: this.id
+				}
+			});
+		}
+		showToolBar() {
+			const { cvElements } = get(swCode);
+			swCode.set({ cvElements, selectedElement: this });
+			cvElements.forEach((element) => element.disableToolBar());
+			this.toolbar.$set({ visible: true });
+		}
+		toggleToolBar() {
+			const toggleToolbar = document.querySelector('#toggle-toolbar');
+			toggleToolbar.click();
+		}
+		disableToolBar() {
+			this.toolbar.$set({ visible: false });
+		}
+		setClassModifier(cls) {
+			const arr = [...this.mc.classes];
+			for (let index = 0; index < arr.length; index++) {
+				if (arr[index] === cls.from) {
+					arr[index] = cls.to;
+				}
+			}
+			this.mainComponent.$set({ classes: arr });
+		}
+		setHelper(helper) {
+			this.mainComponent.$set({ helper: helper });
+		}
+		setStylesClass(cls) {
+			const arr = [...this.mc.classes];
+			let far = false;
+			cls.from.forEach((clss) => {
+				if (arr.includes(clss)) {
+					const index = arr.indexOf(clss);
+					arr[index] = cls.to;
+					far = true;
+				}
+			});
+			if (!far) {
+				arr.push(cls.to);
+			}
+			this.mainComponent.$set({ classes: arr });
+		}
+		get mc() {
+			return this.mainComponent;
+		}
+		get tb() {
+			return this.toolbar;
+		}
+		get sweid() {
+			return this.id;
+		}
+		get clss() {
+			return this.classes.join('  ');
+		}
+		swecode() {
+			const removedBorder = this.mainComponent.classes.filter(
+				(cls) => cls !== 'hover:border-[1px]'
+			);
+			const removeBorderClass = removedBorder.filter((cls) => cls !== 'hover:border-[#FF531A]');
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<ul>
+				<li>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="${this.mainComponent.svgStroke1}"
+							class="w-${this.mainComponent.svgw1} h-${this.mainComponent.svgh1} mr-2"
+						>
+						${this.mainComponent.svg1}</svg
+						>
+						${this.mainComponent.content1}
+					</a>
+				</li>
+				<li>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="${this.mainComponent.svgStroke2}"
+							class="w-${this.mainComponent.svgw2} h-${this.mainComponent.svgh2} mr-2"
+						>
+						${this.mainComponent.svg2}</svg
+						>
+						${this.mainComponent.content2}
+				</li>
+				<li>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="${this.mainComponent.svgStroke3}"
+							class="w-${this.mainComponent.svgw3} h-${this.mainComponent.svgh3} mr-2"
+						>
+						${this.mainComponent.svg3}</svg
+						>
+						${this.mainComponent.content3}
+					</a>
+				</li>
+			</ul>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<ul>
+				<li>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="${this.mainComponent.svgStroke1}"
+							class="w-${this.mainComponent.svgw1} h-${this.mainComponent.svgh1} mr-2"
+						>
+						${this.mainComponent.svg1}</svg
+						>
+						${this.mainComponent.content1}
+					</a>
+				</li>
+				<li>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="${this.mainComponent.svgStroke2}"
+							class="w-${this.mainComponent.svgw2} h-${this.mainComponent.svgh2} mr-2"
+						>
+						${this.mainComponent.svg2}</svg
+						>
+						${this.mainComponent.content2}
+				</li>
+				<li>
+					<!-- svelte-ignore a11y-missing-attribute -->
+					<a>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="${this.mainComponent.svgStroke3}"
+							class="w-${this.mainComponent.svgw3} h-${this.mainComponent.svgh3} mr-2"
+						>
+						${this.mainComponent.svg3}</svg
+						>
+						${this.mainComponent.content3}
+					</a>
+				</li>
+			</ul>
+			</div>`;
+		}
+	};
 		const sweid = uuidv4();
 
 		let newCvElement = new cvElement('breadcrumbs2', {
@@ -82,6 +356,109 @@
 	}
 
 	function addComponent3() {
+		const cvElement = class cvElement {
+		constructor(element, props) {
+			this.id = props.swElementDataAttrId;
+			this.element = element;
+			this.props = props;
+		}
+		create() {
+			this.mainComponent = new Breadcrumbs3({
+				target: document.querySelector('#cvh'),
+				props: this.props
+			});
+			this.toolbar = new Toolbar({
+				target: document.querySelector('#cvh'),
+				props: {
+					visible: false,
+					sweid: this.id
+				}
+			});
+		}
+		showToolBar() {
+			const { cvElements } = get(swCode);
+			swCode.set({ cvElements, selectedElement: this });
+			cvElements.forEach((element) => element.disableToolBar());
+			this.toolbar.$set({ visible: true });
+		}
+		toggleToolBar() {
+			const toggleToolbar = document.querySelector('#toggle-toolbar');
+			toggleToolbar.click();
+		}
+		disableToolBar() {
+			this.toolbar.$set({ visible: false });
+		}
+		setClassModifier(cls) {
+			const arr = [...this.mc.classes];
+			for (let index = 0; index < arr.length; index++) {
+				if (arr[index] === cls.from) {
+					arr[index] = cls.to;
+				}
+			}
+			this.mainComponent.$set({ classes: arr });
+		}
+		setHelper(helper) {
+			this.mainComponent.$set({ helper: helper });
+		}
+		setStylesClass(cls) {
+			const arr = [...this.mc.classes];
+			let far = false;
+			cls.from.forEach((clss) => {
+				if (arr.includes(clss)) {
+					const index = arr.indexOf(clss);
+					arr[index] = cls.to;
+					far = true;
+				}
+			});
+			if (!far) {
+				arr.push(cls.to);
+			}
+			this.mainComponent.$set({ classes: arr });
+		}
+		get mc() {
+			return this.mainComponent;
+		}
+		get tb() {
+			return this.toolbar;
+		}
+		get sweid() {
+			return this.id;
+		}
+		get clss() {
+			return this.classes.join('  ');
+		}
+		swecode() {
+			const removedBorder = this.mainComponent.classes.filter(
+				(cls) => cls !== 'hover:border-[1px]'
+			);
+			const removeBorderClass = removedBorder.filter((cls) => cls !== 'hover:border-[#FF531A]');
+			this.code = this.mainComponent.helper.on
+				? `<div class="${this.mainComponent.helper.classes.join(' ')}" data-tip="${
+						this.mainComponent.helper.title
+				  }"><div
+			class="${removeBorderClass.join(' ')}"
+		>
+		<ul>
+        <li>${this.mainComponent.content1}</li>
+        <li>${this.mainComponent.content2}</li>
+        <li>${this.mainComponent.content3}</li>
+        <li>${this.mainComponent.content4}</li>
+        <li>${this.mainComponent.content5}</li>
+    </ul>
+		</div></div>`
+				: `<div
+				class="${removeBorderClass.join(' ')}"
+			>
+			<ul>
+        <li>${this.mainComponent.content1}</li>
+        <li>${this.mainComponent.content2}</li>
+        <li>${this.mainComponent.content3}</li>
+        <li>${this.mainComponent.content4}</li>
+        <li>${this.mainComponent.content5}</li>
+    </ul>
+			</div>`;
+		}
+	};
 		const sweid = uuidv4();
 
 		let newCvElement = new cvElement('breadcrumbs3', {

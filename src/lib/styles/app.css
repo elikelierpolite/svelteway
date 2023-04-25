@@ -11950,18 +11950,6 @@ html {
   width: 100vw;
 }
 
-.w-\[768px\] {
-  width: 768px;
-}
-
-.w-\[640px\] {
-  width: 640px;
-}
-
-.w-\[304px\] {
-  width: 304px;
-}
-
 .min-w-0 {
   min-width: 0px;
 }
@@ -12082,14 +12070,6 @@ html {
 
 .max-w-xs {
   max-width: 20rem;
-}
-
-.max-w-\[304px\] {
-  max-width: 304px;
-}
-
-.max-w-\[304vw\] {
-  max-width: 304vw;
 }
 
 .flex-1 {
